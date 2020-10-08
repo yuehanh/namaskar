@@ -6,6 +6,6 @@ Welcome to the namaskar wiki!
 
 + [MVP list](mvp-list)
 + [Schema](schema)
-+ [Sample State](sample-state)
-+ [Frontend routes and components](frontend-routes)
++ [Sample state](sample-state)
++ [Frontend routes and components](frontend-routes-and-components)
 + [Backend routes](backend-routes)
