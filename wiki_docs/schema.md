@@ -49,12 +49,12 @@
 | `id`            | integer     | not null, primary key          |
 | `name`          | string      | not null                       |
 | `description`   | text        |                                |
-| `owner_id`      | references  | not null, indexed, foreign key |
+| `creator_id`      | references  | not null, indexed, foreign key |
 | `workspace_id`  | references  | not null, indexed, foreign key |
 | `created_at`    | datetime    | not null                       |
 | `updated_at`    | datetime    | not null                       |
 
-- `owner_id` references `users` table, `foreign_key: { to_table: :users }`
+- `creator_id` references `users` table, `foreign_key: { to_table: :users }`
 
 ## `tasks`
 
