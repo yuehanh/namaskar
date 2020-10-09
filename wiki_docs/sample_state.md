@@ -6,13 +6,11 @@
         id: 1,
         name: "west world",
         description: "i choose to see the beauty",
-        user_ids: [11,12]
       },
       2: {
         id: 2,
         name: "shogun world",
         description: "too swift arrives as tardy as too slow.",
-        user_ids: [25]
       },
     },
     users: {
@@ -23,7 +21,6 @@
         pronouns: "she/her/her",
         role: "revolutionist",
         team: "robot",
-        workspace_ids: [1,2]
       },
       12: {
         id: 11,
@@ -32,7 +29,6 @@
         pronouns: "he/him/his",
         role: "",
         team: "robot",
-        workspace_ids: [1]
       },
       25: {
         id: 25,
@@ -41,11 +37,27 @@
         pronouns: "he/him/his",
         role: "yakuza",
         team: "robot",
-        workspace_ids: [2]
       }
     },
 
+    users_workspaces:{
+      1:{
+        id: 1,
+        workspace_id: 1,
+        user_id: 11,
+      }
+      2:{
+        id: 1,
+        workspace_id: 1,
+        user_id: 11,
+      }
+      3:{
+        id: 1,
+        workspace_id: 2,
+        user_id: 25,
+      }
 
+    }
     projects: {
       1: {
         id: 11,

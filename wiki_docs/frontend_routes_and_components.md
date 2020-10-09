@@ -35,7 +35,6 @@ The following routes, defined in `App`, will render components between `SideBar`
   + `UserShow`
     + `TaskIndex`
       + `TaskIndexItem`
-
 + `/:userId/edit`
   + `UserForm`
 
