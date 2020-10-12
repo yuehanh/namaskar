@@ -23,7 +23,7 @@ The following routes, defined in `App`, will render components between `SideBar`
 ## Project
 + `/:workspaceId/projects/new`
   + `ProjectForm`
-+ `/:workspaceId/projects/edit`
++ `/:workspaceId/:projectId/edit`
   + `ProjectForm`
 + `/:workspaceId/:projectId`
   + `ProjectShow`

@@ -11,7 +11,7 @@
         id: 2,
         name: "shogun world",
         description: "too swift arrives as tardy as too slow.",
-      },
+      }
     },
     users: {
       11: {
@@ -39,47 +39,45 @@
         team: "robot",
       }
     },
-
     users_workspaces:{
       1:{
         id: 1,
-        workspace_id: 1,
-        user_id: 11,
-      }
+        workspaceId: 1,
+        userId: 11,
+      },
       2:{
         id: 1,
-        workspace_id: 1,
-        user_id: 11,
-      }
+        workspaceId: 1,
+        userId: 11,
+      },
       3:{
         id: 1,
-        workspace_id: 2,
-        user_id: 25,
+        workspaceId: 2,
+        userId: 25,
       }
-
-    }
+    },
     projects: {
       1: {
         id: 11,
         name: "saving the world",
         description: "tbd",
-        creator_id: 11,
-        workspace_id: 1,
-        creator_id: 11,
+        creatorId: 11,
+        workspaceId: 1,
+        creatorId: 11,
       },
       2: {
         id: 11,
         name: "destroy westworld",
         description: "these violent delights have violent ends",
-        workspace_id: 1,
-        creator_id: 11,
+        workspaceId: 1,
+        creatorId: 11,
       },
       3: {
         id: 25,
         name: "get to heaven",
         description: "upload memory into the cloud",
-        workspace_id: 1,
-        creator_id: 11,
+        workspaceId: 1,
+        creatorId: 11,
       }
     },
     tasks: {
@@ -89,11 +87,11 @@
         description: "tbd",
         completed: false,
         milestone: false,
-        start_date: "",
-        end_date: "",
-        due_date: "",
-        creator_id: 11,
-        assignee_id: 11,
+        startDate: "",
+        endDate: "",
+        dueDate: "",
+        creatorId: 11,
+        assigneeId: 11,
       },
       2: {
         id: 11,
@@ -101,11 +99,11 @@
         description: "these violent delights have violent ends",
         completed: false,
         milestone: false,
-        start_date: "",
-        end_date: "",
-        due_date: "",
-        creator_id: 11,
-        assignee_id: 11,
+        startDate: "",
+        endDate: "",
+        dueDate: "",
+        creatorId: 11,
+        assigneeId: 11,
       },
       3: {
         id: 25,
@@ -113,14 +111,13 @@
         description: "upload memory into the cloud",
         completed: false,
         milestone: false,
-        start_date: "",
-        end_date: "",
-        due_date: "",
-        creator_id: 11,
-        assignee_id: 11,
-      }
+        startDate: "",
+        endDate: "",
+        dueDate: "",
+        creatorId: 11,
+        assigneeId: 11,
+      },
     }
-
   },
   ui: {
     loading: true/false

@@ -1,6 +1,6 @@
 #workspace 
 *.code-workspace
-
+npm_setup.sh
 #frontend
 node_modules
 bundle.js
@@ -77,3 +77,5 @@ yarn-debug.log*
 /storage/*
 !/storage/.keep
 /public/uploads
+# Ignore master key for decrypting credentials and more.
+/config/master.key
