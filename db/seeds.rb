@@ -5,3 +5,18 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+User.destroy_all
+
+20.times do
+  name = Faker::Name.first_name
+  pronouns = Faker::Gender.binary_type == "Female" ? "she/her/hers" : "he/him/his"
+  User.create!(
+    fullname: name,
+    email: "#{name}@email.com",
+    password: "password",
+    pronouns: pronouns,
+    team: Faker::Job.field, 
+    role: Faker::Job.position,
+  )
+end
