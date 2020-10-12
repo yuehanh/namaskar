@@ -14,7 +14,6 @@ export const sessionReducer = (state = _nullSession, action) => {
       return Object.assign({}, { id: action.payload.id });
     case LOGOUT_CURRENT_USER:
       return _nullSession;
-
     default:
       return state;
   }
