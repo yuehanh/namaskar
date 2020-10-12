@@ -34,7 +34,7 @@ class User < ApplicationRecord
   def self.find_by_credentials(email, pw)
     user = User.find_by(email: email)
 
-    if user && user.is_password?(pw)
+    if user&.is_password?(pw)
       return user
     end
 
