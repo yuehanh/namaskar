@@ -32,7 +32,7 @@
       },
       25: {
         id: 25,
-        username: "musashi",
+        fullname: "musashi",
         email: "musashi@yakuza.com",
         pronouns: "he/him/his",
         role: "yakuza",
@@ -123,7 +123,7 @@
     loading: true/false
   },
   errors: {
-    login: ["Incorrect username/password combination"],
+    login: ["Incorrect email/password combination"],
     tasks: ["Task name cannot be blank"],
   },
   session: { currentUserId: 25 }

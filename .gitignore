@@ -1,6 +1,7 @@
 #workspace 
 *.code-workspace
 npm_setup.sh
+reminder
 #frontend
 node_modules
 bundle.js

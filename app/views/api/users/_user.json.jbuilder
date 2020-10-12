@@ -1,0 +1,1 @@
+json.extract! user, :email, :fullname, :pronouns, :role, :team
