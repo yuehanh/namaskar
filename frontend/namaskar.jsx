@@ -1,6 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import { configureStore } from "./store/store"
+import { Root } from "./components/root"
 
 // Test
 import { login, logout, signup } from "./actions/session_actions.js";
@@ -9,7 +10,7 @@ import { login, logout, signup } from "./actions/session_actions.js";
 document.addEventListener("DOMContentLoaded", () => {
   const root = document.getElementById("root");
   const store = configureStore();
-  ReactDOM.render(<h1>Welcome to Namaskar</h1>, root);
+  ReactDOM.render(<Root store={store} />, root);
 
   //Test Portion
   window.getState = store.getState;
