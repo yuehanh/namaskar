@@ -48,21 +48,21 @@ export class SessionForm extends React.Component {
             <br />
             <label>Email:
               <input type="text"
-                value={this.state.username}
+                value={this.state.email}
                 onChange={this.update('email')}
-                className = "login-input"
-                  />
+                className="login-input"
+              />
             </label>
             <br />
-              <label>Password:
+            <label>Password:
               <input type="password"
-                  value={this.state.password}
-                  onChange={this.update('password')}
-                  className="login-input"
-                />
-              </label>
-              <br />
-              <input className="session-submit" type="submit" value={this.props.formType} />
+                value={this.state.password}
+                onChange={this.update('password')}
+                className="login-input"
+              />
+            </label>
+            <br />
+            <input className="session-submit" type="submit" value={this.props.formType} />
           </div>
         </form>
       </div>
