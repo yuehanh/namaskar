@@ -4,7 +4,7 @@ import { configureStore } from "./store/store"
 import { Root } from "./components/root"
 
 // Test
-import { login, logout, signup } from "./actions/session_actions.js";
+import { login, logout, signUp } from "./actions/session_actions.js";
 
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -17,5 +17,5 @@ document.addEventListener("DOMContentLoaded", () => {
   window.dispatch = store.dispatch;
   window.login = login;
   window.logout = logout;
-  window.signup = signup;
+  window.signup = signUp;
 });
