@@ -18,7 +18,6 @@ export const logoutCurrentUser = () => {
 };
 
 export const receiveError = (payload) => {
-  debugger;
   return {
     type: RECEIVE_SESSION_ERRORS,
     payload,
