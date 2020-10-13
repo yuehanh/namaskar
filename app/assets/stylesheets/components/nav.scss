@@ -1,0 +1,39 @@
+.splash-nav {
+  justify-content: space-between;
+  transition: padding 225ms, transform 0.3s ease-out;
+  width: 100%;
+  z-index: 999;
+  box-shadow: none;
+  top: 0;
+  position: fixed;
+}
+
+.nav-logo {
+  display: block;
+  height: 54px;
+  width: auto;
+  overflow: visible !important;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-session {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: center;
+  height: 100%;
+}
+
+.splash-nav-wrapper {
+  height: 100%;
+  max-width: 1440px;
+  display: flex;
+  flex-wrap: nowrap;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  margin: 0 auto;
+  padding: 0 64px;
+  overflow: hidden;
+}

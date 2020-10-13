@@ -62,7 +62,7 @@ export class SessionForm extends React.Component {
               />
             </label>
             <br />
-            <input className="session-submit" type="submit" value={this.props.formType} />
+            <input className="session-button" type="submit" value={this.props.formType} />
           </div>
         </form>
       </div>

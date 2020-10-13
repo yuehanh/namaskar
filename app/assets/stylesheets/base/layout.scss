@@ -1,0 +1,10 @@
+button,
+a,
+input[type="submit"] {
+  cursor: pointer;
+}
+
+button.sign-up {
+  background-color: $contrast-green;
+  color: $lightest-purple;
+}
