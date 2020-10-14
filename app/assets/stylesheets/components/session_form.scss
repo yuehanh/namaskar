@@ -1,0 +1,142 @@
+.session {
+  background: linear-gradient(
+    to top right,
+    rgba(255, 82, 99, 0.9) 10%,
+    rgba(255, 115, 129, 0.9) 65%,
+    rgba(252, 189, 1, 0.9) 125%
+  );
+
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  font-size: 13px;
+  line-height: normal;
+  align-items: center;
+}
+
+.login-form-container {
+  width: 585px;
+}
+
+.session-form-header {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 32px;
+  margin-left: -5px;
+  margin-top: 32px;
+}
+
+.session-form-logo {
+  display: block;
+  height: 38px;
+  width: auto;
+  overflow: visible !important;
+  margin: 0;
+  padding: 0;
+}
+
+.session-form-content {
+  background-color: #fff;
+  border-radius: 4px;
+  display: flex;
+  justify-content: center;
+  margin-left: 8px;
+  margin-right: 8px;
+  margin-top: 5px;
+  padding-bottom: 32px;
+  padding-left: 32px;
+  padding-right: 32px;
+}
+
+.session-form-box {
+  background-color: #fff;
+  display: flex;
+  flex-direction: column;
+  width: 95%;
+}
+.session-form-title {
+  color: $palette-1-dark;
+  font-size: 32px;
+  font-weight: 400;
+  line-height: 40px;
+  margin-bottom: 32px;
+  margin-top: 48px;
+  text-align: center;
+}
+
+.session-form-error {
+  align-self: center;
+  max-width: 400px;
+  text-align: center;
+}
+.session-form-error-messages {
+  background-color: #ffedef;
+  padding: 16px;
+}
+
+.session-form-elements {
+  display: flex;
+  flex-direction: column;
+}
+
+.email-password-input {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-top: 32px;
+}
+
+.grey-label-text {
+  line-height: 19px;
+  font-size: 15px;
+  color: #6f7782;
+}
+
+.login-input {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 23px;
+  border-width: 1px;
+  border-style: solid;
+  border-color: #cbd4db;
+  border-radius: 4px;
+  padding: 0 7px;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  background-color: rgb(232, 240, 254);
+  margin-bottom: 32px;
+  margin-top: 7px;
+}
+
+.session-form-button {
+  align-self: flex-end;
+  margin-top: 32px;
+}
+
+.session-form-footer {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  margin-top: 16px;
+  color: #fff;
+  line-height: 20px;
+  font-size: 16px;
+}
+
+a.session-footer-button.button{
+  background-color: transparent;
+  text-decoration: none;
+  
+}
+
+a.session-footer-button.button:hover{
+  background-color: white;
+  border-color: white;
+  color: black;
+  text-decoration: none;
+  
+}
+// @media (min-width: 48em) .login-form-container {
+//   width: 585px;
+// }

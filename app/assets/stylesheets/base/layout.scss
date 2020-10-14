@@ -5,6 +5,36 @@ button,
 a,
 input[type="submit"] {
   cursor: pointer;
+  border-style: none;
 }
 
+.button {
+  background: #14aaf5;
+  border-color: #14aaf5;
+  color: #fff;
+  fill: #fff;
+  font-size: 13px;
+  height: 32px;
+  line-height: 32px;
+  padding: 0 12px;
+  align-items: center;
+  border: 1px solid;
+  border-radius: 4px;
+  box-sizing: border-box;
+  display: inline-flex;
+  flex-shrink: 0;
+  justify-content: center;
+  overflow: hidden;
+  transition-duration: 0.2s;
+  transition-property: background, border, box-shadow, color, fill;
+  user-select: none;
+}
 
+.button:hover {
+  background: #006db0;
+  border-color: #006db0;
+}
+
+strong {
+  font-weight: bold;
+}

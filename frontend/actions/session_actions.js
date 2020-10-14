@@ -27,7 +27,9 @@ export const receiveError = (payload) => {
 export const login = (user) => (dispatch) => {
   return SessionUtil.login(user)
     .then((payload) => dispatch(receiveCurrentUser(payload)))
-    .fail((payload) => dispatch(receiveError(payload.responseJSON)));
+    .fail((payload) => {
+      dispatch(receiveError(payload.responseJSON));
+    });
 };
 
 export const logout = () => (dispatch) => {
@@ -39,5 +41,11 @@ export const logout = () => (dispatch) => {
 export const signUp = (user) => (dispatch) => {
   return SessionUtil.signUp(user)
     .then((payload) => dispatch(receiveCurrentUser(payload)))
-    .fail((payload) => dispatch(receiveError(payload.responseJSON)));
+    .fail((payload) => {
+      dispatch(receiveError(payload.responseJSON));
+    });
+};
+
+export const clearErrors = () => (dispatch) => {
+  return dispatch(receiveError({}));
 };

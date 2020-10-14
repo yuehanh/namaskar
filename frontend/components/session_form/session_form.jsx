@@ -9,7 +9,15 @@ export class SessionForm extends React.Component {
     };
     this.handleSubmit = this.handleSubmit.bind(this);
   }
-
+  componentWillUnmount() {
+    // debugger
+    this.props.clearErrors()
+  }
+  // componentDidUpdate() {
+  //   debugger
+  //   this.props.clearErrors
+  // }
+  
   update(field) {
     return e => this.setState({
       [field]: e.currentTarget.value
@@ -22,53 +30,70 @@ export class SessionForm extends React.Component {
     this.props.processForm(user);
   }
 
+  renderRedirect() {
+    const redirectText = this.props.formType === "Log In" ? "Don't have an account? " : "Have an account? "
+    return (<div className="session-redirect">{redirectText}{"  "} {this.props.navLink}</div>)
+  }
   renderErrors() {
     if (this.props.errors.length > 0) {
       return (
-        <ul>
-          {this.props.errors.map((error, i) => (
-            <li key={`error-${i}`}>
-              {error}
-            </li>
-          ))}
-        </ul>
+        <div className="session-form-error">
+          <ul className="session-form-error-messages">
+            {this.props.errors.map((error, i) => (
+              <li key={`error-${i}`}>
+                <strong>{error}</strong>
+              </li>
+            ))}
+          </ul>
+        </div>
       );
     }
   }
 
   render() {
     return (
-      <div className="login-form-container">
-        <div className='nav-icons'>
-          <Link to='/'>
-            <img className='nav-logo' src={window.images.fullLogo} />
-          </Link>
-        </div>
-        <form onSubmit={this.handleSubmit} className="login-form-box">
-          <br />
-          {this.props.formType} or {this.props.navLink}
-          {this.renderErrors()}
-          <div className="login-form">
-            <br />
-            <label>Email:
-              <input type="text"
-                value={this.state.email}
-                onChange={this.update('email')}
-                className="login-input"
-              />
-            </label>
-            <br />
-            <label>Password:
-              <input type="password"
-                value={this.state.password}
-                onChange={this.update('password')}
-                className="login-input"
-              />
-            </label>
-            <br />
-            <input className="session-button" type="submit" value={this.props.formType} />
+      <div className="session">
+        <div className="login-form-container">
+          <div className='session-form-header'>
+            <Link to='/'>
+              <img className='session-form-logo' src={window.images.fullLogo} />
+            </Link>
           </div>
-        </form>
+          <div className='session-form-content'>
+            <form onSubmit={this.handleSubmit} className="session-form-box">
+              <br />
+              <div className="session-form-title">{this.props.formType} </div>
+
+              {this.renderErrors()}
+              <br />
+              <div className="session-form-elements">
+                <div className="email-password-input">
+                  <span className="grey-label-text">Email Address</span>
+                  <input type="text"
+                    value={this.state.email}
+                    onChange={this.update('email')}
+                    className="login-input password"
+                  />
+
+                  <br />
+                  <span className="grey-label-text">Password</span>
+                  <input type="password"
+                    value={this.state.password}
+                    onChange={this.update('password')}
+                    className="login-input"
+                  />
+
+                  <br />
+                </div>
+                <input className="session-form-button button" type="submit" value={this.props.formType} />
+              </div>
+            </form>
+
+          </div>
+        </div>
+        <div className="session-form-footer">
+          {this.renderRedirect()}
+        </div>
       </div>
     );
   }
