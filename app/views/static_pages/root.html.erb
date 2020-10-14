@@ -1,9 +1,8 @@
 <script type="text/javascript">
-  window.images = {
+  Object.assign(window.images,{
     splashPhoto: "<%= asset_path("splashphoto.jpg") %>",
-    fullLogo: "<%= asset_path("fulllogo.svg") %>",
     logo: "<%= asset_path("logo.svg") %>",
-  }
+  })
 </script>
 <% if logged_in? %>
   <script id="bootstrap" type="text/javascript">
