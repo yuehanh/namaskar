@@ -34,7 +34,7 @@
 
 - `owner_id` references `users` table, `foreign_key: { to_table: :users }`
 
-## `users_workspaces` (join table)
+## `user_workspaces` (join table)
 
 | column name    | data type  | details                        |
 | :------------- | :--------: | :----------------------------- |
