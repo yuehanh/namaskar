@@ -11,7 +11,7 @@ User.destroy_all
 10.times do
   name = Faker::Name.unique.first_name
   pronouns = Faker::Gender.binary_type == "Female" ? "she/her/hers" : "he/him/his"
-  User.create!(
+  user = User.create!(
     fullname: name,
     email: "#{name}@email.com",
     password: "password",
@@ -19,7 +19,15 @@ User.destroy_all
     team: Faker::Job.field,
     role: Faker::Job.position,
   )
+
+  user.homespace = Workspace.create!(
+    name: "#{name}'s Workspace'",
+    owner_id: user.id,
+  )
+
+  user.workspaces = [user.homespace]
 end
+
 User.create!(
   email: "demo@email.com",
   password: "demopassword",
