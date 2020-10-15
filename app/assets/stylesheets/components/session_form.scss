@@ -110,9 +110,18 @@
   margin-top: 7px;
 }
 
+.session-form-button-group {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
 .session-form-button {
   align-self: flex-end;
   margin-top: 32px;
+}
+#demo-button {
+  background: $main-purple;
 }
 
 .session-form-footer {
@@ -136,6 +145,3 @@ a.session-footer-button.button:hover {
   color: black;
   text-decoration: none;
 }
-// @media (min-width: 48em) .login-form-container {
-//   width: 585px;
-// }

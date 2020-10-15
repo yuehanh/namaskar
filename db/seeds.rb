@@ -8,15 +8,23 @@
 
 User.destroy_all
 
-20.times do
-  name = Faker::Name.first_name
+10.times do
+  name = Faker::Name.unique.first_name
   pronouns = Faker::Gender.binary_type == "Female" ? "she/her/hers" : "he/him/his"
   User.create!(
     fullname: name,
     email: "#{name}@email.com",
     password: "password",
     pronouns: pronouns,
-    team: Faker::Job.field, 
+    team: Faker::Job.field,
     role: Faker::Job.position,
   )
 end
+User.create!(
+  email: "demo@email.com",
+  password: "demopassword",
+  fullname: "Demo User",
+  pronouns: Faker::Gender.binary_type == "Female" ? "she/her/hers" : "he/him/his",
+  team: Faker::Job.field,
+  role: Faker::Job.position,
+)

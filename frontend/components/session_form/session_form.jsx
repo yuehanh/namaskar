@@ -8,16 +8,14 @@ export class SessionForm extends React.Component {
       password: ''
     };
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleDemo = this.handleDemo.bind(this);
+
+
   }
   componentWillUnmount() {
-    // debugger
     this.props.clearErrors()
   }
-  // componentDidUpdate() {
-  //   debugger
-  //   this.props.clearErrors
-  // }
-  
+
   update(field) {
     return e => this.setState({
       [field]: e.currentTarget.value
@@ -30,6 +28,10 @@ export class SessionForm extends React.Component {
     this.props.processForm(user);
   }
 
+  handleDemo(e) {
+    e.preventDefault()
+    this.props.processDemo();
+  }
   renderRedirect() {
     const redirectText = this.props.formType === "Log In" ? "Don't have an account? " : "Have an account? "
     return (<div className="session-redirect">{redirectText}{"  "} {this.props.navLink}</div>)
@@ -82,10 +84,21 @@ export class SessionForm extends React.Component {
                     onChange={this.update('password')}
                     className="login-input"
                   />
-
                   <br />
                 </div>
-                <input className="session-form-button button" type="submit" value={this.props.formType} />
+                <div className="session-form-button-group">
+                  <button
+                    className="session-form-button button"
+                    id ="demo-button"
+                    onClick={this.handleDemo}
+                  >Log In Demo User
+                </button>
+                  <input
+                    className="session-form-button button"
+                    type="submit"
+                    value={this.props.formType} />
+                </div>
+
               </div>
             </form>
 
@@ -94,7 +107,7 @@ export class SessionForm extends React.Component {
         <div className="session-form-footer">
           {this.renderRedirect()}
         </div>
-      </div>
+      </div >
     );
   }
 }
