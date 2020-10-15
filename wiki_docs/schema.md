@@ -2,32 +2,37 @@
 
 ## `users`
 
-| column name       | data type | details                   |
-| :---------------- | :-------: | :------------------------ |
-| `id`              |  integer  | not null, primary key     |
-| `email`           |  string   | not null, indexed, unique |
-| `fullname`        |  string   | not null, indexed         |
-| `pronouns`        |  string   |                           |
-| `role`            |  string   |                           |
-| `team`            |  string   |                           |
-| `password_digest` |  string   | not null                  |
-| `session_token`   |  string   | not null, indexed, unique |
-| `created_at`      | datetime  | not null                  |
-| `updated_at`      | datetime  | not null                  |
+| column name       | data type  | details                        |
+| :---------------- | :--------: | :----------------------------- |
+| `id`              |  integer   | not null, primary key          |
+| `email`           |   string   | not null, indexed, unique      |
+| `fullname`        |   string   | not null, indexed              |
+| `pronouns`        |   string   |                                |
+| `role`            |   string   |                                |
+| `team`            |   string   |                                |
+| `homespace_id`    | references | not null, indexed, foreign key |
+| `password_digest` |   string   | not null                       |
+| `session_token`   |   string   | not null, indexed, unique      |
+| `created_at`      |  datetime  | not null                       |
+| `updated_at`      |  datetime  | not null                       |
 
--   index on `fullname`
--   index on `email, unique: true`
--   index on `session_token, unique: true`
+- index on `fullname`
+- index on `email, unique: true`
+- index on `session_token, unique: true`
+- `homespace_id` references `workspaces` table, `foreign_key: { to_table: :workspaces }`
 
 ## `workspaces`
 
-| column name   | data type | details               |
-| :------------ | :-------: | :-------------------- |
-| `id`          |  integer  | not null, primary key |
-| `name`        |  string   | not null              |
-| `description` |   text    |                       |
-| `created_at`  | datetime  | not null              |
-| `updated_at`  | datetime  | not null              |
+| column name   | data type  | details                        |
+| :------------ | :--------: | :----------------------------- |
+| `id`          |  integer   | not null, primary key          |
+| `creator_id`  | references | not null, indexed, foreign key |
+| `name`        |   string   | not null                       |
+| `description` |    text    |                                |
+| `created_at`  |  datetime  | not null                       |
+| `updated_at`  |  datetime  | not null                       |
+
+- `creator_id` references `users` table, `foreign_key: { to_table: :users }`
 
 ## `users_workspaces` (join table)
 
@@ -39,8 +44,8 @@
 | `created_at`   |  datetime  | not null                       |
 | `updated_at`   |  datetime  | not null                       |
 
--   index on `[:chirp_id, :user_id], unique: true`
--   references datatype automatically creates indices
+- index on `[:chirp_id, :user_id], unique: true`
+- references datatype automatically creates indices
 
 ## `projects`
 
@@ -54,7 +59,7 @@
 | `created_at`   |  datetime  | not null                       |
 | `updated_at`   |  datetime  | not null                       |
 
--   `creator_id` references `users` table, `foreign_key: { to_table: :users }`
+- `creator_id` references `users` table, `foreign_key: { to_table: :users }`
 
 ## `tasks`
 
@@ -75,5 +80,5 @@
 | `created_at`   |  datetime  | not null                       |
 | `updated_at`   |  datetime  | not null                       |
 
--   `creator_id` references `users` table, `foreign_key: { to_table: :users }`
--   `assignee_id` references `users` table, `foreign_key: { to_table: :users }`
+- `creator_id` references `users` table, `foreign_key: { to_table: :users }`
+- `assignee_id` references `users` table, `foreign_key: { to_table: :users }`

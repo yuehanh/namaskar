@@ -5,10 +5,12 @@
       1: {
         id: 1,
         name: "west world",
+        creator_id: 11,
         description: "i choose to see the beauty",
       },
       2: {
         id: 2,
+        creator_id: 25,
         name: "shogun world",
         description: "too swift arrives as tardy as too slow.",
       }
@@ -21,6 +23,7 @@
         pronouns: "she/her/her",
         role: "revolutionist",
         team: "robot",
+        homespace_id: 1,
       },
       12: {
         id: 11,
@@ -29,6 +32,7 @@
         pronouns: "he/him/his",
         role: "",
         team: "robot",
+        homespace_id: 1,
       },
       25: {
         id: 25,
@@ -37,6 +41,7 @@
         pronouns: "he/him/his",
         role: "yakuza",
         team: "robot",
+        homespace_id: 2,
       }
     },
     users_workspaces:{
@@ -48,7 +53,7 @@
       2:{
         id: 1,
         workspaceId: 1,
-        userId: 11,
+        userId: 12,
       },
       3:{
         id: 1,
