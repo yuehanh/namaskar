@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @api_workspace.name %>
+</p>
+
+<p>
+  <strong>Creator:</strong>
+  <%= @api_workspace.creator %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @api_workspace.description %>
+</p>
+
+<%= link_to 'Edit', edit_api_workspace_path(@api_workspace) %> |
+<%= link_to 'Back', api_workspaces_path %>

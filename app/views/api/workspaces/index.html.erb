@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Api Workspaces</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Creator</th>
+      <th>Description</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @api_workspaces.each do |api_workspace| %>
+      <tr>
+        <td><%= api_workspace.name %></td>
+        <td><%= api_workspace.creator %></td>
+        <td><%= api_workspace.description %></td>
+        <td><%= link_to 'Show', api_workspace %></td>
+        <td><%= link_to 'Edit', edit_api_workspace_path(api_workspace) %></td>
+        <td><%= link_to 'Destroy', api_workspace, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Api Workspace', new_api_workspace_path %>
