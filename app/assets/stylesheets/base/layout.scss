@@ -8,6 +8,12 @@ input[type="submit"] {
   border-style: none;
 }
 
+a,
+a:visited,
+a:hover,
+a:active {
+  text-decoration: none;
+}
 .button {
   background: #14aaf5;
   border-color: #14aaf5;

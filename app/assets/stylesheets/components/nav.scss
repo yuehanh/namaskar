@@ -9,20 +9,10 @@
   box-shadow: 0 2px 12px 0 rgba(36,50,66,.075);
 }
 
-.splash-nav-wrapper {
-  height: 100%;
-  line-height: 56px;
-  max-width: 1440px;
-  display: flex;
-  flex-wrap: nowrap;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-between;
-  margin: 0 auto;
-  padding: 0 64px;
-  overflow: hidden;
-  
-}
+.splash-nav .wrapper{
+  z-index: 10;
+  background-color: white;
+} 
 
 .nav-logo {
   display: block;

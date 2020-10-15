@@ -1,0 +1,105 @@
+.splash-slogan {
+  background: #fff;
+  min-height: 800px;
+  max-height: 1000px;
+  padding-top: 55px;
+  overflow: hidden;
+}
+
+.splash-col-right {
+  max-height: 820px;
+  min-height: 775px;
+  height: 90vh;
+  margin-left: 8.33333%;
+}
+
+.splash-col-left {
+  max-height: 775px;
+  height: 90vh;
+}
+.wrapper {
+  max-width: 1440px;
+  min-width: 400px;
+  display: flex;
+  flex-wrap: nowrap;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  margin: 0 10%;
+  padding: 0 64px;
+}
+.splash-image {
+  top: 0;
+  left: 0;
+  width: auto;
+  height: 100%;
+  background-size: contain;
+  background-position: top;
+}
+
+.splash-col-left h3 {
+  margin-top: 112px;
+  margin-bottom: 172px;
+  transition: all 0.5s;
+  color: $palette-1-dark;
+  font-weight: 400;
+  font-size: 2.8125rem;
+}
+
+.splash-col-left p {
+  display: block;
+  margin-block-start: 1em;
+  margin-block-end: 1em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+  color: $palette-1-dark;
+  margin-bottom: 80px;
+  transition: all 0.5s;
+  font-size: 18px;
+  line-height: 30px;
+}
+
+.splash-col-left .separator {
+  border: 1px solid $main-purple;
+  width: 15%;
+}
+
+button.sign-up.splash-main {
+  height: auto;
+  line-height: auto;
+  padding: 10px 32px;
+  font-size: 18px;
+}
+
+.before-footer {
+  padding: 160px 0px;
+}
+
+.splash-footer {
+  position: relative;
+  background-color: $palette-1-dark;
+  display: block;
+  color: #fff;
+  padding-bottom: 32px;
+  padding-top: 32px;
+}
+
+.splash-footer .wrapper{
+  justify-content: center;
+}
+.profile-link-group {
+  height: 40px;
+  display: flex;
+  flex-direction: row;
+}
+.personal-links {
+  font-size: 100%;
+}
+
+.personal-links i {
+  color: white;
+  font-size: 40px;
+  opacity: 0.6;
+  transition: opacity 225ms;
+  padding: 0 20px;
+}
