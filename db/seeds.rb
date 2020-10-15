@@ -25,7 +25,7 @@ User.destroy_all
     owner_id: user.id,
   )
 
-  user.workspaces = [user.homespace]
+  user.save!
 end
 
 User.create!(
