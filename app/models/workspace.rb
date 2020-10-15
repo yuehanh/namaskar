@@ -21,7 +21,7 @@ class Workspace < ApplicationRecord
   #Make sure owner and the workspace is related
   def ensure_owner_workspace_relation
     return if self.user_ids.include?(self.owner_id)
-    debugger
+
     self.user_ids = self.user_ids.push(self.owner_id)
   end
 
