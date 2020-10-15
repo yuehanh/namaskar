@@ -4,6 +4,7 @@ class Api::UsersController < ApplicationController
 
   def create
     @user = User.new(user_params)
+
     if @user.save
       login(@user)
       render :show, status: :created
@@ -16,6 +17,7 @@ class Api::UsersController < ApplicationController
 
   def update
     if @user.update(user_params)
+      @user.ensure_user_has_homespace
       render :show, status: :ok
     else
       render json: @user.errors.full_messages, status: 422
@@ -29,6 +31,6 @@ class Api::UsersController < ApplicationController
   end
 
   def user_params
-    params.require(:user).permit(:email, :password, :fullname, :pronouns, :role, :team, :session_token, :homespace_id,workspace_ids: [])
+    params.require(:user).permit(:email, :password, :fullname, :pronouns, :role, :team, :session_token, :homespace_id, workspace_ids: [])
   end
 end

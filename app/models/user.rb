@@ -20,6 +20,7 @@ class User < ApplicationRecord
   validates :password, length: { minimum: 6 }, allow_nil: true
 
   before_validation :ensure_session_token
+  after_commit :ensure_user_has_homespace
 
   belongs_to :homespace, class_name: :Workspace, optional: true
 
@@ -56,6 +57,19 @@ class User < ApplicationRecord
     self.session_token = self.class.generate_session_token
     self.save!
     self.session_token
+  end
+
+  def ensure_user_has_homespace
+    return if self.homespace
+
+    if self.workspaces.empty?
+      debugger
+      @workspace = Workspace.create!(owner_id: self.id)
+      self.homespace = @workspace
+    else
+      self.homespace = self.workspaces.first
+    end
+    self.save!
   end
 
   private
