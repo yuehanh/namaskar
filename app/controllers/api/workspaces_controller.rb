@@ -1,28 +1,11 @@
 class Api::WorkspacesController < ApplicationController
   before_action :set_workspace, only: [:show, :edit, :update, :destroy]
 
-  # GET /api/workspaces
-  # GET /api/workspaces.json
-  def index
-    @workspaces = Workspace.all
-  end
-
   # GET /api/workspaces/1
-  # GET /api/workspaces/1.json
   def show
   end
 
-  # GET /api/workspaces/new
-  def new
-    @workspace = Workspace.new
-  end
-
-  # GET /api/workspaces/1/edit
-  def edit
-  end
-
   # POST /api/workspaces
-  # POST /api/workspaces.json
   def create
     @workspace = Workspace.new(workspace_params)
 
@@ -38,7 +21,6 @@ class Api::WorkspacesController < ApplicationController
   end
 
   # PATCH/PUT /api/workspaces/1
-  # PATCH/PUT /api/workspaces/1.json
   def update
     respond_to do |format|
       if @workspace.update(workspace_params)
@@ -52,7 +34,6 @@ class Api::WorkspacesController < ApplicationController
   end
 
   # DELETE /api/workspaces/1
-  # DELETE /api/workspaces/1.json
   def destroy
     @workspace.destroy
     respond_to do |format|

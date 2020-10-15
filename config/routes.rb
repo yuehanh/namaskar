@@ -1,9 +1,9 @@
 Rails.application.routes.draw do
-  namespace :api do
-    resources :workspaces
-  end
+  
   namespace :api, defaults: { format: :json } do
     resources :users, only: %i[create show update]
+    resources :workspaces, only: %i[create show update destroy]
+
     resource :session, only: %i[create destroy]
   end
 
