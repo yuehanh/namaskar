@@ -21,7 +21,11 @@ class User < ApplicationRecord
 
   before_validation :ensure_session_token
 
-  belongs_to :homespace, class_name: :Workspace
+  belongs_to :homespace, class_name: :Workspace, optional: true
+
+  # Many to Many Relationship between User and Workspace
+  has_many :user_workspaces, dependent: :destroy, inverse_of: :user
+  has_many :workspaces, through: :user_workspaces
 
   attr_reader :password
 
@@ -58,12 +62,5 @@ class User < ApplicationRecord
 
   def ensure_session_token
     self.session_token ||= self.class.generate_session_token
-  end
-
-  def ensure_homespace
-    unless self.homespace_id
-      homespace = Workspace.new(owner_id: self.id)
-      self.homespace_id = homespace.id
-    end
   end
 end

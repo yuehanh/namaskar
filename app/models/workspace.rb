@@ -11,4 +11,7 @@
 #
 class Workspace < ApplicationRecord
   belongs_to :owner, class_name: :User
+  # Many to Many Relationship between User and Workspace
+  has_many :user_workspaces, dependent: :destroy, inverse_of: :workspace
+  has_many :users, through: :user_workspaces
 end

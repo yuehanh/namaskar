@@ -2,19 +2,19 @@
 
 ## `users`
 
-| column name       | data type  | details                        |
-| :---------------- | :--------: | :----------------------------- |
-| `id`              |  integer   | not null, primary key          |
-| `email`           |   string   | not null, indexed, unique      |
-| `fullname`        |   string   | not null, indexed              |
-| `pronouns`        |   string   |                                |
-| `role`            |   string   |                                |
-| `team`            |   string   |                                |
-| `homespace_id`    | references | not null, indexed, foreign key |
-| `password_digest` |   string   | not null                       |
-| `session_token`   |   string   | not null, indexed, unique      |
-| `created_at`      |  datetime  | not null                       |
-| `updated_at`      |  datetime  | not null                       |
+| column name       | data type  | details                   |
+| :---------------- | :--------: | :------------------------ |
+| `id`              |  integer   | not null, primary key     |
+| `email`           |   string   | not null, indexed, unique |
+| `fullname`        |   string   | not null, indexed         |
+| `pronouns`        |   string   |                           |
+| `role`            |   string   |                           |
+| `team`            |   string   |                           |
+| `homespace_id`    | references | indexed, foreign key      |
+| `password_digest` |   string   | not null                  |
+| `session_token`   |   string   | not null, indexed, unique |
+| `created_at`      |  datetime  | not null                  |
+| `updated_at`      |  datetime  | not null                  |
 
 - index on `fullname`
 - index on `email, unique: true`
