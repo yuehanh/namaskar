@@ -4,7 +4,7 @@
 #
 #  id              :bigint           not null, primary key
 #  email           :string           not null
-#  fullname        :string           not null
+#  fullname        :string
 #  pronouns        :string
 #  role            :string
 #  team            :string
@@ -12,6 +12,7 @@
 #  session_token   :string           not null
 #  created_at      :datetime         not null
 #  updated_at      :datetime         not null
+#  homespace_id    :bigint
 #
 class User < ApplicationRecord
   validates :email, :password_digest, :session_token, presence: true
@@ -19,6 +20,8 @@ class User < ApplicationRecord
   validates :password, length: { minimum: 6 }, allow_nil: true
 
   before_validation :ensure_session_token
+
+  belongs_to :homespace, class_name: :Workspace
 
   attr_reader :password
 
@@ -55,5 +58,12 @@ class User < ApplicationRecord
 
   def ensure_session_token
     self.session_token ||= self.class.generate_session_token
+  end
+
+  def ensure_homespace
+    unless self.homespace_id
+      homespace = Workspace.new(owner_id: self.id)
+      self.homespace_id = homespace.id
+    end
   end
 end
