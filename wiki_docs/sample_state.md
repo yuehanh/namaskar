@@ -5,12 +5,12 @@
       1: {
         id: 1,
         name: "west world",
-        creator_id: 11,
+        ownerId: 11,
         description: "i choose to see the beauty",
       },
       2: {
         id: 2,
-        creator_id: 25,
+        ownerid: 25,
         name: "shogun world",
         description: "too swift arrives as tardy as too slow.",
       }

@@ -26,13 +26,13 @@
 | column name   | data type  | details                        |
 | :------------ | :--------: | :----------------------------- |
 | `id`          |  integer   | not null, primary key          |
-| `creator_id`  | references | not null, indexed, foreign key |
+| `owner_id`    | references | not null, indexed, foreign key |
 | `name`        |   string   | not null                       |
 | `description` |    text    |                                |
 | `created_at`  |  datetime  | not null                       |
 | `updated_at`  |  datetime  | not null                       |
 
-- `creator_id` references `users` table, `foreign_key: { to_table: :users }`
+- `owner_id` references `users` table, `foreign_key: { to_table: :users }`
 
 ## `users_workspaces` (join table)
 
