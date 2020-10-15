@@ -15,7 +15,7 @@
 }
 
 .login-form-container {
-  width: 585px;
+  width: 400px;
 }
 
 .session-form-header {
@@ -72,6 +72,7 @@
 }
 .session-form-error-messages {
   background-color: #ffedef;
+  color: #ff6675;
   padding: 16px;
 }
 
@@ -124,18 +125,16 @@
   font-size: 16px;
 }
 
-a.session-footer-button.button{
+a.session-footer-button.button {
   background-color: transparent;
   text-decoration: none;
-  
 }
 
-a.session-footer-button.button:hover{
+a.session-footer-button.button:hover {
   background-color: white;
   border-color: white;
   color: black;
   text-decoration: none;
-  
 }
 // @media (min-width: 48em) .login-form-container {
 //   width: 585px;
