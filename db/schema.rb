@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_10_15_080428) do
+ActiveRecord::Schema.define(version: 2020_10_15_094627) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -25,8 +25,10 @@ ActiveRecord::Schema.define(version: 2020_10_15_080428) do
     t.string "session_token", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "homespace_id"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["fullname"], name: "index_users_on_fullname"
+    t.index ["homespace_id"], name: "index_users_on_homespace_id"
     t.index ["session_token"], name: "index_users_on_session_token", unique: true
   end
 
@@ -39,5 +41,6 @@ ActiveRecord::Schema.define(version: 2020_10_15_080428) do
     t.index ["owner_id"], name: "index_workspaces_on_owner_id"
   end
 
+  add_foreign_key "users", "workspaces", column: "homespace_id"
   add_foreign_key "workspaces", "users", column: "owner_id"
 end
