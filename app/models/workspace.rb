@@ -14,4 +14,20 @@ class Workspace < ApplicationRecord
   # Many to Many Relationship between User and Workspace
   has_many :user_workspaces, dependent: :destroy, inverse_of: :workspace
   has_many :users, through: :user_workspaces
+
+  before_validation :ensure_name
+  after_commit :ensure_owner_workspace_relation
+
+  #Make sure owner and the workspace is related
+  def ensure_owner_workspace_relation
+    return if self.user_ids.include?(self.owner_id)
+    debugger
+    self.user_ids = self.user_ids.push(self.owner_id)
+  end
+
+  private
+
+  def ensure_name
+    self.name ||= "My Workspace"
+  end
 end
