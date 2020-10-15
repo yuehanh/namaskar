@@ -1,1 +1,1 @@
-json.partial! "api_workspaces/api_workspace", api_workspace: @api_workspace
+json.partial! "workspaces/workspace", workspace: @workspace

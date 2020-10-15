@@ -1,48 +1,48 @@
-require 'test_helper'
+require "test_helper"
 
 class Api::WorkspacesControllerTest < ActionDispatch::IntegrationTest
   setup do
-    @api_workspace = api_workspaces(:one)
+    @workspace = workspaces(:one)
   end
 
   test "should get index" do
-    get api_workspaces_url
+    get workspaces_url
     assert_response :success
   end
 
   test "should get new" do
-    get new_api_workspace_url
+    get new_workspace_url
     assert_response :success
   end
 
-  test "should create api_workspace" do
-    assert_difference('Api::Workspace.count') do
-      post api_workspaces_url, params: { api_workspace: { creator_id: @api_workspace.creator_id, description: @api_workspace.description, name: @api_workspace.name } }
+  test "should create workspace" do
+    assert_difference("Api::Workspace.count") do
+      post workspaces_url, params: { workspace: { creator_id: @workspace.creator_id, description: @workspace.description, name: @workspace.name } }
     end
 
-    assert_redirected_to api_workspace_url(Api::Workspace.last)
+    assert_redirected_to workspace_url(Api::Workspace.last)
   end
 
-  test "should show api_workspace" do
-    get api_workspace_url(@api_workspace)
+  test "should show workspace" do
+    get workspace_url(@workspace)
     assert_response :success
   end
 
   test "should get edit" do
-    get edit_api_workspace_url(@api_workspace)
+    get edit_workspace_url(@workspace)
     assert_response :success
   end
 
-  test "should update api_workspace" do
-    patch api_workspace_url(@api_workspace), params: { api_workspace: { creator_id: @api_workspace.creator_id, description: @api_workspace.description, name: @api_workspace.name } }
-    assert_redirected_to api_workspace_url(@api_workspace)
+  test "should update workspace" do
+    patch workspace_url(@workspace), params: { workspace: { creator_id: @workspace.creator_id, description: @workspace.description, name: @workspace.name } }
+    assert_redirected_to workspace_url(@workspace)
   end
 
-  test "should destroy api_workspace" do
-    assert_difference('Api::Workspace.count', -1) do
-      delete api_workspace_url(@api_workspace)
+  test "should destroy workspace" do
+    assert_difference("Api::Workspace.count", -1) do
+      delete workspace_url(@workspace)
     end
 
-    assert_redirected_to api_workspaces_url
+    assert_redirected_to workspaces_url
   end
 end

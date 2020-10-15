@@ -2,18 +2,18 @@
 
 <p>
   <strong>Name:</strong>
-  <%= @api_workspace.name %>
+  <%= @workspace.name %>
 </p>
 
 <p>
   <strong>Creator:</strong>
-  <%= @api_workspace.creator %>
+  <%= @workspace.creator %>
 </p>
 
 <p>
   <strong>Description:</strong>
-  <%= @api_workspace.description %>
+  <%= @workspace.description %>
 </p>
 
-<%= link_to 'Edit', edit_api_workspace_path(@api_workspace) %> |
-<%= link_to 'Back', api_workspaces_path %>
+<%= link_to "Edit", edit_workspace_path(@workspace) %> |
+<%= link_to "Back", workspaces_path %>

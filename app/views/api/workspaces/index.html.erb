@@ -13,14 +13,14 @@
   </thead>
 
   <tbody>
-    <% @api_workspaces.each do |api_workspace| %>
+    <% @workspaces.each do |workspace| %>
       <tr>
-        <td><%= api_workspace.name %></td>
-        <td><%= api_workspace.creator %></td>
-        <td><%= api_workspace.description %></td>
-        <td><%= link_to 'Show', api_workspace %></td>
-        <td><%= link_to 'Edit', edit_api_workspace_path(api_workspace) %></td>
-        <td><%= link_to 'Destroy', api_workspace, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= workspace.name %></td>
+        <td><%= workspace.creator %></td>
+        <td><%= workspace.description %></td>
+        <td><%= link_to "Show", workspace %></td>
+        <td><%= link_to "Edit", edit_workspace_path(workspace) %></td>
+        <td><%= link_to "Destroy", workspace, method: :delete, data: { confirm: "Are you sure?" } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -28,4 +28,4 @@
 
 <br>
 
-<%= link_to 'New Api Workspace', new_api_workspace_path %>
+<%= link_to "New Api Workspace", new_workspace_path %>

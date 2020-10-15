@@ -1,10 +1,10 @@
 class Api::WorkspacesController < ApplicationController
-  before_action :set_api_workspace, only: [:show, :edit, :update, :destroy]
+  before_action :set_workspace, only: [:show, :edit, :update, :destroy]
 
   # GET /api/workspaces
   # GET /api/workspaces.json
   def index
-    @api_workspaces = Api::Workspace.all
+    @workspaces = Workspace.all
   end
 
   # GET /api/workspaces/1
@@ -14,7 +14,7 @@ class Api::WorkspacesController < ApplicationController
 
   # GET /api/workspaces/new
   def new
-    @api_workspace = Api::Workspace.new
+    @workspace = Workspace.new
   end
 
   # GET /api/workspaces/1/edit
@@ -24,15 +24,15 @@ class Api::WorkspacesController < ApplicationController
   # POST /api/workspaces
   # POST /api/workspaces.json
   def create
-    @api_workspace = Api::Workspace.new(api_workspace_params)
+    @workspace = Workspace.new(workspace_params)
 
     respond_to do |format|
-      if @api_workspace.save
-        format.html { redirect_to @api_workspace, notice: 'Workspace was successfully created.' }
-        format.json { render :show, status: :created, location: @api_workspace }
+      if @workspace.save
+        format.html { redirect_to @workspace, notice: "Workspace was successfully created." }
+        format.json { render :show, status: :created, location: @workspace }
       else
         format.html { render :new }
-        format.json { render json: @api_workspace.errors, status: :unprocessable_entity }
+        format.json { render json: @workspace.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -41,12 +41,12 @@ class Api::WorkspacesController < ApplicationController
   # PATCH/PUT /api/workspaces/1.json
   def update
     respond_to do |format|
-      if @api_workspace.update(api_workspace_params)
-        format.html { redirect_to @api_workspace, notice: 'Workspace was successfully updated.' }
-        format.json { render :show, status: :ok, location: @api_workspace }
+      if @workspace.update(workspace_params)
+        format.html { redirect_to @workspace, notice: "Workspace was successfully updated." }
+        format.json { render :show, status: :ok, location: @workspace }
       else
         format.html { render :edit }
-        format.json { render json: @api_workspace.errors, status: :unprocessable_entity }
+        format.json { render json: @workspace.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -54,21 +54,22 @@ class Api::WorkspacesController < ApplicationController
   # DELETE /api/workspaces/1
   # DELETE /api/workspaces/1.json
   def destroy
-    @api_workspace.destroy
+    @workspace.destroy
     respond_to do |format|
-      format.html { redirect_to api_workspaces_url, notice: 'Workspace was successfully destroyed.' }
+      format.html { redirect_to workspaces_url, notice: "Workspace was successfully destroyed." }
       format.json { head :no_content }
     end
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_api_workspace
-      @api_workspace = Api::Workspace.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def api_workspace_params
-      params.require(:api_workspace).permit(:name, :creator_id, :description)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_workspace
+    @workspace = Workspace.find(params[:id])
+  end
+
+  # Only allow a list of trusted parameters through.
+  def workspace_params
+    params.require(:workspace).permit(:name, :creator_id, :description)
+  end
 end

@@ -2,21 +2,21 @@ require "application_system_test_case"
 
 class Api::WorkspacesTest < ApplicationSystemTestCase
   setup do
-    @api_workspace = api_workspaces(:one)
+    @workspace = workspaces(:one)
   end
 
   test "visiting the index" do
-    visit api_workspaces_url
+    visit workspaces_url
     assert_selector "h1", text: "Api/Workspaces"
   end
 
   test "creating a Workspace" do
-    visit api_workspaces_url
+    visit workspaces_url
     click_on "New Api/Workspace"
 
-    fill_in "Creator", with: @api_workspace.creator_id
-    fill_in "Description", with: @api_workspace.description
-    fill_in "Name", with: @api_workspace.name
+    fill_in "Creator", with: @workspace.creator_id
+    fill_in "Description", with: @workspace.description
+    fill_in "Name", with: @workspace.name
     click_on "Create Workspace"
 
     assert_text "Workspace was successfully created"
@@ -24,12 +24,12 @@ class Api::WorkspacesTest < ApplicationSystemTestCase
   end
 
   test "updating a Workspace" do
-    visit api_workspaces_url
+    visit workspaces_url
     click_on "Edit", match: :first
 
-    fill_in "Creator", with: @api_workspace.creator_id
-    fill_in "Description", with: @api_workspace.description
-    fill_in "Name", with: @api_workspace.name
+    fill_in "Creator", with: @workspace.creator_id
+    fill_in "Description", with: @workspace.description
+    fill_in "Name", with: @workspace.name
     click_on "Update Workspace"
 
     assert_text "Workspace was successfully updated"
@@ -37,7 +37,7 @@ class Api::WorkspacesTest < ApplicationSystemTestCase
   end
 
   test "destroying a Workspace" do
-    visit api_workspaces_url
+    visit workspaces_url
     page.accept_confirm do
       click_on "Destroy", match: :first
     end
