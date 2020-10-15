@@ -9,37 +9,27 @@ class Api::WorkspacesController < ApplicationController
   def create
     @workspace = Workspace.new(workspace_params)
 
-    respond_to do |format|
-      if @workspace.save
-        format.html { redirect_to @workspace, notice: "Workspace was successfully created." }
-        format.json { render :show, status: :created, location: @workspace }
-      else
-        format.html { render :new }
-        format.json { render json: @workspace.errors, status: :unprocessable_entity }
-      end
+    if @workspace.save
+      render :show, status: :created
+    else
+      render json: @workspace.errors, status: :unprocessable_entity
     end
   end
 
   # PATCH/PUT /api/workspaces/1
   def update
-    respond_to do |format|
-      if @workspace.update(workspace_params)
-        format.html { redirect_to @workspace, notice: "Workspace was successfully updated." }
-        format.json { render :show, status: :ok, location: @workspace }
-      else
-        format.html { render :edit }
-        format.json { render json: @workspace.errors, status: :unprocessable_entity }
-      end
+    if @workspace.update(workspace_params)
+      render :show, status: :ok
+    else
+      render json: @workspace.errors, status: :unprocessable_entity
     end
   end
 
   # DELETE /api/workspaces/1
   def destroy
+    name = @workspace.name
     @workspace.destroy
-    respond_to do |format|
-      format.html { redirect_to workspaces_url, notice: "Workspace was successfully destroyed." }
-      format.json { head :no_content }
-    end
+    render json: ["You have successfullly deleted '#{name}''"], status: 200
   end
 
   private
