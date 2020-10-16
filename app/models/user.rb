@@ -63,7 +63,6 @@ class User < ApplicationRecord
     return if self.homespace
 
     if self.workspaces.empty?
-      debugger
       @workspace = Workspace.create!(owner_id: self.id)
       self.homespace = @workspace
     else

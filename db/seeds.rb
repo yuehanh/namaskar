@@ -24,7 +24,7 @@ User.destroy_all
     name: "#{name}'s Workspace'",
     owner_id: user.id,
   )
-
+  
   user.save!
 end
 
