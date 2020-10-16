@@ -6,8 +6,7 @@
 </script>
 <% if logged_in? %>
   <script id="bootstrap" type="text/javascript">
-  	window.currentUser = <%= render("api/users/user.json.jbuilder",
-                                   user: current_user).html_safe %>
+  	window.currentUser = <%= render("api/users/user.json.jbuilder", user: current_user).html_safe %>
   </script>
 <% end %>
 <main id="root">No Reaction</main>
