@@ -1,5 +1,7 @@
-json.workspace do
-  json.partial! "api/workspaces/workspace", workspace: @workspace
+json.workspaces do
+  json.set! @workspace.id do
+    json.partial! "api/workspaces/workspace", workspace: @workspace
+  end
 end
 
 json.users do
