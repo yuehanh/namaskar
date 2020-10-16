@@ -90,6 +90,7 @@ export class SessionForm extends React.Component {
                   <button
                     className="session-form-button button"
                     id ="demo-button"
+                    type="button"
                     onClick={this.handleDemo}
                   >Log In Demo User
                 </button>
