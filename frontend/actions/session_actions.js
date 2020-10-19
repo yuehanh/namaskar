@@ -17,7 +17,7 @@ const logoutCurrentUser = () => {
   };
 };
 
-const receiveError = (payload) => {
+export const receiveError = (payload) => {
   return {
     type: RECEIVE_SESSION_ERRORS,
     payload,
