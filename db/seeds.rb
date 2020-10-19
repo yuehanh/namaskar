@@ -5,9 +5,9 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-# UserWorkspace.destroy_all
-# Workspace.destroy_all
-# User.destroy_all
+UserWorkspace.destroy_all
+Workspace.destroy_all
+User.destroy_all
 
 10.times do
   name = Faker::Name.unique.first_name
@@ -25,11 +25,11 @@
     name: "#{name}'s Workspace'",
     owner_id: user.id,
   )
-  
+
   user.save!
 end
 
-User.create!(
+demo = User.create!(
   email: "demo@email.com",
   password: "demopassword",
   fullname: "Demo User",
@@ -37,3 +37,10 @@ User.create!(
   team: Faker::Job.field,
   role: Faker::Job.position,
 )
+
+demo.homespace = Workspace.create!(
+  name: "Cozy Place",
+  owner_id: demo.id,
+)
+
+demo.save!
