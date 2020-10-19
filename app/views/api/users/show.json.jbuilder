@@ -7,7 +7,7 @@ end
 json.workspaces do
   @user.workspaces.each do |workspace|
     json.set! workspace.id do
-      json.partial! "api/workspaces/workspace", workspace: workspace
+      json.extract! workspace, :id, :name
     end
   end
 end
