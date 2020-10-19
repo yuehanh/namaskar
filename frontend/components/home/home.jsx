@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { UserController } from './user_controller';
+import { WorkspaceInfo } from './workspace_info';
 
 export class Home extends React.Component {
 
@@ -9,22 +10,14 @@ export class Home extends React.Component {
     this.props.fetchUser(this.props.currentUser.id);
   }
 
-
   render() {
+    if (this.props.homespace === "") return null
     return (
       <div className='workspace'>
         <div className="workspace-header">
-          <div className="workspace-header-info">
-            <h2>Home -- {this.props.homespace.name}</h2>
-            <div className="workspace-info"> 
-            <p>{this.props.homespace.description || 'This workspace is waiting to be described'}</p>
-            <Link to={{
-              pathname: "/workspaces/edit",
-              homespace: this.props.homespace
-            }} >Edit</Link>
-
-            </div>
-          </div>
+          <WorkspaceInfo
+            workspace={this.props.homespace}
+            updateWorkspace={this.props.updateWorkspace} />
           <UserController
             currentUser={this.props.currentUser}
             workspaces={this.props.workspaces}

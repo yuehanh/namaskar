@@ -5,7 +5,7 @@ export const selectCurrentUser = (state) => {
 export const selectHomespace = (state) => {
   const currentUser = state.entities.users[state.session.currentUserId];
   const homespace =
-    state.entities.workspaces[currentUser.homespaceId] ?? "not feteched yet";
+    state.entities.workspaces[currentUser.homespaceId] ?? "";
   return homespace;
 };
 

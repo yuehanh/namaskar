@@ -26,11 +26,6 @@ export class WorkspaceForm extends React.Component {
 
   }
 
-  handleDemo(e) {
-    e.preventDefault()
-    this.props.processDemo();
-  }
-
   renderErrors() {
     if (this.props.errors.length > 0) {
       return (
