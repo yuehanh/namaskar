@@ -1,7 +1,7 @@
 import { connect } from "react-redux";
 import { logout } from "../../actions/session_actions";
 import { fetchWorkspace } from "../../actions/workspace_actions";
-import { fetchUser } from "../../actions/user_actions";
+import { fetchUser, updateUser } from "../../actions/user_actions";
 
 import { selectCurrentUser, selectHomespace, selectTeammates, selectWorkspaces } from "../../reducers/selector";
 
@@ -23,7 +23,8 @@ const mapDispatchToProps = (dispatch) => {
   return {
     logout: () => dispatch(logout()),
     fetchWorkspace: (workspaceId) => dispatch(fetchWorkspace(workspaceId)),
-    fetchUser: (userId) => dispatch(fetchUser(userId))
+    fetchUser: (userId) => dispatch(fetchUser(userId)),
+    updateUser: (user) => dispatch(updateUser(user))
   };
 };
 
