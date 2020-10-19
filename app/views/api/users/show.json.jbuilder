@@ -7,7 +7,7 @@ end
 json.workspaces do
   @user.workspaces.each do |workspace|
     json.set! workspace.id do
-      json.extract! workspace, :id, :name
+      json.extract! workspace, :id, :name, :description
     end
   end
 end
