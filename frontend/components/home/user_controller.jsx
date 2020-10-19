@@ -28,7 +28,7 @@ export class UserController extends React.Component {
           {this.props.currentUser.fullname.slice(0, 2)}
         </div>
         <div className={`user-control-menu ${this.state.menu ? "" : "hidden"}`}>
-          <ul className="workspace-menu clickable">
+          <ul className="workspace-menu clickable" onClick={this.toggleMenu}>
             {this.props.workspaces.map(workspace => {
               return (
                 <li key={workspace.id}
