@@ -28,6 +28,7 @@ export class Home extends React.Component {
             logout={this.props.logout}
             fetchWorkspace={this.props.fetchWorkspace}
             updateUser={this.props.updateUser}
+            homespace={this.props.homespace}
           />
         </div>
       </div >
