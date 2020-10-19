@@ -14,11 +14,13 @@ export class Home extends React.Component {
     return (
       <div className='workspace'>
         <div className="workspace-header">
-          <div className="workspace-header-info"><h2>Home</h2></div>
+          <div className="workspace-header-info"><h2>Home -- {this.props.homespace.name}</h2></div>
           <UserController
             currentUser={this.props.currentUser}
             workspaces={this.props.workspaces}
             logout={this.props.logout}
+            fetchWorkspace={this.props.fetchWorkspace}
+            updateUser={this.props.updateUser}
           />
         </div>
       </div>

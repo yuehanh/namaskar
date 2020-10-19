@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 export class UserController extends React.Component {
   constructor(props) {
     super(props);
@@ -6,33 +7,45 @@ export class UserController extends React.Component {
       menu: false,
     }
     this.toggleMenu = this.toggleMenu.bind(this)
+    this.changeHomespace = this.changeHomespace.bind(this)
   }
 
   toggleMenu() {
     this.setState({ menu: !this.state.menu })
   }
 
+  changeHomespace(workspaceId) {
+    this.props.updateUser({ id: this.props.currentUser.id, homespace_id: workspaceId })
+  }
+
   render() {
     return (
       <div className="workspace-user-control" >
         <div
-          className="avatar"
+          className="avatar clickable"
           onClick={this.toggleMenu}
         >
           {this.props.currentUser.fullname.slice(0, 2)}
         </div>
         <div className={`user-control-menu ${this.state.menu ? "" : "hidden"}`}>
-          <ul>
-            {this.props.workspaces.map(workspace => <li key={workspace.id}> {workspace.name} </li>)}
+          <ul className="workspace-menu">
+            {this.props.workspaces.map(workspace => {
+              return (
+                <li key={workspace.id}
+                  onClick={() => this.changeHomespace(workspace.id)}
+                >
+                  {workspace.name}
+                </li>
+              )
+            })}
+            <li><Link to="/workspaces/new">Create New Workspace</Link></li>
           </ul>
-
           <ul>
-            <settings className="setting"></settings>
-            <li >My Profile Settings...</li>
+            {/* <li >My Profile Settings...</li> */}
             <li onClick={this.props.logout}>Log Out</li>
           </ul>
         </div>
-      </div>
+      </div >
     )
   }
 }
