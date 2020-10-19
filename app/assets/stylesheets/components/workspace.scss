@@ -44,3 +44,14 @@
   white-space: nowrap;
   display: flex;
 }
+
+.workspace-info {
+  display: flex;
+  flex-direction: row;
+  p {
+    padding: 0px 20px;
+    line-height: 19px;
+    font-size: 15px;
+    color: #6f7782;
+  }
+}
