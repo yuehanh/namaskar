@@ -22,7 +22,12 @@ export class Splash extends React.Component {
             </div>
             <div className='nav-session'>
               <Link to='/login' className="session-link" >Log In</Link>
-              <button onClick={this.redirectToSignUp} className="sign-up nav-button">Try for free</button>
+              <button
+                onClick={this.redirectToSignUp}
+                className="sign-up nav-button"
+              >
+                Try for free
+              </button>
             </div>
           </nav>
         </div>
@@ -33,10 +38,16 @@ export class Splash extends React.Component {
                 <h3>Work on big ideas, without the busywork.</h3>
                 <div className="separator"></div>
                 <p className="slogan text">From the small stuff to the big picture, Namaskar organizes work so teams are clear what to do, why it matters, and how to get it done.</p>
-                <button onClick={this.redirectToSignUp} className="sign-up splash-main">Try for free</button>
+                <button
+                  onClick={this.redirectToSignUp}
+                  className="sign-up splash-main"
+                >
+                  Try for free
+                </button>
               </div>
               <div className="splash-col-right">
-                <img className='splash-image' src={window.images.splashPhoto} />
+                <img className='splash-image'
+                  src={window.images.splashPhoto} />
               </div>
             </div>
             <section className="before-footer"></section>
@@ -44,10 +55,14 @@ export class Splash extends React.Component {
           <div className='splash-footer'>
             <div className="wrapper">
               <div className="profile-link-group">
-                <a className="personal-links" href="https://www.linkedin.com/in/yuehanh/">
-                <i className="fab fa-linkedin"></i>
+                <a
+                  className="personal-links"
+                  href="https://www.linkedin.com/in/yuehanh/">
+                  <i className="fab fa-linkedin"></i>
                 </a>
-                <a className="personal-links" href="https://github.com/yuehanh">
+                <a
+                  className="personal-links"
+                  href="https://github.com/yuehanh">
                   <i className="fab fa-github-square"></i>
                 </a>
               </div>

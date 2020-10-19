@@ -9,10 +9,13 @@ class Api::WorkspacesController < ApplicationController
   # POST /api/workspaces
   def create
     @workspace = Workspace.new(workspace_params)
+    @workspace.owner_id = current_user.id
 
     if @workspace.save
       # make sure workspace and its own has a key in the relationship table
       @workspace.ensure_owner_workspace_relation
+      current_user.homespace = @workspace
+      current_user.save!
       render :show, status: :created
     else
       render json: @workspace.errors, status: :unprocessable_entity
@@ -38,15 +41,12 @@ class Api::WorkspacesController < ApplicationController
 
   protected
 
-
-
   private
 
   # Use callbacks to share common setup or constraints between actions.
   def set_workspace
     @workspace = Workspace.find(params[:id])
   end
-
 
   # Only allow a list of trusted parameters through.
   def workspace_params

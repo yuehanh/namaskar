@@ -1,0 +1,45 @@
+.workspace-user-control {
+  align-items: center;
+  background-color: #fff;
+  display: flex;
+}
+.user-control-menu.hidden {
+  display: none;
+}
+.user-control-menu {
+  position: absolute;
+  top: 54px;
+  right: 24px;
+  background-color: #fff;
+  border: 1px solid $palette-1-dark;
+  border-radius: 3px;
+  padding: 10px;
+  z-index: 1;
+  color: $palette-1-dark;
+  font-size: 13px;
+  text-align: left;
+  width: 250px;
+  background: #fff;
+  border-radius: 4px;
+  box-shadow: 0 0 0 1px rgba(111, 119, 130, 0.15),
+    0 5px 20px 0 rgba(21, 27, 38, 0.08);
+  box-sizing: border-box;
+
+  .menu-separator {
+    border-top: 1px solid #e8ecee;
+    margin: 4px 0;
+  }
+  li {
+    line-height: 32px;
+    align-items: center;
+    border-radius: 3px;
+    padding: 0 10px;
+  }
+  li.selected {
+    background-color: $main-purple;
+    color: white;
+  }
+  li:hover {
+    background-color: $lightest-purple;
+  }
+}

@@ -9,30 +9,10 @@ UserWorkspace.destroy_all
 Workspace.destroy_all
 User.destroy_all
 
-10.times do
-  name = Faker::Name.unique.first_name
-  pronouns = Faker::Gender.binary_type == "Female" ? "she/her/hers" : "he/him/his"
-  user = User.create!(
-    fullname: name,
-    email: "#{name}@email.com",
-    password: "password",
-    pronouns: pronouns,
-    team: Faker::Job.field,
-    role: Faker::Job.position,
-  )
-
-  user.homespace = Workspace.create!(
-    name: "#{name}'s Workspace'",
-    owner_id: user.id,
-  )
-
-  user.save!
-end
-
 demo = User.create!(
   email: "demo@email.com",
   password: "demopassword",
-  fullname: "Demo User",
+  fullname: "Cosmic User",
   pronouns: Faker::Gender.binary_type == "Female" ? "she/her/hers" : "he/him/his",
   team: Faker::Job.field,
   role: Faker::Job.position,
@@ -44,3 +24,24 @@ demo.homespace = Workspace.create!(
 )
 
 demo.save!
+
+5.times do
+  workspace = Workspace.create!(
+    name: Faker::Space.unique.nebula,
+    owner_id: demo.id,
+  )
+
+  2.times do
+    name = Faker::Name.unique.first_name
+    pronouns = Faker::Gender.binary_type == "Female" ? "she/her/hers" : "he/him/his"
+    user = User.create!(
+      fullname: name,
+      email: "#{name}@email.com",
+      password: "password",
+      pronouns: pronouns,
+      team: Faker::Job.field,
+      role: Faker::Job.position,
+    )
+    user.workspaces = user.workspaces.push(workspace)
+  end
+end

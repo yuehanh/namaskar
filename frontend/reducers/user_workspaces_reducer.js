@@ -1,5 +1,6 @@
 import { RECEIVE_CURRENT_USER } from "../actions/session_actions";
 import { RECEIVE_WORKSPACE } from "../actions/workspace_actions";
+import { RECEIVE_USER } from "../actions/user_actions";
 
 export const userWorkspacesReducer = (state = {}, action) => {
   Object.freeze(state);
@@ -8,6 +9,7 @@ export const userWorkspacesReducer = (state = {}, action) => {
     case RECEIVE_CURRENT_USER:
       nextState = action.payload.userWorkspaces;
       return nextState;
+    case RECEIVE_USER:
     case RECEIVE_WORKSPACE:
       return Object.assign(nextState, action.payload.userWorkspaces);
     default:
