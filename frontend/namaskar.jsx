@@ -5,6 +5,7 @@ import { Root } from "./components/root"
 
 // Test
 import { login, logout, signUp } from "./actions/session_actions.js";
+import { createWorkspace, deleteWorkspace, fetchWorkspace, updateWorkspace } from "./actions/workspace_actions";
 
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -30,4 +31,8 @@ document.addEventListener("DOMContentLoaded", () => {
   window.login = login;
   window.logout = logout;
   window.signup = signUp;
+  window.createWorkspace = createWorkspace;
+  window.updateWorkspace = updateWorkspace;
+  window.fetchWorkspace = fetchWorkspace;
+  window.deleteWorkspace = deleteWorkspace;
 });
