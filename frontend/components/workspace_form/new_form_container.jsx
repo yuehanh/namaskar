@@ -5,7 +5,6 @@ import { WorkspaceForm } from './workspace_form';
 import { createWorkspace } from '../../actions/workspace_actions';
 
 const mapStateToProps = (state, ownProps) => {
-  debugger
   const workspace = { name: "", description: "" }
   return {
     errors: state.errors.session,
