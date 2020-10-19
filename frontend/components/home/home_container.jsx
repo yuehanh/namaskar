@@ -23,6 +23,7 @@ const mapDispatchToProps = (dispatch) => {
   return {
     logout: () => dispatch(logout()),
     fetchWorkspace: (workspaceId) => dispatch(fetchWorkspace(workspaceId)),
+    updateWorkspace: (workspace) => dispatch(updateWorkspace(workspace)),
     fetchUser: (userId) => dispatch(fetchUser(userId)),
     updateUser: (user) => dispatch(updateUser(user))
   };
