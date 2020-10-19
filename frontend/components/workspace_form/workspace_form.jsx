@@ -3,14 +3,11 @@ import { Link } from 'react-router-dom';
 export class WorkspaceForm extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
-      name: '',
-      description: ''
-    };
+    debugger
+    this.state = this.props.workspace
     this.handleSubmit = this.handleSubmit.bind(this);
-
-
   }
+
   componentWillUnmount() {
     this.props.clearErrors()
   }
@@ -23,8 +20,11 @@ export class WorkspaceForm extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    const user = Object.assign({}, this.state);
-    this.props.processForm(user);
+    const workspace = Object.assign({}, this.state);
+    this.props.processForm(workspace).then(() => {
+      this.props.history.push("/home")
+    })
+
   }
 
   handleDemo(e) {
@@ -69,7 +69,7 @@ export class WorkspaceForm extends React.Component {
                   <span className="grey-label-text">Name</span>
                   <input
                     type="text"
-                    value={this.state.email}
+                    value={this.state.name}
                     onChange={this.update('name')}
                     className="login-input password"
                     placeholder="Please give your workspace a name"
@@ -79,7 +79,7 @@ export class WorkspaceForm extends React.Component {
                   <span className="grey-label-text">Description</span>
                   <textarea
 
-                    value={this.state.password}
+                    value={this.state.description}
                     onChange={this.update('description')}
                     className="login-input"
                   />

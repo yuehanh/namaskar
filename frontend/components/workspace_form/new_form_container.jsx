@@ -4,10 +4,13 @@ import { clearErrors } from '../../actions/session_actions';
 import { WorkspaceForm } from './workspace_form';
 import { createWorkspace } from '../../actions/workspace_actions';
 
-const mapStateToProps = ({ errors }) => {
+const mapStateToProps = (state, ownProps) => {
+  debugger
+  const workspace = { name: "", description: "" }
   return {
-    errors: errors.session,
-    formType: 'Create New Workspace',
+    errors: state.errors.session,
+    formType: 'New Workspace',
+    workspace
   };
 };
 
@@ -18,4 +21,4 @@ const mapDispatchToProps = dispatch => {
   };
 };
 
-export const SignupFormContainer = connect(mapStateToProps, mapDispatchToProps)(WorkspaceForm);
+export const NewFormContainer = connect(mapStateToProps, mapDispatchToProps)(WorkspaceForm);

@@ -14,7 +14,13 @@ export class Home extends React.Component {
     return (
       <div className='workspace'>
         <div className="workspace-header">
-          <div className="workspace-header-info"><h2>Home -- {this.props.homespace.name}</h2></div>
+          <div className="workspace-header-info">
+            <h2>Home -- {this.props.homespace.name}</h2>
+            <Link to={{
+              pathname: "/workspaces/edit",
+              homespace: this.props.homespace
+            }} > Edit</Link>
+          </div>
           <UserController
             currentUser={this.props.currentUser}
             workspaces={this.props.workspaces}
@@ -23,7 +29,7 @@ export class Home extends React.Component {
             updateUser={this.props.updateUser}
           />
         </div>
-      </div>
+      </div >
     )
   }
 }
