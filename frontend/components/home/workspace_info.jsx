@@ -4,8 +4,19 @@ import ContentEditable from 'react-contenteditable'
 export class WorkspaceInfo extends React.Component {
   constructor(props) {
     super(props);
-    this.state = this.props.workspace
+    this.state = props.workspace
     this.handleBlur = this.handleBlur.bind(this);
+    console.log("constructed")
+  }
+
+  static getDerivedStateFromProps(nextProps, prevState) {
+    if (prevState.id !== nextProps.workspace.id) {
+      return nextProps.workspace
+        ;
+    }
+
+    // Return null to indicate no change to state.
+    return null;
   }
 
   update(field) {
@@ -15,6 +26,7 @@ export class WorkspaceInfo extends React.Component {
       })
     };
   }
+
 
   handleBlur() {
     const workspace = Object.assign({}, this.state);

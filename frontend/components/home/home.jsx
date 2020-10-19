@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { UserController } from './user_controller';
-import { WorkspaceInfo } from './workspace_info';
+import { WorkspaceInfoContainer } from './workspace_info_container';
 
 export class Home extends React.Component {
 
@@ -10,14 +10,14 @@ export class Home extends React.Component {
     this.props.fetchUser(this.props.currentUser.id);
   }
 
+
+
   render() {
     if (this.props.homespace === "") return null
     return (
       <div className='workspace'>
         <div className="workspace-header">
-          <WorkspaceInfo
-            workspace={this.props.homespace}
-            updateWorkspace={this.props.updateWorkspace} />
+          <WorkspaceInfoContainer />
           <UserController
             currentUser={this.props.currentUser}
             workspaces={this.props.workspaces}
