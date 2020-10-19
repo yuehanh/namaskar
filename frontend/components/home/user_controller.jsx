@@ -28,20 +28,19 @@ export class UserController extends React.Component {
           {this.props.currentUser.fullname.slice(0, 2)}
         </div>
         <div className={`user-control-menu ${this.state.menu ? "" : "hidden"}`}>
-          <ul className="workspace-menu">
+          <ul className="workspace-menu clickable">
             {this.props.workspaces.map(workspace => {
               return (
                 <li key={workspace.id}
                   onClick={() => this.changeHomespace(workspace.id)}
+                  className={`${this.props.currentUser.homespaceId === workspace.id ? "selected" : ""}`}
                 >
                   {workspace.name}
                 </li>
               )
             })}
+            <div className="menu-separator"></div>
             <li><Link to="/workspaces/new">Create New Workspace</Link></li>
-          </ul>
-          <ul>
-            {/* <li >My Profile Settings...</li> */}
             <li onClick={this.props.logout}>Log Out</li>
           </ul>
         </div>

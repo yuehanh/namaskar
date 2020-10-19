@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 export class WorkspaceForm extends React.Component {
   constructor(props) {
     super(props);
-    debugger
     this.state = this.props.workspace
     this.handleSubmit = this.handleSubmit.bind(this);
   }

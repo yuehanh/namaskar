@@ -1,32 +1,27 @@
 .workspace-header {
-  width: 100%;
+  // width: 100%;
   height: 72px;
   z-index: 999;
   box-shadow: none;
   top: 0;
   position: fixed;
-
+  margin: 0px;
   box-shadow: 0 1px 4px 0 rgba(21, 27, 38, 0.08);
   align-items: center;
   justify-content: space-between;
   background: #fff;
   display: flex;
-  padding: 0 24px;
-}
-
-.workspace-user-control {
-  align-items: center;
-  background-color: #fff;
-  display: flex;
+  padding: 0 20px;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .avatar {
   align-items: center;
   border-radius: 50%;
   box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.07);
-  -moz-box-sizing: border-box;
   box-sizing: border-box;
-  display: inline-flex;
+  display: flex;
   justify-content: center;
   position: relative;
   vertical-align: top;
@@ -47,4 +42,5 @@
   color: #151b26;
   min-width: 1px;
   white-space: nowrap;
+  display: flex;
 }
