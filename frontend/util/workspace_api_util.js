@@ -4,17 +4,20 @@ export const createWorkspace = (workspace) =>
     method: "POST",
     data: { workspace },
   });
+
 export const updateWorkspace = (workspace) =>
   $.ajax({
     url: `api/workspaces/${workspace.id}`,
     method: "PATCH",
     data: { workspace },
   });
+
 export const fetchWorkspace = (workspaceId) =>
   $.ajax({
     url: `api/workspaces/${workspaceId}`,
     method: "GET",
   });
+
 export const deleteWorkspace = (workspaceId) =>
   $.ajax({
     url: `api/workspaces/${workspaceId}`,
