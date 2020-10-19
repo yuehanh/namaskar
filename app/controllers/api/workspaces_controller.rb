@@ -25,7 +25,6 @@ class Api::WorkspacesController < ApplicationController
 
   # PATCH/PUT /api/workspaces/1
   def update
-    @workspace.name = "My Workspace" if @workspace.name.length.zero?
     if @workspace.update(workspace_params)
       @workspace.ensure_owner_workspace_relation
       render :show, status: :ok

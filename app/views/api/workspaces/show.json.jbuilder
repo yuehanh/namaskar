@@ -7,7 +7,7 @@ end
 json.users do
   @workspace.users.each do |user|
     json.set! user.id do
-      json.partial! "api/users/other_user", user: user
+      json.partial! "api/users/user", user: user
     end
   end
 end
