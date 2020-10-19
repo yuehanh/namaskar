@@ -5,6 +5,7 @@ import { UserController } from './user_controller';
 export class Home extends React.Component {
 
   componentDidMount() {
+    debugger
     this.props.fetchWorkspace(this.props.currentUser.homespaceId);
     this.props.fetchUser(this.props.currentUser.id);
   }
@@ -19,7 +20,7 @@ export class Home extends React.Component {
             <Link to={{
               pathname: "/workspaces/edit",
               homespace: this.props.homespace
-            }} > Edit</Link>
+            }} >Edit</Link>
           </div>
           <UserController
             currentUser={this.props.currentUser}
