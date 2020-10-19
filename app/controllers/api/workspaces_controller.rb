@@ -10,6 +10,7 @@ class Api::WorkspacesController < ApplicationController
   def create
     @workspace = Workspace.new(workspace_params)
     @workspace.owner_id = current_user.id
+    @workspace.name = "My Workspace" if @workspace.name.length.zero?
 
     if @workspace.save
       # make sure workspace and its own has a key in the relationship table
@@ -24,6 +25,7 @@ class Api::WorkspacesController < ApplicationController
 
   # PATCH/PUT /api/workspaces/1
   def update
+    @workspace.name = "My Workspace" if @workspace.name.length.zero?
     if @workspace.update(workspace_params)
       @workspace.ensure_owner_workspace_relation
       render :show, status: :ok
