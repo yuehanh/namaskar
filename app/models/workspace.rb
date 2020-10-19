@@ -16,7 +16,7 @@ class Workspace < ApplicationRecord
   has_many :users, through: :user_workspaces
 
   before_validation :ensure_name
-  after_commit :ensure_owner_workspace_relation
+  after_commit :ensure_owner_workspace_relation, on: [:create, :update]
 
   #Make sure owner and the workspace is related
   def ensure_owner_workspace_relation

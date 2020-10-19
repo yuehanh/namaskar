@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_10_15_100930) do
+ActiveRecord::Schema.define(version: 2020_10_19_013106) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -51,8 +51,5 @@ ActiveRecord::Schema.define(version: 2020_10_15_100930) do
     t.index ["owner_id"], name: "index_workspaces_on_owner_id"
   end
 
-  add_foreign_key "user_workspaces", "users"
-  add_foreign_key "user_workspaces", "workspaces"
-  add_foreign_key "users", "workspaces", column: "homespace_id"
-  add_foreign_key "workspaces", "users", column: "owner_id"
+  add_foreign_key "workspaces", "users", column: "owner_id", on_delete: :cascade
 end

@@ -20,13 +20,15 @@ class User < ApplicationRecord
   validates :password, length: { minimum: 6 }, allow_nil: true
 
   before_validation :ensure_session_token
-  after_commit :ensure_user_has_homespace
+  after_commit :ensure_user_has_homespace, on: [:create, :update]
 
   belongs_to :homespace, class_name: :Workspace, optional: true
 
   # Many to Many Relationship between User and Workspace
   has_many :user_workspaces, dependent: :destroy, inverse_of: :user
   has_many :workspaces, through: :user_workspaces
+
+  has_many :owned_spaces, class_name: :Workspace, foreign_key: :owner_id, dependent: :delete_all
 
   attr_reader :password
 
