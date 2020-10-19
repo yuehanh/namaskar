@@ -71,15 +71,18 @@ export class SessionForm extends React.Component {
               <div className="session-form-elements">
                 <div className="email-password-input">
                   <span className="grey-label-text">Email Address</span>
-                  <input type="text"
+                  <input 
+                    type="text"
                     value={this.state.email}
                     onChange={this.update('email')}
                     className="login-input password"
+                    placeholder="Please enter your email here"
                   />
 
                   <br />
                   <span className="grey-label-text">Password</span>
-                  <input type="password"
+                  <input 
+                    type="password"
                     value={this.state.password}
                     onChange={this.update('password')}
                     className="login-input"
@@ -89,7 +92,7 @@ export class SessionForm extends React.Component {
                 <div className="session-form-button-group">
                   <button
                     className="session-form-button button"
-                    id ="demo-button"
+                    id="demo-button"
                     type="button"
                     onClick={this.handleDemo}
                   >Log In Demo User
