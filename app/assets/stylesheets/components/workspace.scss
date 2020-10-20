@@ -44,6 +44,10 @@
   white-space: nowrap;
   display: flex;
 
+  div {
+    min-width: 100px;
+  }
+
   div:hover {
     border-radius: 4px;
     border: 2px solid black;
