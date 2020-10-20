@@ -58,20 +58,29 @@ export class SessionForm extends React.Component {
         <div className="login-form-container">
           <div className='session-form-header'>
             <Link to='/'>
-              <img className='session-form-logo' src={window.images.fullLogo} />
+              <img
+                className='session-form-logo'
+                src={window.images.fullLogo}
+              />
             </Link>
           </div>
           <div className='session-form-content'>
-            <form onSubmit={this.handleSubmit} className="session-form-box">
+            <form
+              onSubmit={this.handleSubmit}
+              className="session-form-box"
+            >
               <br />
-              <div className="session-form-title">{this.props.formType} </div>
-
+              <div className="session-form-title">
+                {this.props.formType}
+              </div>
               {this.renderErrors()}
               <br />
               <div className="session-form-elements">
                 <div className="email-password-input">
-                  <span className="grey-label-text">Email Address</span>
-                  <input 
+                  <span className="grey-label-text">
+                    Email Address
+                  </span>
+                  <input
                     type="text"
                     value={this.state.email}
                     onChange={this.update('email')}
@@ -81,7 +90,7 @@ export class SessionForm extends React.Component {
 
                   <br />
                   <span className="grey-label-text">Password</span>
-                  <input 
+                  <input
                     type="password"
                     value={this.state.password}
                     onChange={this.update('password')}
