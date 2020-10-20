@@ -23,12 +23,12 @@ class User < ApplicationRecord
   after_commit :ensure_user_has_homespace, on: [:create, :update]
 
   belongs_to :homespace, class_name: :Workspace, optional: true
+  has_many :owned_spaces, class_name: :Workspace, foreign_key: :owner_id, dependent: :delete_all
+  has_many :projects, foreign_key: :lead_id
 
   # Many to Many Relationship between User and Workspace
   has_many :user_workspaces, dependent: :destroy, inverse_of: :user
   has_many :workspaces, through: :user_workspaces
-
-  has_many :owned_spaces, class_name: :Workspace, foreign_key: :owner_id, dependent: :delete_all
 
   attr_reader :password
 
