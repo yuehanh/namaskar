@@ -10,7 +10,11 @@
 #  updated_at  :datetime         not null
 #
 class Workspace < ApplicationRecord
+  validates :owner_id, :name, presence: true
+
   belongs_to :owner, class_name: :User
+  has_many :projects
+
   # Many to Many Relationship between User and Workspace
   has_many :user_workspaces, dependent: :destroy, inverse_of: :workspace
   has_many :users, through: :user_workspaces
