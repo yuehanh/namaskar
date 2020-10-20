@@ -6,7 +6,6 @@ export class WorkspaceInfo extends React.Component {
     super(props);
     this.state = props.workspace
     this.handleBlur = this.handleBlur.bind(this);
-    console.log("constructed")
   }
 
   static getDerivedStateFromProps(nextProps, prevState) {
