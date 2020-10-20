@@ -10,10 +10,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_10_19_013106) do
+ActiveRecord::Schema.define(version: 2020_10_20_002357) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "projects", force: :cascade do |t|
+    t.string "name", null: false
+    t.string "description"
+    t.bigint "lead_id", null: false
+    t.bigint "workspace_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["lead_id"], name: "index_projects_on_lead_id"
+    t.index ["workspace_id"], name: "index_projects_on_workspace_id"
+  end
 
   create_table "user_workspaces", force: :cascade do |t|
     t.bigint "workspace_id", null: false
@@ -51,5 +62,6 @@ ActiveRecord::Schema.define(version: 2020_10_19_013106) do
     t.index ["owner_id"], name: "index_workspaces_on_owner_id"
   end
 
+  add_foreign_key "projects", "workspaces"
   add_foreign_key "workspaces", "users", column: "owner_id", on_delete: :cascade
 end
