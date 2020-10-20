@@ -36,7 +36,7 @@ export class WorkspaceInfo extends React.Component {
   render() {
     return (
       <div className="workspace-header-info">
-        <h2>Home  --<ContentEditable
+        <h2>Home -- <ContentEditable
           onChange={this.update('name')}
           onBlur={this.handleBlur}
           html={this.state.name} />
@@ -48,7 +48,6 @@ export class WorkspaceInfo extends React.Component {
           className="editable-description"
         />
         </div>
-
       </div >
     );
   }
