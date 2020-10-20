@@ -1,5 +1,5 @@
 import { connect } from "react-redux";
-
+import { updateWorkspace } from "../../actions/workspace_actions";
 import { selectCurrentUser, selectHomespace, selectTeammates } from "../../reducers/selector";
 import { WorkspaceInfo } from "./workspace_info";
 
