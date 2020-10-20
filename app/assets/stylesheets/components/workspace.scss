@@ -76,6 +76,13 @@
       margin-bottom: 2px;
       text-overflow: ellipsis;
     }
+    *[contenteditable="true"] {
+      display: inline-block;
+    }
+    .editable-description:empty:before {
+      content: attr(placeholder);
+      color: #aaa;
+    }
   }
 }
 
