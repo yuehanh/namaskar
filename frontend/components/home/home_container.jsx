@@ -15,7 +15,7 @@ const mapStateToProps = (state) => {
     homespace,
     currentUser: selectCurrentUser(state),
     workspaces: selectWorkspaces(state),
-    teammate: selectTeammates(state, homespace.id)
+    teammates: selectTeammates(state, homespace.id)
   };
 };
 
