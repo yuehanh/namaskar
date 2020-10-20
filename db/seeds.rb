@@ -26,6 +26,23 @@ demo.homespace = Workspace.create!(
 )
 
 demo.save!
+5.times do
+  project = Project.create!(
+    name: Faker::Movie.title,
+    description: Faker::Marketing.buzzwords,
+    lead_id: demo.id,
+    workspace_id: demo.homespace.id,
+  )
+end
+
+5.times do
+  Project.create!(
+    name: Faker::Movie.title,
+    description: Faker::Marketing.buzzwords,
+    lead_id: demo.id,
+    workspace_id: demo.workspace_ids.first,
+  )
+end
 
 5.times do
   workspace = Workspace.create!(
