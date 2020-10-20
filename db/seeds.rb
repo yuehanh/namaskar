@@ -8,6 +8,7 @@
 UserWorkspace.destroy_all
 Workspace.destroy_all
 User.destroy_all
+Project.destroy_all
 
 demo = User.create!(
   email: "demo@email.com",
@@ -21,6 +22,7 @@ demo = User.create!(
 demo.homespace = Workspace.create!(
   name: "Cozy Place",
   owner_id: demo.id,
+  description: Faker::Quotes::Shakespeare.as_you_like_it_quote,
 )
 
 demo.save!
@@ -29,10 +31,11 @@ demo.save!
   workspace = Workspace.create!(
     name: Faker::Space.unique.nebula,
     owner_id: demo.id,
+    description: Faker::Quotes::Shakespeare.as_you_like_it_quote,
   )
 
   2.times do
-    name = Faker::Name.unique.first_name
+    name = Faker::Superhero.unique.name
     pronouns = Faker::Gender.binary_type == "Female" ? "she/her/hers" : "he/him/his"
     user = User.create!(
       fullname: name,
@@ -43,5 +46,14 @@ demo.save!
       role: Faker::Job.position,
     )
     user.workspaces = user.workspaces.push(workspace)
+  end
+
+  5.times do
+    project = Project.create!(
+      name: Faker::Movie.title,
+      description: Faker::Marketing.buzzwords,
+      lead_id: demo.id,
+      workspace_id: workspace.id,
+    )
   end
 end
