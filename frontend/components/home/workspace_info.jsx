@@ -41,12 +41,12 @@ export class WorkspaceInfo extends React.Component {
           onBlur={this.handleBlur}
           html={this.state.name} />
         </h2>
-        <div className="workspace-header-description"><ContentEditable
-          onChange={this.update('description')}
-          onBlur={this.handleBlur}
-          html={this.state.description}
-          className="editable-description"
-        />
+        <div className="workspace-header-description">
+          <input onChange={this.update('description')}
+            onBlur={this.handleBlur}
+            value={this.state.description}
+            className="editable-description"
+            placeholder="You might want to add a description" />
         </div>
       </div >
     );
