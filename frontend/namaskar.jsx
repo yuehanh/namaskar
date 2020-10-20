@@ -4,8 +4,7 @@ import { configureStore } from "./store/store"
 import { Root } from "./components/root"
 
 // Test
-import { login, logout, signUp } from "./actions/session_actions.js";
-import { createWorkspace, deleteWorkspace, fetchWorkspace, updateWorkspace } from "./actions/workspace_actions";
+import { createProject, deleteProject, fetchProject, updateProject } from "./actions/project_actions";
 
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -28,11 +27,9 @@ document.addEventListener("DOMContentLoaded", () => {
   //Test Portion
   window.getState = store.getState;
   window.dispatch = store.dispatch;
-  window.login = login;
-  window.logout = logout;
-  window.signup = signUp;
-  window.createWorkspace = createWorkspace;
-  window.updateWorkspace = updateWorkspace;
-  window.fetchWorkspace = fetchWorkspace;
-  window.deleteWorkspace = deleteWorkspace;
+
+  window.createProject = createProject;
+  window.updateProject = updateProject;
+  window.fetchProject = fetchProject;
+  window.deleteProject = deleteProject;
 });
