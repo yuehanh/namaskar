@@ -26,7 +26,7 @@ export class UserController extends React.Component {
     this.props.updateUser({
       id: this.props.currentUser.id,
       homespace_id: workspaceId
-    })
+    }).then(() => this.props.fetchWorkspace(workspaceId))
   }
 
   render() {
