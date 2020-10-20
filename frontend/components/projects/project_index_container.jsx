@@ -8,9 +8,9 @@ const mapStateToProps = (state) => {
   const homespace = selectHomespace(state);
   return {
     errors: state.errors.session,
-    workspace: homespace,
     currentUser: selectCurrentUser(state),
     teammates: selectTeammates(state, homespace.id)
+    projects
   };
 };
 
