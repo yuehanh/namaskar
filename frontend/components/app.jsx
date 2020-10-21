@@ -7,15 +7,17 @@ import { SplashContainer } from './splash/splash_container';
 import { HomeContainer } from './home/home_container';
 import { SignupFormContainer } from './session_form/signup_form_container';
 import { LoginFormContainer } from './session_form/login_form_container';
-import { NewFormContainer } from './workspace_form/new_form_container'
+import { NewWorkpaceFormContainer } from './workspace_form/new_workspace_form_container'
+import { ModalContainer } from "./modals/modal";
 
 export const App = () => (
   <div>
+    <ModalContainer />
     <Switch>
       <AuthRoute exact path="/" component={SplashContainer} />
       <AuthRoute exact path="/login" component={LoginFormContainer} />
       <AuthRoute exact path="/signup" component={SignupFormContainer} />
-      <ProtectedRoute exact path="/workspaces/new" component={NewFormContainer} />
+      <ProtectedRoute exact path="/workspaces/new" component={NewWorkpaceFormContainer} />
       <ProtectedRoute exact path="/project/:projectId" component={HomeContainer} />
       <ProtectedRoute exact path="/home" component={HomeContainer} />
       <Redirect to="/" />
