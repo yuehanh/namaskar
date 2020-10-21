@@ -1,28 +1,28 @@
 import React from 'react';
-import { UserController } from './user_controller';
-import { WorkspaceInfoContainer } from './workspace_info_container';
-import { ProjectIndexContainer } from '../projects/project_index_container'
-export class Home extends React.Component {
 
+import { ProjectIndexContainer } from '../projects/project_index_container'
+import { UserControllerContainer } from '../topbar/topbar_user_controller_container';
+import { HomespaceInfoContainer } from '../topbar/homespace_info_container';
+export class Home extends React.Component {
+  constructor(props) {
+    super(props)
+    this.state = { loading: true }
+  }
   componentDidMount() {
     this.props.fetchWorkspace(this.props.currentUser.homespaceId);
-    this.props.fetchUser(this.props.currentUser.id);
+    this.props.fetchUser(this.props.currentUser.id).then(() => this.setState({ loading: false }))
   }
 
   render() {
-    if (this.props.homespace === "") return null
+    if (this.state.loading) {
+      return null
+    }
+    
     return (
       <div className='workspace'>
         <div className="workspace-header">
-          <WorkspaceInfoContainer />
-          <UserController
-            currentUser={this.props.currentUser}
-            workspaces={this.props.workspaces}
-            logout={this.props.logout}
-            fetchWorkspace={this.props.fetchWorkspace}
-            updateUser={this.props.updateUser}
-            homespace={this.props.homespace}
-          />
+          <HomespaceInfoContainer />
+          <UserControllerContainer />
         </div>
         <div className="workspace-body">
           <div className="wrapper">

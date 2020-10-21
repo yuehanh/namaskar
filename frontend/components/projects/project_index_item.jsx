@@ -2,15 +2,17 @@ import React from 'react';
 
 import { Link } from 'react-router-dom';
 
-export const ProjectIndexItem = ({ project, createProject }) => {
-    let pathname = "/project";
-    let icon = <i className="fas fa-tasks"></i>;
-    let className = "project-index-item"
+export const ProjectIndexItem = ({ project }) => {
+    let pathname, icon, className;
 
-    if (createProject) {
+    if (project.new) {
         pathname = "/projects/new"
         icon = <i className="fas fa-plus"></i>
         className = "project-create-item"
+    } else {
+        pathname = `/project`;
+        icon = <i className="fas fa-tasks"></i>;
+        className = "project-index-item"
     }
 
     return (

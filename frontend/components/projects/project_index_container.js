@@ -11,7 +11,6 @@ import { ProjectIndex } from "./project_index";
 const mapStateToProps = (state) => {
   const homespace = selectHomespace(state);
   return {
-    errors: state.errors.session,
     currentUser: selectCurrentUser(state),
     teammates: selectTeammates(state, homespace.id),
     projects: selectProjects(state),

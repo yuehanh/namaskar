@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-export class UserController extends React.Component {
+
+export class TopbarUserController extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -31,10 +32,11 @@ export class UserController extends React.Component {
 
   render() {
     const avatar = this.props.currentUser.fullname.slice(0, 2)
-    const homespace = <li key={this.props.homespace.id}
+    const menuHiddenClass = this.state.menu ? "" : "hidden"
+    const homespace = (<li key={this.props.homespace.id}
       className="selected">
       {this.props.homespace.name}
-    </li>
+    </li>)
 
     const workspaces = this.props.workspaces.map(workspace => {
       if (this.props.homespace.id !== workspace.id) {
@@ -56,7 +58,7 @@ export class UserController extends React.Component {
           {avatar}
         </div>
 
-        <div className={`user-control-menu ${this.state.menu ? "" : "hidden"}`}>
+        <div className={`user-control-menu ${menuHiddenClass}`}>
           <ul className="workspace-menu clickable" >
             {homespace}
             {workspaces}

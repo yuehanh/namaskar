@@ -1,16 +1,17 @@
 import React from 'react';
 import ContentEditable from 'react-contenteditable'
+import { Redirect } from 'react-router-dom';
 
-export class WorkspaceInfo extends React.Component {
+export class TopbarInfo extends React.Component {
   constructor(props) {
     super(props);
-    this.state = props.workspace
+    this.state = props.info
     this.handleBlur = this.handleBlur.bind(this);
   }
 
   static getDerivedStateFromProps(nextProps, prevState) {
-    if (prevState.id !== nextProps.workspace.id) {
-      return nextProps.workspace
+    if (prevState.id !== nextProps.info.id) {
+      return nextProps.info
         ;
     }
 
@@ -26,16 +27,16 @@ export class WorkspaceInfo extends React.Component {
     };
   }
 
-
   handleBlur() {
-    const workspace = Object.assign({}, this.state);
-    this.props.updateWorkspace(workspace)
+    const info = Object.assign({}, this.state);
+    this.props.processUpdate(info)
   }
 
   render() {
+
     return (
       <div className="workspace-header-info">
-        <h2>Home -- <ContentEditable
+        <h2><ContentEditable
           onChange={this.update('name')}
           onBlur={this.handleBlur}
           html={this.state.name} />
