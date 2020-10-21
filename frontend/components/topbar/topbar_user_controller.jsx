@@ -27,9 +27,9 @@ export class TopbarUserController extends React.Component {
     this.props.updateUser({
       id: this.props.currentUser.id,
       homespace_id: workspaceId
-    }).then(() => this.props.fetchWorkspace(workspaceId)).then(
+    }).then(
       () => {
-        return this.props.history.push("/home")
+        this.props.history.push("/home")
       }
     )
   }
