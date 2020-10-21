@@ -1,0 +1,56 @@
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  min-width: 240px;
+  width: 20%;
+  height: auto;
+  font-size: 13px;
+  overflow: hidden;
+
+  background-color: $palette-1-dark;
+  color: white;
+  transition: margin-left 250ms ease-out, transform 250ms ease-out;
+  .sidebar-header {
+    align-items: center;
+    display: flex;
+    height: 72px;
+    justify-content: space-between;
+
+    .nav-logo {
+      height: 30%;
+    }
+  }
+  >*{
+    padding: 0 10px;
+    line-height: 20px;
+  }
+  .profile-link-group {
+    height: 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+  }
+  .personal-links {
+    font-size: 100%;
+  }
+  .personal-links i {
+    color: white;
+    font-size: 20px;
+    opacity: 0.6;
+    transition: opacity 225ms;
+    padding: 0 5px;
+  }
+  .project-create-item,
+  .project-index-item {
+    display: flex;
+    flex-direction: row;
+ 
+    .project-name {
+      padding: 0px 5px;
+    }
+  }
+  .project-create-item:hover,
+  .project-index-item:hover {
+    color: $palette-1-green;
+  }
+}
