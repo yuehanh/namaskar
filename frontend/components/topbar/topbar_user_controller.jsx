@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 
 export class TopbarUserController extends React.Component {
   constructor(props) {
@@ -67,9 +66,7 @@ export class TopbarUserController extends React.Component {
             {homespace}
             {workspaces}
             <div className="menu-separator"></div>
-            <li>
-              <Link to="/workspaces/new">Create New Workspace</Link>
-            </li>
+            <li onClick={this.props.createWorkspaceModal} > Create New Workspace </li>
             <li onClick={this.props.logout}>Log Out</li>
           </ul>
         </div>

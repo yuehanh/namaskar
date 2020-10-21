@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import { logout } from "../../actions/session_actions";
 import { fetchWorkspace } from "../../actions/workspace_actions";
 import { updateUser } from "../../actions/user_actions";
+import { openModal } from '../../actions/modal_actions'
 
 import {
   selectCurrentUser,
@@ -28,6 +29,7 @@ const mapDispatchToProps = (dispatch) => {
     logout: () => dispatch(logout()),
     fetchWorkspace: (workspaceId) => dispatch(fetchWorkspace(workspaceId)),
     updateUser: (user) => dispatch(updateUser(user)),
+    createWorkspaceModal: () => dispatch(openModal("newWorkspace")),
   };
 };
 
