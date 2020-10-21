@@ -8,7 +8,7 @@ import { HomeContainer } from './home/home_container';
 import { SignupFormContainer } from './session_form/signup_form_container';
 import { LoginFormContainer } from './session_form/login_form_container';
 import { NewFormContainer } from './workspace_form/new_form_container'
-import { EditFormContainer } from './workspace_form/edit_form_container'
+import { ProjectShowContainer } from "./projects/project_show_container";
 
 export const App = () => (
   <div>
@@ -17,7 +17,7 @@ export const App = () => (
       <AuthRoute exact path="/login" component={LoginFormContainer} />
       <AuthRoute exact path="/signup" component={SignupFormContainer} />
       <ProtectedRoute exact path="/workspaces/new" component={NewFormContainer} />
-      <ProtectedRoute exact path="/workspaces/edit" component={EditFormContainer} />
+      <ProtectedRoute exact path="/project" component={ProjectShowContainer} />
       <ProtectedRoute exact path="/home" component={HomeContainer} />
       <Redirect to="/" />
     </Switch>

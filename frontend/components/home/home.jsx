@@ -1,16 +1,13 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import { UserController } from './user_controller';
 import { WorkspaceInfoContainer } from './workspace_info_container';
-
+import { ProjectIndexContainer } from '../projects/project_index_container'
 export class Home extends React.Component {
 
   componentDidMount() {
     this.props.fetchWorkspace(this.props.currentUser.homespaceId);
     this.props.fetchUser(this.props.currentUser.id);
   }
-
-
 
   render() {
     if (this.props.homespace === "") return null
@@ -26,6 +23,11 @@ export class Home extends React.Component {
             updateUser={this.props.updateUser}
             homespace={this.props.homespace}
           />
+        </div>
+        <div className="workspace-body">
+          <div className="wrapper">
+            <ProjectIndexContainer />
+          </div>
         </div>
       </div >
     )
