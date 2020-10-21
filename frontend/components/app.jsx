@@ -17,7 +17,7 @@ export const App = () => (
       <AuthRoute exact path="/login" component={LoginFormContainer} />
       <AuthRoute exact path="/signup" component={SignupFormContainer} />
       <ProtectedRoute exact path="/workspaces/new" component={NewFormContainer} />
-      <ProtectedRoute exact path="/project" component={ProjectShowContainer} />
+      <ProtectedRoute exact path="/project/" component={ProjectShowContainer} />
       <ProtectedRoute exact path="/home" component={HomeContainer} />
       <Redirect to="/" />
     </Switch>
