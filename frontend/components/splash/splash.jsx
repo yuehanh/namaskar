@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { ProfileLinks } from './profile_links';
 
 export class Splash extends React.Component {
   constructor(props) {
@@ -54,18 +55,7 @@ export class Splash extends React.Component {
           </section>
           <div className='splash-footer'>
             <div className="wrapper">
-              <div className="profile-link-group">
-                <a
-                  className="personal-links"
-                  href="https://www.linkedin.com/in/yuehanh/">
-                  <i className="fab fa-linkedin"></i>
-                </a>
-                <a
-                  className="personal-links"
-                  href="https://github.com/yuehanh">
-                  <i className="fab fa-github-square"></i>
-                </a>
-              </div>
+              <ProfileLinks />
             </div>
           </div>
         </div>
