@@ -2,11 +2,10 @@ import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
 
 import { updateProject } from "../../actions/project_actions";
-
-import { TopbarInfo } from "./topbar_info";
+import { ProjectInfo } from "./project_info";
 
 const mapStateToProps = (state, ownProps) => {
-  const info = ownProps.project;
+  const info = state.entities.projects[ownProps.match.params.projectId];
   return {
     info,
     projects: state.entities.projects,
@@ -20,5 +19,5 @@ const mapDispatchToProps = (dispatch) => {
 };
 
 export const ProjectInfoContainer = withRouter(
-  connect(mapStateToProps, mapDispatchToProps)(TopbarInfo)
+  connect(mapStateToProps, mapDispatchToProps)(ProjectInfo)
 );

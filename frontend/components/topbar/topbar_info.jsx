@@ -5,11 +5,12 @@ import { Redirect } from 'react-router-dom';
 export class TopbarInfo extends React.Component {
   constructor(props) {
     super(props);
-    this.state = props.info
+    this.state = { id: "" }
     this.handleBlur = this.handleBlur.bind(this);
   }
 
   static getDerivedStateFromProps(nextProps, prevState) {
+    if (!nextProps.info) return null;
     if (prevState.id !== nextProps.info.id) {
       return nextProps.info
         ;
@@ -33,7 +34,6 @@ export class TopbarInfo extends React.Component {
   }
 
   render() {
-
     return (
       <div className="workspace-header-info">
         <h2><ContentEditable
@@ -44,7 +44,7 @@ export class TopbarInfo extends React.Component {
         <div className="workspace-header-description">
           <input onChange={this.update('description')}
             onBlur={this.handleBlur}
-            value={this.state.description}
+            value={this.state.description ?? ""}
             className="editable-description"
             placeholder="You might want to add a description" />
         </div>

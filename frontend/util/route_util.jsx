@@ -13,13 +13,13 @@ const Auth = ({ path, loggedIn, exact, component: Component }) => (
 );
 
 const Protected = ({ path, loggedIn, exact, component: Component }) => (
-  <Route path={path} exact={exact} render={(props) => (
-    loggedIn ? (
+  <Route path={path} exact={exact} render={(props) => {
+    return loggedIn ? (
       <Component {...props} />
     ) : (
         <Redirect to="/login" />
       )
-  )} />
+    }} />
 );
 
 const mapStateToProps = state => (

@@ -11,6 +11,7 @@ import {
 } from "../../reducers/selector";
 
 import { TopbarUserController } from "./topbar_user_controller";
+import { withRouter } from "react-router-dom";
 
 const mapStateToProps = (state) => {
   const homespace = selectHomespace(state);
@@ -30,7 +31,6 @@ const mapDispatchToProps = (dispatch) => {
   };
 };
 
-export const UserControllerContainer = connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(TopbarUserController);
+export const UserControllerContainer = withRouter(
+  connect(mapStateToProps, mapDispatchToProps)(TopbarUserController)
+);
