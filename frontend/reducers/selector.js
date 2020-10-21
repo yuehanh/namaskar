@@ -13,13 +13,17 @@ export const selectWorkspaces = (state) => {
 };
 
 export const selectTeammates = (state, workspacesId) => {
-  const { users, userWorkspaces } = state;
+  const { users, userWorkspaces } = state.entities;
   const teammates = [];
-  for (pair in userWorkspaces) {
-    if (pair.workspacesId === workspacesId) {
-      teammates.push(users.pair.userId);
+  const pairs = Object.values(userWorkspaces);
+  const id = workspacesId;
+  console.log("id");
+  console.log(id);
+  pairs.forEach((pair) => {
+    if (pair.workspaceId === id) {
+      teammates.push(users[pair.userId]);
     }
-  }
+  });
   return teammates ?? [];
 };
 

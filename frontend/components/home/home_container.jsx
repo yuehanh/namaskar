@@ -1,6 +1,6 @@
 import { connect } from "react-redux";
 import { logout } from "../../actions/session_actions";
-import { fetchWorkspace } from "../../actions/workspace_actions";
+import { fetchWorkspace,updateWorkspace } from "../../actions/workspace_actions";
 import { fetchUser, updateUser } from "../../actions/user_actions";
 
 import { selectCurrentUser, selectHomespace, selectTeammates, selectWorkspaces } from "../../reducers/selector";

@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { ProjectIndexContainer } from '../projects/project_index_container'
 import { ProfileLinks } from '../splash/profile_links';
+import { UserIndexContainer } from '../users/user_index_container';
 
 
 export class Sidebar extends React.Component {
@@ -24,6 +25,7 @@ export class Sidebar extends React.Component {
               <i className="fas fa-home"></i> Home
              </div>
           </Link>
+          <UserIndexContainer />
           <ProjectIndexContainer />
         </div>
       </div >
