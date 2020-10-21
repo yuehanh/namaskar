@@ -3,6 +3,12 @@ import { ProjectIndexItem } from './project_index_item';
 
 export class ProjectIndex extends React.Component {
 
+  componentDidUpdate(prevProps) {
+    if (this.props.homespaceId !== prevProps.homespaceId) {
+      this.props.fetchWorkspace(this.props.homespaceId)
+    }
+  }
+
   render() {
     const projectIndexItems = this.props.projects.map(
       (project) => (

@@ -17,8 +17,6 @@ export const selectTeammates = (state, workspacesId) => {
   const teammates = [];
   const pairs = Object.values(userWorkspaces);
   const id = workspacesId;
-  console.log("id");
-  console.log(id);
   pairs.forEach((pair) => {
     if (pair.workspaceId === id) {
       teammates.push(users[pair.userId]);
