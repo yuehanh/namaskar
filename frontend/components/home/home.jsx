@@ -13,8 +13,7 @@ export class Home extends React.Component {
     this.state = { loading: true }
   }
   componentDidMount() {
-    this.props.fetchWorkspace(this.props.homespaceId);
-    this.props.fetchUser(this.props.currentUser.id).then(() => this.setState({ loading: false }))
+    this.props.fetchWorkspace(this.props.homespaceId).then(() => this.setState({ loading: false }))
   }
 
   render() {

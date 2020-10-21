@@ -10,15 +10,14 @@ import { createProject, deleteProject, fetchProject, updateProject } from "./act
 document.addEventListener("DOMContentLoaded", () => {
   const root = document.getElementById("root");
   let store;
-  if (window.currentUser) {
+  if (window.currentState) {
     const preloadedState = {
-      entities: {
-        users: { [window.currentUser.id]: window.currentUser }
-      },
-      session: { currentUserId: window.currentUser.id }
+      entities: window.currentState,
+      session: { currentUserId: window.currentUserId}
     };
     store = configureStore(preloadedState);
-    delete window.currentUser;
+    delete window.currentState;
+    delete window.currentUserId;
   } else {
     store = configureStore();
   }
