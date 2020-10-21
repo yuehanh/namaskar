@@ -61,6 +61,7 @@ end
       pronouns: pronouns,
       team: Faker::Job.field,
       role: Faker::Job.position,
+      homespace_id: workspace.id,
     )
     user.workspaces = user.workspaces.push(workspace)
   end
