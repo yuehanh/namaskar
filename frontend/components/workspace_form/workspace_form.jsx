@@ -21,7 +21,7 @@ export class WorkspaceForm extends React.Component {
     e.preventDefault();
     const workspace = Object.assign({}, this.state);
     this.props.processForm(workspace).then(() => {
-      this.props.history.push("/home")
+      this.props.closeModal()
     })
 
   }
@@ -46,11 +46,6 @@ export class WorkspaceForm extends React.Component {
     return (
       <div className="session">
         <div className="login-form-container">
-          <div className='session-form-header'>
-            <Link to='/'>
-              <img className='session-form-logo' src={window.images.fullLogo} />
-            </Link>
-          </div>
           <div className='session-form-content'>
             <form onSubmit={this.handleSubmit} className="session-form-box">
               <br />
