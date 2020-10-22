@@ -46,8 +46,10 @@ export class TopbarUserController extends React.Component {
         return (
           <li key={workspace.id}
             onClick={() => this.changeHomespace(workspace.id)}
-          >
-            { workspace.name}
+          className="worksapce-name-row">
+            <div>
+              {workspace.name}</div>
+            <i className="fas fa-minus"></i>
           </li>
         )
       }
