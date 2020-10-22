@@ -14,9 +14,13 @@ class Api::WorkspacesController < ApplicationController
 
     if @workspace.save
       # make sure workspace and its own has a key in the relationship table
+      current_user.homespace_id = @workspace.id
       @workspace.ensure_owner_workspace_relation
-      current_user.homespace = @workspace
+
+      # this line is required to reload the cache of workspace users. otherwise the old current user information will be served up.
+      @workspace.users.first.homespace_id = @workspace.id
       current_user.save!
+
       render :show, status: :created
     else
       render json: @workspace.errors, status: :unprocessable_entity
