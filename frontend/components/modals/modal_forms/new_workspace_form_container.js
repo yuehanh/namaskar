@@ -1,7 +1,7 @@
 import { connect } from "react-redux";
-import { clearErrors } from "../../actions/session_actions";
-import { createWorkspace } from "../../actions/workspace_actions";
-import { closeModal } from "../../actions/modal_actions";
+import { clearErrors } from "../../../actions/session_actions";
+import { createWorkspace } from "../../../actions/workspace_actions";
+import { closeModal } from "../../../actions/modal_actions";
 
 import { WorkspaceForm } from "./workspace_form";
 
@@ -11,6 +11,7 @@ const mapStateToProps = (state) => {
     errors: state.errors.session,
     formType: "New Workspace",
     workspace,
+    homespaceId: null,
   };
 };
 
