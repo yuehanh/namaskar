@@ -18,8 +18,8 @@ const destroyProject = (payload) => {
   };
 };
 
-export const createProject = (workspaceId, project) => (dispatch) => {
-  return ProjectUtil.createProject(workspaceId, project)
+export const createProject = (project, workspaceId) => (dispatch) => {
+  return ProjectUtil.createProject(project, workspaceId)
     .then((payload) => dispatch(receiveProject(payload)))
     .fail((payload) => {
       dispatch(receiveError(payload.responseJSON));

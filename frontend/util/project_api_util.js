@@ -1,4 +1,4 @@
-export const createProject = (workspaceId, project) =>
+export const createProject = (project, workspaceId) =>
   $.ajax({
     url: `api/workspaces/${workspaceId}/projects/`,
     method: "POST",
