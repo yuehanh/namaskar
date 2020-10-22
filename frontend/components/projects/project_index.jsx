@@ -23,7 +23,7 @@ export class ProjectIndex extends React.Component {
           <h3>Projects</h3>
         </div>
         <ul className="project-index-items">
-          <ProjectIndexItem project={newProject} />
+          <ProjectIndexItem project={newProject} createProjectModal = {this.props.createProjectModal}/>
           {projectIndexItems}
         </ul>
       </div >

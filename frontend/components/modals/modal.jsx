@@ -1,17 +1,22 @@
 import React from "react";
-import { closeModal } from "../../actions/modal_actions";
 import { connect } from "react-redux";
-import { NewWorkpaceFormContainer } from "../workspace_form/new_workspace_form_container";
+
+import { closeModal } from "../../actions/modal_actions";
+
+import { NewWorkpaceFormContainer } from "./modal_forms/new_workspace_form_container"
+import { NewProjectFormContainer } from "./modal_forms/new_project_form_container";
 
 function Modal({ modal, closeModal }) {
   if (!modal) {
     return null;
   }
   let component;
-  debugger
   switch (modal) {
     case 'newWorkspace':
       component = <NewWorkpaceFormContainer />
+      break;
+    case 'newProject':
+      component = <NewProjectFormContainer />
       break;
     default:
       return null;
@@ -19,7 +24,7 @@ function Modal({ modal, closeModal }) {
 
   return (
     <div className="modal-background" onClick={closeModal}>
-      <div className="modal-modal-child" onClick={(e) => e.stopPropagation()}>
+      <div className="modal-child" onClick={(e) => e.stopPropagation()}>
         {component}
       </div>
     </div>
