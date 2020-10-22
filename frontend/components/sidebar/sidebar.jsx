@@ -17,15 +17,21 @@ export class Sidebar extends React.Component {
           </div>
         </div>
         <div className="sidebar-nav-link">
-          <ProfileLinks />
-          <Link to={{
-            pathname: "/home",
-          }}>
-            <div className="nav-link-home">
-              <i className="fas fa-home"></i> Home
+          <div className="menu-separator" />
+          <div className="home-row">
+            <Link to={{
+              pathname: "/home",
+            }}>
+              <div className="nav-link-home">
+                <i className="fas fa-home"></i> Home
              </div>
-          </Link>
+            </Link>
+            <ProfileLinks />
+          </div>
+          <div className="menu-separator" />
+          <h3>Team Members</h3>
           <UserIndexContainer />
+          <div className="menu-separator" />
           <ProjectIndexContainer />
         </div>
       </div >
