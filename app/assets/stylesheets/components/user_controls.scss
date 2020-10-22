@@ -2,10 +2,15 @@
   align-items: center;
   background-color: #fff;
   display: flex;
+  padding-right: 20px;
+
+
 }
 .user-control-menu.hidden {
   display: none;
 }
+
+
 .user-control-menu {
   position: absolute;
   top: 54px;
@@ -43,3 +48,18 @@
     background-color: $lightest-purple;
   }
 }
+
+.worksapce-name-row{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+
+  .fa-minus{
+    display: none;
+  }
+}
+
+.worksapce-name-row:hover .fa-minus{
+  display: block;
+}
+
