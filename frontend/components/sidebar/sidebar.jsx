@@ -32,6 +32,9 @@ export class Sidebar extends React.Component {
           <h3>Team Members</h3>
           <UserIndexContainer />
           <div className="menu-separator" />
+          <div className="project-index-header">
+            <h3>Projects</h3>
+          </div>
           <ProjectIndexContainer />
         </div>
       </div >
