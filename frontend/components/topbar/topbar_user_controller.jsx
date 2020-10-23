@@ -46,10 +46,10 @@ export class TopbarUserController extends React.Component {
         return (
           <li key={workspace.id}
             onClick={() => this.changeHomespace(workspace.id)}
-          className="worksapce-name-row">
-            <div>
+            className="worksapce-name-row">
+            <div className="clickable">
               {workspace.name}</div>
-            <i className="fas fa-minus"></i>
+            <i className="fas fa-minus clickable" onClick={(e) => { e.stopPropagation(); this.props.deleteWorkspaceModal(workspace.id) }}></i>
           </li>
         )
       }
@@ -64,7 +64,7 @@ export class TopbarUserController extends React.Component {
         </div>
 
         <div className={`user-control-menu ${menuHiddenClass}`}>
-          <ul className="workspace-menu clickable" >
+          <ul className="workspace-menu " >
             {homespace}
             {workspaces}
             <div className="menu-separator"></div>
