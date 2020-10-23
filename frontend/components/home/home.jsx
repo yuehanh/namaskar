@@ -7,6 +7,7 @@ import { UserControllerContainer } from '../topbar/topbar_user_controller_contai
 import { HomespaceInfoContainer } from '../topbar/homespace_info_container';
 import { ProjectInfoContainer } from '../topbar/project_info_container';
 import { Sidebar } from '../sidebar/sidebar';
+import { TaskIndexContainer } from '../tasks/task_index_container';
 export class Home extends React.Component {
   constructor(props) {
     super(props)
@@ -20,7 +21,6 @@ export class Home extends React.Component {
     if (this.state.loading) {
       return null
     }
-
     return (
       <div className="workspace">
         <Sidebar />
@@ -38,6 +38,7 @@ export class Home extends React.Component {
             <div className="wrapper">
               <Switch>
                 <ProtectedRoute exact path="/home" component={ProjectIndexContainer} />
+                <ProtectedRoute exact path="/project/:projectId" component={TaskIndexContainer} />
               </Switch>
 
             </div>
