@@ -4,7 +4,7 @@ import { configureStore } from "./store/store"
 import { Root } from "./components/root"
 
 // Test
-import { createProject, deleteProject, fetchProject, updateProject } from "./actions/project_actions";
+import { createTask, deleteTask,  updateTask } from "./actions/task_actions";
 
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -27,8 +27,7 @@ document.addEventListener("DOMContentLoaded", () => {
   window.getState = store.getState;
   window.dispatch = store.dispatch;
 
-  window.createProject = createProject;
-  window.updateProject = updateProject;
-  window.fetchProject = fetchProject;
-  window.deleteProject = deleteProject;
+  window.createTask = createTask;
+  window.updateTask = updateTask;
+  window.deleteTask = deleteTask;
 });
