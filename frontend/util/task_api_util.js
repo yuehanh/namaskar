@@ -7,7 +7,7 @@ export const createTask = (task) =>
 
 export const updateTask = (task) =>
   $.ajax({
-    url: `api/takss/${task.id}`,
+    url: `api/tasks/${task.id}`,
     method: "PATCH",
     data: { task },
   });
