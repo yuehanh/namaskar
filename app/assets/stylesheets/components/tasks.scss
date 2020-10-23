@@ -1,0 +1,107 @@
+.task-index-items {
+  display: flex;
+  flex-direction: column;
+}
+.task-row,
+.task-create-item {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  height: 30px;
+  .fa-plus {
+    margin-left: 10px;
+  }
+  .fa-check {
+    margin-right: 10px;
+  }
+  .create-task-name {
+    margin-left: 20px;
+  }
+}
+
+.task-create-item,
+.task-row {
+  font-size: 14px;
+  line-height: 30px;
+  width: auto;
+  border-top: $lightest-purple 1px solid;
+  white-space: nowrap;
+
+  *[contenteditable="true"] {
+    width: auto;
+  }
+
+  .fa-check {
+    color: lightgrey;
+    padding: 3px;
+    border: 1px solid;
+    border-radius: 50%;
+    margin: 0 10px;
+    transition: color 0.2s;
+    font-size: 10px;
+  }
+  .fa-check:hover {
+    color: $light-purple;
+    border-color: $light-purple;
+  }
+  .fa-check.completed {
+    background: $main-purple;
+    border: 1px solid $main-purple;
+    border-radius: 50%;
+    color: white;
+  }
+  .fa-check.completed + div {
+    color: lightgrey;
+    text-decoration: line-through;
+    transition: all 0.5s;
+  }
+}
+.rainbow-in {
+  display: block;
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+
+  /* For browsers that do not support gradients */
+  background-image: -webkit-linear-gradient(
+    left,
+    red,
+    orange,
+    yellow,
+    green,
+    cyan,
+    blue,
+    violet
+  ); /* For Safari 5.1 to 6.0 */
+  background-image: -o-linear-gradient(
+    right,
+    orange,
+    yellow,
+    green,
+    cyan,
+    blue,
+    violet
+  ); /* For Opera 11.1 to 12.0 */
+  background-image: -moz-linear-gradient(
+    right,
+    orange,
+    yellow,
+    green,
+    cyan,
+    blue,
+    violet
+  ); /* For Firefox 3.6 to 15 */
+  background-image: linear-gradient(
+    to right,
+    orange,
+    yellow,
+    green,
+    cyan,
+    blue,
+    violet
+  ); /* Standard syntax (must be last) */
+}
+
+.rainbow-out {
+  opacity: 0;
+
+}
