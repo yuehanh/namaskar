@@ -7,9 +7,12 @@ a,
 input[type="submit"] {
   cursor: pointer;
   border-style: none;
-  color: inherit;
 }
 
+a,
+.clickable {
+  color: inherit;
+}
 a,
 a:visited,
 a:hover,
@@ -17,8 +20,8 @@ a:active {
   text-decoration: none;
 }
 .button {
-  background: #14aaf5;
-  border-color: #14aaf5;
+  background: #242f42;
+  border-color: #242f42;
   color: #fff;
   fill: #fff;
   font-size: 13px;
@@ -47,7 +50,6 @@ strong {
   font-weight: bold;
 }
 
-
 .wrapper {
   max-width: 1440px;
   min-width: 400px;
@@ -59,7 +61,6 @@ strong {
   margin: 0 10%;
   padding: 0 64px;
 }
-
 
 .menu-separator {
   border-top: 1px solid #e8ecee;
