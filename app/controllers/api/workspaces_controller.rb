@@ -44,8 +44,6 @@ class Api::WorkspacesController < ApplicationController
     render json: ["You have successfullly deleted '#{name}''"], status: 200
   end
 
-  protected
-
   private
 
   # Use callbacks to share common setup or constraints between actions.
