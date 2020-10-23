@@ -1,6 +1,5 @@
 import { connect } from "react-redux";
 
-import { createProject } from "../../actions/project_actions";
 import { fetchWorkspace } from "../../actions/workspace_actions";
 import { openModal } from "../../actions/modal_actions";
 
@@ -17,10 +16,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    createProject: (workspaceId, project) =>
-      dispatch(createProject(workspaceId, project)),
     fetchWorkspace: (workspaceId) => dispatch(fetchWorkspace(workspaceId)),
-    createProjectModal: () => dispatch(openModal("newProject")),
   };
 };
 
