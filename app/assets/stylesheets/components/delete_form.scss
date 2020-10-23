@@ -1,0 +1,29 @@
+.delete-form-container {
+  width: 500px;
+}
+
+.delete-form-content {
+  
+  display: flex;
+  flex-direction: column;
+  background-color: #fff;
+  border-radius: 4px;
+  display: flex;
+  justify-content: center;
+  margin-left: 8px;
+  margin-right: 8px;
+  margin-top: 5px;
+  padding-bottom: 32px;
+  padding-left: 32px;
+  padding-right: 32px;
+
+  h2{
+    color: $palette-1-dark;
+    font-size: 32px;
+    font-weight: 400;
+    line-height: 40px;
+    margin-bottom: 32px;
+    margin-top: 48px;
+    text-align: center;
+  }
+}
