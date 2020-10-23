@@ -39,3 +39,6 @@ Namaska is a web application designed to help members of organiztions track, man
 - Adding mailer function to invite user to join through email
 - Dark theme
 - More comprehensive tasks functionality
+
+---
+### Feel free to send me an <a href="mailto:yuehan.huang@protonmail.com">message</a>!
