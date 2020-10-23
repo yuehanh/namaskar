@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_10_23_023000) do
+ActiveRecord::Schema.define(version: 2020_10_23_072454) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -24,6 +24,26 @@ ActiveRecord::Schema.define(version: 2020_10_23_023000) do
     t.datetime "updated_at", null: false
     t.index ["lead_id"], name: "index_projects_on_lead_id"
     t.index ["workspace_id"], name: "index_projects_on_workspace_id"
+  end
+
+  create_table "tasks", force: :cascade do |t|
+    t.string "name", null: false
+    t.text "description"
+    t.boolean "completed", default: false, null: false
+    t.boolean "milestone", default: false, null: false
+    t.datetime "start_date"
+    t.datetime "end_date"
+    t.datetime "due_date"
+    t.bigint "creator_id", null: false
+    t.bigint "workspace_id", null: false
+    t.bigint "assignee_id"
+    t.bigint "project_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["assignee_id"], name: "index_tasks_on_assignee_id"
+    t.index ["creator_id"], name: "index_tasks_on_creator_id"
+    t.index ["project_id"], name: "index_tasks_on_project_id"
+    t.index ["workspace_id"], name: "index_tasks_on_workspace_id"
   end
 
   create_table "user_workspaces", force: :cascade do |t|
