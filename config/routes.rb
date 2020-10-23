@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
-  resources :tasks
   namespace :api, defaults: { format: :json } do
     resources :users, only: %i[create show update]
+    resources :tasks, only: %i[create update destroy]
     resources :workspaces, only: %i[create show update destroy] do
       resources :projects, only: :create
     end
