@@ -31,3 +31,15 @@ else
     end
   end
 end
+
+if @workspace.tasks.empty?
+  json.tasks({})
+else
+  json.tasks do
+    @workspace.tasks.each do |task|
+      json.set! task.id do
+        json.partial! "api/tasks/task", task: task
+      end
+    end
+  end
+end
