@@ -14,6 +14,10 @@
   color: white;
   transition: margin-left 250ms ease-out, transform 250ms ease-out;
 
+  h3 {
+    font-size: 20px;
+  }
+
   .menu-separator {
     margin-top: 20px;
   }
@@ -60,7 +64,7 @@
   }
   > * {
     padding: 0 10px;
-    line-height: 20px;
+    line-height: 25px;
   }
   .profile-link-group {
     height: 20px;
@@ -87,6 +91,7 @@
 
   .project-name {
     padding-left: 5px;
+    font-size: 16px;
   }
   .fa-minus {
     display: none;
@@ -107,8 +112,8 @@
     justify-content: space-between;
   }
   li:hover {
-    background-color: #6f7782;
-    color: $palette-1-orange;
+    background-color: $dark-purple ;
+    color:black;
   }
 }
 .home-row {
@@ -116,6 +121,6 @@
   flex-direction: row;
   justify-content: space-between;
   padding-bottom: 20px;
-  font-size: 16px;
+  font-size: 20px;
   text-align: center;
 }
