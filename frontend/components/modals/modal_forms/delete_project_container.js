@@ -9,7 +9,7 @@ const mapStateToProps = (_null, ownProps) => {
   const data = ownProps.data;
   return {
     data,
-    formType: "delete this project",
+    formType: "DELETE THIS PROJECT?",
   };
 };
 
