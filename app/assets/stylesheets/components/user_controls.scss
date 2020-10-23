@@ -8,7 +8,6 @@
   display: none;
 }
 
-
 .user-control-menu {
   position: absolute;
   top: 54px;
@@ -47,17 +46,17 @@
   }
 }
 
-.worksapce-name-row{
+.worksapce-name-row {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
 
-  .fa-minus{
+  .fa-minus {
     display: none;
+    height: auto;
   }
 }
 
-.worksapce-name-row:hover .fa-minus{
+.worksapce-name-row:hover .fa-minus {
   display: block;
 }
-
