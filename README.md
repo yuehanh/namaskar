@@ -1,24 +1,41 @@
+ <p align="center"><a target="_blank"  href="https://namaskar-team.herokuapp.com/#/home"><img src="./app/assets/images/fulllogo.svg" width=250px/></a></p>
+
 # Namaskar
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Namaska is a web application designed to help members of organiztions track, manage, and collaborate their work. Teams members can create invite members to join their workspace and collaborate on projects and tasks.
 
-Things you may want to cover:
+[Namaskar Live Demo](https://namaskar-team.herokuapp.com/#)
 
-* Ruby version
 
-* System dependencies
 
-* Configuration
+## Features 
 
-* Database creation
+- Secure User authentication using BCrypt.
+- Projects and tasks are separated by workspaces. User can create and delete their own workspaces.
+- Users can create, view, edit, delete all tasks and projects of the workspace they are a part of. 
 
-* Database initialization
+### Dynamic navigation
+![Navigation demo](./app/assets/images/readme/nav.gif)
 
-* How to run the test suite
+### Edit Workspace Info In-Place
+![Edit demo](./app/assets/images/readme/edit.gif)
 
-* Services (job queues, cache servers, search engines, etc.)
+### Task Check-off Animation
+![Task demo](./app/assets/images/readme/task.gif)
 
-* Deployment instructions
 
-* ...
+## Technologies
+### SQL Database
+- PostgreSQL
+### Backend
+- Ruby on Rails
+### Frontend
+- Javascript
+- React.js
+- HTML
+- CSS
+
+# Future Features
+- Adding mailer function to invite user to join through email
+- Dark theme
+- More comprehensive tasks functionality
