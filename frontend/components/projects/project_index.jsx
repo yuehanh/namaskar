@@ -1,5 +1,7 @@
 import React from 'react';
-import { ProjectIndexItem } from './project_index_item';
+import { ProjectIndexItemContainer } from './project_index_item_container';
+
+
 
 export class ProjectIndex extends React.Component {
 
@@ -13,7 +15,7 @@ export class ProjectIndex extends React.Component {
     const projectIndexItems = this.props.projects.map(
       (project) => (
         <li key={project.id}>
-          <ProjectIndexItem project={project} />
+          <ProjectIndexItemContainer project={project} />
         </li>
       ))
     const newProject = { name: "", description: "", new: true }
@@ -23,7 +25,8 @@ export class ProjectIndex extends React.Component {
           <h3>Projects</h3>
         </div>
         <ul className="project-index-items">
-          <ProjectIndexItem project={newProject} createProjectModal = {this.props.createProjectModal}/>
+          <ProjectIndexItemContainer project={newProject}
+          />
           {projectIndexItems}
         </ul>
       </div >
