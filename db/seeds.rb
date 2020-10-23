@@ -9,6 +9,7 @@ UserWorkspace.destroy_all
 Workspace.destroy_all
 User.destroy_all
 Project.destroy_all
+Task.destroy_all
 
 demo = User.create!(
   email: "demo@email.com",
@@ -26,22 +27,22 @@ demo.homespace = Workspace.create!(
 )
 
 demo.save!
-5.times do
+20.times do
   project = Project.create!(
     name: Faker::Movie.title,
     description: Faker::Marketing.buzzwords,
     lead_id: demo.id,
     workspace_id: demo.homespace.id,
   )
-end
 
-5.times do
-  Project.create!(
-    name: Faker::Movie.title,
-    description: Faker::Marketing.buzzwords,
-    lead_id: demo.id,
-    workspace_id: demo.workspace_ids.first,
-  )
+  10.times do
+    Task.create!(
+      name: Faker::Hipster.sentence,
+      creator_id: demo.id,
+      workspace_id: demo.homespace.id,
+      project_id: project.id,
+    )
+  end
 end
 
 5.times do
@@ -73,5 +74,13 @@ end
       lead_id: demo.id,
       workspace_id: workspace.id,
     )
+    10.times do
+      Task.create!(
+        name: Faker::Hipster.sentence,
+        creator_id: demo.id,
+        workspace_id: demo.homespace.id,
+        project_id: project.id,
+      )
+    end
   end
 end
