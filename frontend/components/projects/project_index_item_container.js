@@ -1,11 +1,10 @@
 import { connect } from "react-redux";
 
-import { closeModal, openModal } from "../../actions/modal_actions";
+import { openModal } from "../../actions/modal_actions";
 
 import { ProjectIndexItem } from "./project_index_item";
 
 const mapStateToProps = (_null, ownProps) => {
-  ;
   return {
     project: ownProps.project,
   };

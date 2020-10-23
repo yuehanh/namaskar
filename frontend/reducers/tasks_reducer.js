@@ -6,7 +6,6 @@ export const tasksReducer = (state = {}, action) => {
   let nextState = Object.assign({}, state);
   switch (action.type) {
     case RECEIVE_WORKSPACE:
-      debugger
       return action.payload.tasks;
     case DELETE_TASK:
       delete nextState[action.payload];
