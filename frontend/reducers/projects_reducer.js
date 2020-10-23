@@ -6,7 +6,7 @@ export const projectsReducer = (state = {}, action) => {
   let nextState = Object.assign({}, state);
   switch (action.type) {
     case RECEIVE_WORKSPACE:
-      return action.payload.projects ?? {};
+      return action.payload.projects;
     case RECEIVE_PROJECT:
       return Object.assign(nextState, action.payload.projects);
     case DELETE_PROJECT:
