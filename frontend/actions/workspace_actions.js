@@ -4,7 +4,7 @@ import { receiveError } from "./session_actions";
 export const RECEIVE_WORKSPACE = "RECEIVE_WORKSPACE";
 export const DELETE_WORKSPACE = "DELETE_WORKSPACE";
 
-const receiveWorkspace = (payload) => {
+export const receiveWorkspace = (payload) => {
   return {
     type: RECEIVE_WORKSPACE,
     payload,
