@@ -18,7 +18,7 @@ export class TaskIndex extends React.Component {
         </li>
       )
     )
-    console.log("alpha")
+
     return (
       <div className="task-index">
         <ul className="task-index-items">
@@ -26,10 +26,10 @@ export class TaskIndex extends React.Component {
           <li
             className="task-create-item clickable" onClick={this.handleClick}
           >
-          <div className="create-task-name">
+            <div className="create-task-name">
               Create Task
           </div>
-          <i className="fas fa-plus clickable"></i>
+            <i className="fas fa-plus clickable"></i>
           </li>
         </ul>
       </div>

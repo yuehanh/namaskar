@@ -14,7 +14,7 @@ export class Home extends React.Component {
     this.state = { loading: true }
   }
   componentDidMount() {
-    this.props.fetchWorkspace(this.props.homespaceId).then(() => console.log("fetch from home")).then(() => this.setState({ loading: false }))
+    this.props.fetchWorkspace(this.props.homespaceId).then(() => this.setState({ loading: false }))
   }
 
   render() {

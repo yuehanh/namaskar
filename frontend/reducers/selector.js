@@ -31,7 +31,6 @@ export const selectProjects = (state) => {
 
 export const selectTasks = (state, projectId) => {
   const allTasks = Object.values(state.entities.tasks);
-  debugger
   if (projectId) {
     //  Use double equal here since projectId is a string
     return allTasks.filter((task) => task.projectId == projectId);

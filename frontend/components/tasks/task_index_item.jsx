@@ -21,6 +21,7 @@ export class TaskIndexItem extends React.Component {
       setTimeout(() => {
         this.setState({ transition: "" })
       }, 1200);
+      
       this.props.updateTask(this.state.task)
     } else {
       this.setState({ task: taskNow })
@@ -38,13 +39,11 @@ export class TaskIndexItem extends React.Component {
   }
 
   handleBlur() {
-    const info = Object.assign({}, this.state);
+    const info = Object.assign({}, this.state.task);
     this.props.updateTask(info)
   }
 
   render() {
-
-
     const status = this.state.task.completed ? "completed" : ""
     return (
       <div className={`task-row ${this.state.transition}`}>

@@ -4,7 +4,6 @@ import { selectTasks } from "../../reducers/selector";
 import { TaskIndex } from "./task_index";
 
 const mapStateToProps = (state, ownProps) => {
-  debugger;
   const projectId = ownProps.match.params.projectId;
   return {
     projectId,
