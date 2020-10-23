@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 export class WorkspaceForm extends React.Component {
   constructor(props) {
     super(props);
@@ -66,7 +65,6 @@ export class WorkspaceForm extends React.Component {
                 <br />
                 <span className="grey-label-text">Description</span>
                 <textarea
-
                   value={this.state.description}
                   onChange={this.update('description')}
                   className="login-input"
@@ -78,8 +76,6 @@ export class WorkspaceForm extends React.Component {
                 className="session-form-button button"
                 type="submit"
                 value={this.props.formType} />
-
-
             </div>
           </form>
 
