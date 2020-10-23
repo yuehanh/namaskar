@@ -21,9 +21,7 @@ export class ProjectIndex extends React.Component {
     const newProject = { name: "", description: "", new: true }
     return (
       <div className="project-index">
-        <div className="project-index-header">
-          <h3>Projects</h3>
-        </div>
+
         <ul className="project-index-items">
           <ProjectIndexItemContainer project={newProject}
           />
