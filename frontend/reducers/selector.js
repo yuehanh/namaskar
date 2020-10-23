@@ -28,3 +28,13 @@ export const selectTeammates = (state, workspacesId) => {
 export const selectProjects = (state) => {
   return Object.values(state.entities.projects);
 };
+
+export const selectTasks = (state, projectId) => {
+  const allTasks = Object.values(state.entities.tasks);
+  debugger
+  if (projectId) {
+    //  Use double equal here since projectId is a string
+    return allTasks.filter((task) => task.projectId == projectId);
+  }
+  return allTasks
+};
