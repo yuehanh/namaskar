@@ -25,10 +25,10 @@ export class DeleteForm extends React.Component {
   }
   render() {
     return (
-      <div className="new-workspace-form-container">
-        <div className='session-form-content'>
-          <h2>Do you really want to {this.props.formType}</h2>z
-          <strong>This cannot be undone</strong>
+      <div className="delete-form-container">
+        <div className='delete-form-content'>
+          <h2>DO YOU WANT TO <strong>{this.props.formType}</strong> </h2>
+          <strong>This cannot be undone!!</strong>
 
           <div className="session-form-button-group">
             <button
