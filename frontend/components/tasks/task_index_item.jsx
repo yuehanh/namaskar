@@ -21,7 +21,7 @@ export class TaskIndexItem extends React.Component {
       setTimeout(() => {
         this.setState({ transition: "" })
       }, 1200);
-      
+
       this.props.updateTask(this.state.task)
     } else {
       this.setState({ task: taskNow })
@@ -32,8 +32,9 @@ export class TaskIndexItem extends React.Component {
 
   update(field) {
     return e => {
+
       this.setState({
-        [field]: e.target.value
+        task: { ...this.state.task, [field]: e.target.value }
       })
     };
   }

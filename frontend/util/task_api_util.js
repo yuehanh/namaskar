@@ -6,6 +6,7 @@ export const createTask = (task) =>
   });
 
 export const updateTask = (task) => {
+  debugger
   return $.ajax({
     url: `api/tasks/${task.id}`,
     method: "PATCH",
