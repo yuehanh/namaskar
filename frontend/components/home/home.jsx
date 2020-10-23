@@ -8,18 +8,20 @@ import { HomespaceInfoContainer } from '../topbar/homespace_info_container';
 import { ProjectInfoContainer } from '../topbar/project_info_container';
 import { Sidebar } from '../sidebar/sidebar';
 import { TaskIndexContainer } from '../tasks/task_index_container';
+import { Spinner } from '../spinner';
 export class Home extends React.Component {
   constructor(props) {
     super(props)
     this.state = { loading: true }
   }
   componentDidMount() {
-    this.props.fetchWorkspace(this.props.homespaceId).then(() => this.setState({ loading: false }))
+    setTimeout(()=>this.props.fetchWorkspace(this.props.homespaceId).then(() => this.setState({ loading: false })), 1500)
+    
   }
 
   render() {
     if (this.state.loading) {
-      return null
+      return (<Spinner/>)
     }
     return (
       <div className="workspace">
