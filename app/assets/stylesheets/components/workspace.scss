@@ -40,6 +40,7 @@
 
     .workspace-header-info {
       padding-left: 3%;
+
       h2 {
         font-size: 26px;
         font-weight: 500;
@@ -67,7 +68,7 @@
 
         .editable-description {
           outline: 0;
-          width: auto;
+          width: 200%;
           min-width: 300px;
           white-space: nowrap;
           padding-bottom: 5px;
