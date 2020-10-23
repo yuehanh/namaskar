@@ -15,4 +15,5 @@ class Project < ApplicationRecord
 
   belongs_to :lead, class_name: :User
   belongs_to :workspace
+  has_many :tasks
 end
