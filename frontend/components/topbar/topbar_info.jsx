@@ -1,6 +1,5 @@
 import React from 'react';
 import ContentEditable from 'react-contenteditable'
-import { Redirect } from 'react-router-dom';
 
 export class TopbarInfo extends React.Component {
   constructor(props) {
