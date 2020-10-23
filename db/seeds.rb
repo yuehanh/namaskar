@@ -45,6 +45,21 @@ demo.save!
   end
 end
 
+2.times do
+  name = Faker::Superhero.unique.name
+  pronouns = Faker::Gender.binary_type == "Female" ? "she/her/hers" : "he/him/his"
+  user = User.create!(
+    fullname: name,
+    email: "#{name}@email.com",
+    password: "password",
+    pronouns: pronouns,
+    team: Faker::Job.field,
+    role: Faker::Job.position,
+    homespace_id: demo.homespace_id,
+  )
+  user.workspaces = user.workspaces.push(demo.homespace)
+end
+
 5.times do
   workspace = Workspace.create!(
     name: Faker::Space.unique.nebula,
