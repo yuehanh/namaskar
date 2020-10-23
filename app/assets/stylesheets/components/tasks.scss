@@ -24,7 +24,8 @@
   font-size: 14px;
   line-height: 30px;
   width: auto;
-  border-top: $lightest-purple 1px solid;
+  border-top: $lightest-purple 0.5px solid;
+  border-bottom: $lightest-purple 0.5px solid;
   white-space: nowrap;
 
   *[contenteditable="true"] {
@@ -45,10 +46,12 @@
     border-color: $light-purple;
   }
   .fa-check.completed {
+    opacity: 0.5;
     background: $main-purple;
     border: 1px solid $main-purple;
     border-radius: 50%;
     color: white;
+    transition: all 0.5s;
   }
   .fa-check.completed + div {
     color: lightgrey;
@@ -103,5 +106,11 @@
 
 .rainbow-out {
   opacity: 0;
+}
+.task-create-item {
+  border-bottom: 0px;
+}
 
+li:nth-child(1) > div {
+  border-top: $lightest-purple 1px solid;
 }
