@@ -1,5 +1,5 @@
 .sidebar {
-  position:fixed;
+  position: fixed;
   top: 0;
   bottom: 0;
   display: flex;
@@ -10,7 +10,7 @@
   overflow: hidden;
   z-index: 11;
 
-  background-color: $palette-1-dark;
+  background-color: #151b26;
   color: white;
   transition: margin-left 250ms ease-out, transform 250ms ease-out;
 
@@ -83,34 +83,39 @@
     display: flex;
     flex-direction: row;
     margin-left: 10px;
-    .project-name {
-      width: 100%;
-      padding: 0px 5px;
-      display: inline-flex;
-      flex-direction: row;
-      justify-content: space-between;
-    }
-  }
-  .project-create-item:hover,
-  .project-index-item:hover {
-    color: $palette-1-orange;
-
   }
 
-  .fa-minus{
+  .project-name {
+    padding-left: 5px;
+  }
+  .fa-minus {
     display: none;
+    padding-right: 5px;
   }
-  li:hover{
-    background-color: #6f7782;
+
+  li: {
+    width: 100%;
+    padding: 0px 5px;
   }
-  li:hover  .fa-minus{
+  li:hover .fa-minus {
     display: flex;
   }
+  .project-row {
+    width: 100%;
+    display: inline-flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  li:hover {
+    background-color: #6f7782;
+    color: $palette-1-orange;
+  }
 }
-.home-row{
+.home-row {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   padding-bottom: 20px;
   font-size: 16px;
+  text-align: center;
 }
