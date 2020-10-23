@@ -1,12 +1,11 @@
 .workspace {
   display: flex;
   flex-direction: row;
-  .workspace-content{
-    padding-left: 17%;
-    padding-right: 3%;
+  .workspace-content {
+    padding-left: 15%;
+    width: 100%;
   }
   .workspace-header {
-    // width: 100%;
     height: 72px;
     z-index: 10;
     box-shadow: none;
@@ -40,6 +39,7 @@
     }
 
     .workspace-header-info {
+      padding-left: 3%;
       h2 {
         font-size: 26px;
         font-weight: 500;
@@ -102,17 +102,85 @@
     max-height: 1000px;
     padding-top: 100px;
     overflow: hidden;
+    .wrapper {
+      width: 840px;
+      margin: 0 auto;
+    }
+    .project-index-items {
+      padding-top: 15px;
+      display: flex;
+      flex-wrap: wrap;
 
+      a {
+        margin: 0;
+        padding: 0;
+        font-size: 100%;
+        color: inherit;
+        vertical-align: baseline;
+        background: transparent;
+        text-decoration: none;
+      }
+      .project-create-item,
+      .project-index-item {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        background-color: rgba(246, 248, 249, 0);
+        border-radius: 30px;
+        height: 220px;
+        width: 160px;
+        padding: 15px 0;
+        box-sizing: border-box;
+
+        transition: 0.5s;
+      }
+      .project-create-item:hover,
+      .project-index-item:hover {
+        background-color: #f6f8f9;
+        transform: translate3d(0, -5px, 0);
+      }
+      .project-create-item > .project-tile:hover,
+      .project-index-item > .project-tile:hover {
+        transform: translate3d(0, -5px, 0);
+      }
+      .fa-minus {
+        display: none;
+      }
+      .project-tile {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        border-radius: 20px;
+        width: 100px;
+        height: 100px;
+        background-color: $purple;
+        color: white;
+        font-size: 30px;
+        transition: 0.5s;
+      }
+      .project-name {
+        box-sizing: border-box;
+        margin-top: 8px;
+        padding: 0 8px;
+        -webkit-box-orient: vertical;
+        color: #151b26;
+        display: -webkit-box;
+        font-size: 15px;
+        font-weight: 500;
+        -webkit-line-clamp: 2;
+        line-height: 16px;
+        max-height: 32px;
+        overflow: hidden;
+        text-align: center;
+        text-overflow: ellipsis;
+        width: 100%;
+      }
+      .project-create-item > .project-tile {
+        background: none;
+        border: 2px dashed;
+        color: #6f7782;
+      }
+    }
   }
 }
-
-// .workspace-info {
-//   display: flex;
-//   flex-direction: row;
-//   p {
-//     padding: 0px 20px;
-//     line-height: 19px;
-//     font-size: 15px;
-//     color: #6f7782;
-//   }
-// }
