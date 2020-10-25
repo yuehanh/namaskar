@@ -1,9 +1,17 @@
 import { connect } from "react-redux";
 import { logout } from "../../actions/session_actions";
-import { fetchWorkspace, updateWorkspace } from "../../actions/workspace_actions";
+import {
+  fetchWorkspace,
+  updateWorkspace,
+} from "../../actions/workspace_actions";
 import { fetchUser, updateUser } from "../../actions/user_actions";
 
-import { selectCurrentUser, selectHomespace, selectTeammates, selectWorkspaces } from "../../reducers/selector";
+import {
+  selectCurrentUser,
+  selectHomespace,
+  selectTeammates,
+  selectWorkspaces,
+} from "../../reducers/selector";
 
 import { Home } from "./home";
 
@@ -16,7 +24,7 @@ const mapStateToProps = (state) => {
     currentUser,
     homespaceId: currentUser.homespaceId,
     workspaces: selectWorkspaces(state),
-    teammates: selectTeammates(state, homespace.id)
+    teammates: selectTeammates(state, homespace.id),
   };
 };
 
@@ -26,7 +34,7 @@ const mapDispatchToProps = (dispatch) => {
     fetchWorkspace: (workspaceId) => dispatch(fetchWorkspace(workspaceId)),
     updateWorkspace: (workspace) => dispatch(updateWorkspace(workspace)),
     fetchUser: (userId) => dispatch(fetchUser(userId)),
-    updateUser: (user) => dispatch(updateUser(user))
+    updateUser: (user) => dispatch(updateUser(user)),
   };
 };
 

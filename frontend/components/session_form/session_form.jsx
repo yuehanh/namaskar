@@ -1,25 +1,24 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React from "react";
+import { Link } from "react-router-dom";
 export class SessionForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      email: '',
-      password: ''
+      email: "",
+      password: "",
     };
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleDemo = this.handleDemo.bind(this);
-
-
   }
   componentWillUnmount() {
-    this.props.clearErrors()
+    this.props.clearErrors();
   }
 
   update(field) {
-    return e => this.setState({
-      [field]: e.currentTarget.value
-    });
+    return (e) =>
+      this.setState({
+        [field]: e.currentTarget.value,
+      });
   }
 
   handleSubmit(e) {
@@ -29,12 +28,20 @@ export class SessionForm extends React.Component {
   }
 
   handleDemo(e) {
-    e.preventDefault()
+    e.preventDefault();
     this.props.processDemo();
   }
   renderRedirect() {
-    const redirectText = this.props.formType === "Log In" ? "Don't have an account? " : "Have an account? "
-    return (<div className="session-redirect">{redirectText}{"  "} {this.props.navLink}</div>)
+    const redirectText =
+      this.props.formType === "Log In"
+        ? "Don't have an account? "
+        : "Have an account? ";
+    return (
+      <div className="session-redirect">
+        {redirectText}
+        {"  "} {this.props.navLink}
+      </div>
+    );
   }
   renderErrors() {
     if (this.props.errors.length > 0) {
@@ -56,34 +63,24 @@ export class SessionForm extends React.Component {
     return (
       <div className="session">
         <div className="login-form-container">
-          <div className='session-form-header'>
-            <Link to='/'>
-              <img
-                className='session-form-logo'
-                src={window.images.fullLogo}
-              />
+          <div className="session-form-header">
+            <Link to="/">
+              <img className="session-form-logo" src={window.images.fullLogo} />
             </Link>
           </div>
-          <div className='session-form-content'>
-            <form
-              onSubmit={this.handleSubmit}
-              className="session-form-box"
-            >
+          <div className="session-form-content">
+            <form onSubmit={this.handleSubmit} className="session-form-box">
               <br />
-              <div className="session-form-title">
-                {this.props.formType}
-              </div>
+              <div className="session-form-title">{this.props.formType}</div>
               {this.renderErrors()}
               <br />
               <div className="session-form-elements">
                 <div className="email-password-input">
-                  <span className="grey-label-text">
-                    Email Address
-                  </span>
+                  <span className="grey-label-text">Email Address</span>
                   <input
                     type="text"
                     value={this.state.email}
-                    onChange={this.update('email')}
+                    onChange={this.update("email")}
                     className="login-input password"
                     placeholder="Please enter your email here"
                   />
@@ -93,7 +90,7 @@ export class SessionForm extends React.Component {
                   <input
                     type="password"
                     value={this.state.password}
-                    onChange={this.update('password')}
+                    onChange={this.update("password")}
                     className="login-input"
                   />
                   <br />
@@ -104,23 +101,21 @@ export class SessionForm extends React.Component {
                     id="demo-button"
                     type="button"
                     onClick={this.handleDemo}
-                  >Log In Demo User
-                </button>
+                  >
+                    Log In Demo User
+                  </button>
                   <input
                     className="session-form-button button"
                     type="submit"
-                    value={this.props.formType} />
+                    value={this.props.formType}
+                  />
                 </div>
-
               </div>
             </form>
-
           </div>
         </div>
-        <div className="session-form-footer">
-          {this.renderRedirect()}
-        </div>
-      </div >
+        <div className="session-form-footer">{this.renderRedirect()}</div>
+      </div>
     );
   }
 }

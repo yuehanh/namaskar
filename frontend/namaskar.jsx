@@ -1,11 +1,10 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import { configureStore } from "./store/store"
-import { Root } from "./components/root"
+import { configureStore } from "./store/store";
+import { Root } from "./components/root";
 
 // Test
-import { createTask, deleteTask,  updateTask } from "./actions/task_actions";
-
+import { createTask, deleteTask, updateTask } from "./actions/task_actions";
 
 document.addEventListener("DOMContentLoaded", () => {
   const root = document.getElementById("root");
@@ -13,7 +12,7 @@ document.addEventListener("DOMContentLoaded", () => {
   if (window.currentState) {
     const preloadedState = {
       entities: window.currentState,
-      session: { currentUserId: window.currentUserId}
+      session: { currentUserId: window.currentUserId },
     };
     store = configureStore(preloadedState);
     delete window.currentState;

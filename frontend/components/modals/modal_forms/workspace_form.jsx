@@ -1,28 +1,28 @@
-import React from 'react';
+import React from "react";
 export class WorkspaceForm extends React.Component {
   constructor(props) {
     super(props);
-    this.state = this.props.workspace
+    this.state = this.props.workspace;
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   componentWillUnmount() {
-    this.props.clearErrors()
+    this.props.clearErrors();
   }
 
   update(field) {
-    return e => this.setState({
-      [field]: e.currentTarget.value
-    });
+    return (e) =>
+      this.setState({
+        [field]: e.currentTarget.value,
+      });
   }
 
   handleSubmit(e) {
     e.preventDefault();
     const workspace = Object.assign({}, this.state);
     this.props.processForm(workspace, this.props.homespaceId).then(() => {
-      this.props.closeModal()
-    })
-
+      this.props.closeModal();
+    });
   }
 
   renderErrors() {
@@ -44,7 +44,7 @@ export class WorkspaceForm extends React.Component {
   render() {
     return (
       <div className="new-workspace-form-container">
-        <div className='session-form-content'>
+        <div className="session-form-content">
           <form onSubmit={this.handleSubmit} className="session-form-box">
             <br />
             <div className="session-form-title">{this.props.formType} </div>
@@ -57,7 +57,7 @@ export class WorkspaceForm extends React.Component {
                 <input
                   type="text"
                   value={this.state.name}
-                  onChange={this.update('name')}
+                  onChange={this.update("name")}
                   className="login-input password"
                   placeholder="Please give your workspace a name"
                 />
@@ -66,7 +66,7 @@ export class WorkspaceForm extends React.Component {
                 <span className="grey-label-text">Description</span>
                 <textarea
                   value={this.state.description}
-                  onChange={this.update('description')}
+                  onChange={this.update("description")}
                   className="login-input"
                 />
                 <br />
@@ -75,10 +75,10 @@ export class WorkspaceForm extends React.Component {
               <input
                 className="session-form-button button"
                 type="submit"
-                value={this.props.formType} />
+                value={this.props.formType}
+              />
             </div>
           </form>
-
         </div>
       </div>
     );

@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 
 import { closeModal } from "../../actions/modal_actions";
 
-import { NewWorkpaceFormContainer } from "./modal_forms/new_workspace_form_container"
+import { NewWorkpaceFormContainer } from "./modal_forms/new_workspace_form_container";
 import { NewProjectFormContainer } from "./modal_forms/new_project_form_container";
 import { DeleteProjectContainer } from "./modal_forms/delete_project_container";
 import { DeleteWorkspaceContainer } from "./modal_forms/delete_workspace_container";
@@ -14,17 +14,17 @@ function Modal({ modal, closeModal }) {
   }
   let component;
   switch (modal.type) {
-    case 'newWorkspace':
-      component = <NewWorkpaceFormContainer />
+    case "newWorkspace":
+      component = <NewWorkpaceFormContainer />;
       break;
-    case 'newProject':
-      component = <NewProjectFormContainer />
+    case "newProject":
+      component = <NewProjectFormContainer />;
       break;
-    case 'deleteProject':
-      component = <DeleteProjectContainer data={modal.data} />
-      break
-    case 'deleteWorkspace':
-      component = <DeleteWorkspaceContainer data={modal.data} />
+    case "deleteProject":
+      component = <DeleteProjectContainer data={modal.data} />;
+      break;
+    case "deleteWorkspace":
+      component = <DeleteWorkspaceContainer data={modal.data} />;
       break;
     default:
       return null;
@@ -51,4 +51,7 @@ const mapDispatchToProps = (dispatch) => {
   };
 };
 
-export const ModalContainer = connect(mapStateToProps, mapDispatchToProps)(Modal);
+export const ModalContainer = connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Modal);

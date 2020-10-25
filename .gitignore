@@ -6,7 +6,7 @@ reminder
 node_modules
 bundle.js*
 bundle.js.map
-
+.eslintrc.json
 # rails
 
 *.rbc

@@ -1,37 +1,50 @@
-import React from 'react';
-import { Switch } from 'react-router-dom';
-import { ProtectedRoute } from '../../util/route_util';
+import React from "react";
+import { Switch } from "react-router-dom";
+import { ProtectedRoute } from "../../util/route_util";
 
-import { ProjectIndexContainer } from '../projects/project_index_container'
-import { UserControllerContainer } from '../topbar/topbar_user_controller_container';
-import { HomespaceInfoContainer } from '../topbar/homespace_info_container';
-import { ProjectInfoContainer } from '../topbar/project_info_container';
-import { Sidebar } from '../sidebar/sidebar';
-import { TaskIndexContainer } from '../tasks/task_index_container';
-import { Spinner } from '../spinner';
+import { ProjectIndexContainer } from "../projects/project_index_container";
+import { UserControllerContainer } from "../topbar/topbar_user_controller_container";
+import { HomespaceInfoContainer } from "../topbar/homespace_info_container";
+import { ProjectInfoContainer } from "../topbar/project_info_container";
+import { Sidebar } from "../sidebar/sidebar";
+import { TaskIndexContainer } from "../tasks/task_index_container";
+import { Spinner } from "../spinner";
 export class Home extends React.Component {
   constructor(props) {
-    super(props)
-    this.state = { loading: true }
+    super(props);
+    this.state = { loading: true };
   }
   componentDidMount() {
-    setTimeout(()=>this.props.fetchWorkspace(this.props.homespaceId).then(() => this.setState({ loading: false })), 1500)
-    
+    setTimeout(
+      () =>
+        this.props
+          .fetchWorkspace(this.props.homespaceId)
+          .then(() => this.setState({ loading: false })),
+      1500
+    );
   }
 
   render() {
     if (this.state.loading) {
-      return (<Spinner/>)
+      return <Spinner />;
     }
     return (
       <div className="workspace">
         <Sidebar />
 
-        <div className='workspace-content'>
+        <div className="workspace-content">
           <div className="workspace-header">
             <Switch>
-              <ProtectedRoute exact path="/home" component={HomespaceInfoContainer} />
-              <ProtectedRoute exact path="/project/:projectId" component={ProjectInfoContainer} />
+              <ProtectedRoute
+                exact
+                path="/home"
+                component={HomespaceInfoContainer}
+              />
+              <ProtectedRoute
+                exact
+                path="/project/:projectId"
+                component={ProjectInfoContainer}
+              />
             </Switch>
             <UserControllerContainer />
           </div>
@@ -39,16 +52,21 @@ export class Home extends React.Component {
           <div className="workspace-body">
             <div className="wrapper">
               <Switch>
-                <ProtectedRoute exact path="/home" component={ProjectIndexContainer} />
-                <ProtectedRoute exact path="/project/:projectId" component={TaskIndexContainer} />
+                <ProtectedRoute
+                  exact
+                  path="/home"
+                  component={ProjectIndexContainer}
+                />
+                <ProtectedRoute
+                  exact
+                  path="/project/:projectId"
+                  component={TaskIndexContainer}
+                />
               </Switch>
-
             </div>
           </div>
-
-        </div >
+        </div>
       </div>
-
-    )
+    );
   }
 }
