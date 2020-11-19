@@ -4,6 +4,8 @@ class Api::UsersController < ApplicationController
 
   def create
     @user = User.new(user_params)
+    email_index = @user.email.index("@")
+    @user.fullname ||= @user.email[0...email_index]
 
     if @user.save
       login(@user)
