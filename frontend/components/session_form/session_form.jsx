@@ -92,6 +92,7 @@ export class SessionForm extends React.Component {
                     value={this.state.password}
                     onChange={this.update("password")}
                     className="login-input"
+                    placeholder="Minimum six characters"
                   />
                   <br />
                 </div>
@@ -102,7 +103,7 @@ export class SessionForm extends React.Component {
                     type="button"
                     onClick={this.handleDemo}
                   >
-                    Log In Demo User
+                    Demo User
                   </button>
                   <input
                     className="session-form-button button"
