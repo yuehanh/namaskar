@@ -10,3 +10,18 @@
     width: 250px;
   }
 }
+
+@keyframes rainbow-transition {
+  0% {
+    opacity: 0;
+    width: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+    width: 100%;
+  }
+}

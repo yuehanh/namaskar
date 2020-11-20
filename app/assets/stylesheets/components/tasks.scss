@@ -59,11 +59,12 @@
     transition: all 0.5s;
   }
 }
+
 .rainbow-in {
   display: block;
   opacity: 0;
   transition: opacity 0.5s ease-in-out;
-
+  animation: rainbow-transition 1s;
   /* For browsers that do not support gradients */
   background-image: -webkit-linear-gradient(
     left,
@@ -104,9 +105,9 @@
   ); /* Standard syntax (must be last) */
 }
 
-.rainbow-out {
-  opacity: 0;
-}
+// .rainbow-out {
+//   opacity: 0;
+// }
 .task-create-item {
   border-bottom: 0px;
 }
