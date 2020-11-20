@@ -112,13 +112,6 @@
   ); /* Standard syntax (must be last) */
 }
 
-// .rainbow-out {
-//   opacity: 0;
-// }
 .task-create-item {
   border-bottom: 0px;
-}
-
-li:nth-child(1) > div {
-  border-top: $lightest-purple 1px solid;
 }
