@@ -5,6 +5,7 @@ export class TaskIndexItem extends React.Component {
     super(props);
     this.state = { task: props.task, transition: "" };
     this.handleBlur = this.handleBlur.bind(this);
+    this.handleEnter = this.handleEnter.bind(this);
     this.handleToggleComplete = this.handleToggleComplete.bind(this);
   }
 
@@ -42,6 +43,13 @@ export class TaskIndexItem extends React.Component {
     this.props.updateTask(info);
   }
 
+  handleEnter() {
+    if (event.key === "Enter") {
+      event.preventDefault();
+      this.handleBlur();
+    }
+  }
+
   render() {
     const status = this.state.task.completed ? "completed" : "";
     return (
@@ -53,6 +61,7 @@ export class TaskIndexItem extends React.Component {
         <ContentEditable
           onChange={this.update("name")}
           onBlur={this.handleBlur}
+          onKeyDown={this.handleEnter}
           html={this.state.task.name}
         />
       </div>

@@ -6,6 +6,7 @@ export class TopbarInfo extends React.Component {
     super(props);
     this.state = { id: "" };
     this.handleBlur = this.handleBlur.bind(this);
+    this.handleEnter = this.handleEnter.bind(this);
   }
 
   static getDerivedStateFromProps(nextProps, prevState) {
@@ -31,6 +32,13 @@ export class TopbarInfo extends React.Component {
     this.props.processUpdate(info);
   }
 
+  handleEnter() {
+    if (event.key === "Enter") {
+      event.preventDefault();
+      this.handleBlur();
+    }
+  }
+
   render() {
     return (
       <div className="workspace-header-info">
@@ -38,6 +46,7 @@ export class TopbarInfo extends React.Component {
           <ContentEditable
             onChange={this.update("name")}
             onBlur={this.handleBlur}
+            onKeyDown={this.handleEnter}
             html={this.state.name}
           />
         </h2>
