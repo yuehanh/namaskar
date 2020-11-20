@@ -23,15 +23,22 @@
 .task-row {
   font-size: 14px;
   line-height: 30px;
-  width: auto;
+  width: 800px;
   border-top: $lightest-purple 0.5px solid;
   border-bottom: $lightest-purple 0.5px solid;
   white-space: nowrap;
 
   *[contenteditable="true"] {
+    animation: drop-down-row 1s;
     width: auto;
-  }
 
+    height: 30px;
+  }
+  *[contenteditable="true"]:not(:focus) {
+    max-width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
   .fa-check {
     color: lightgrey;
     padding: 3px;
