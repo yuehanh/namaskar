@@ -1,0 +1,12 @@
+@keyframes open-menu {
+  0% {
+    height: 0;
+    width: 0;
+    overflow: hidden;
+  }
+  100% {
+    overflow: hidden;
+    height: 250px;
+    width: 250px;
+  }
+}
