@@ -15,13 +15,9 @@ export class Home extends React.Component {
     this.state = { loading: true };
   }
   componentDidMount() {
-    setTimeout(
-      () =>
-        this.props
-          .fetchWorkspace(this.props.homespaceId)
-          .then(() => this.setState({ loading: false })),
-      1500
-    );
+    this.props
+      .fetchWorkspace(this.props.homespaceId)
+      .then(() => this.setState({ loading: false }));
   }
 
   render() {
