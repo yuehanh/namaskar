@@ -78,11 +78,12 @@ export class SessionForm extends React.Component {
                 <div className="email-password-input">
                   <span className="grey-label-text">Email Address</span>
                   <input
-                    type="text"
+                    type="email"
                     value={this.state.email}
                     onChange={this.update("email")}
                     className="login-input password"
                     placeholder="Please enter your email here"
+                    required
                   />
 
                   <br />
@@ -93,6 +94,7 @@ export class SessionForm extends React.Component {
                     onChange={this.update("password")}
                     className="login-input"
                     placeholder="Minimum six characters"
+                    required
                   />
                   <br />
                 </div>
