@@ -4,7 +4,7 @@ class Api::UsersController < ApplicationController
 
   def index
     if params[:search]
-      @users = User.where("email OR fullname LIKE :search_string ", substring: "%#{params[:search]}%")
+      @users = User.where("email LIKE :search_string ", search_string: "%#{params[:search]}%")
       render :index
     end
   end
