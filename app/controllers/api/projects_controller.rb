@@ -16,7 +16,6 @@ class Api::ProjectsController < ApplicationController
       5.times do
         Task.create(name: "New Task", creator_id: current_user.id, workspace_id: current_user.homespace_id, project_id: @project.id)
       end
-      @project.save
 
       render :show, status: :created
     else
