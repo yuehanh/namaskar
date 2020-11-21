@@ -4,7 +4,6 @@ import { configureStore } from "./store/store";
 import { Root } from "./components/root";
 
 // Test
-import { createTask, deleteTask, updateTask } from "./actions/task_actions";
 
 document.addEventListener("DOMContentLoaded", () => {
   const root = document.getElementById("root");
@@ -23,10 +22,8 @@ document.addEventListener("DOMContentLoaded", () => {
   ReactDOM.render(<Root store={store} />, root);
 
   //Test Portion
-  window.getState = store.getState;
-  window.dispatch = store.dispatch;
+  // window.getState = store.getState;
+  // window.dispatch = store.dispatch;
 
-  window.createTask = createTask;
-  window.updateTask = updateTask;
-  window.deleteTask = deleteTask;
+  // window.searchUsers = searchUsers;
 });
