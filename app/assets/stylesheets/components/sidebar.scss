@@ -50,6 +50,12 @@
     background-color: transparent;
     border: 1px dashed;
     font-size: 7px;
+    transition: all 0.5s;
+  }
+
+  .avatar.user-create:hover {
+    background-color: $light-purple;
+    border: $light-purple;
   }
 
   .sidebar-header {
