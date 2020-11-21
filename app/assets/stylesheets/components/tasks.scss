@@ -29,13 +29,11 @@
   white-space: nowrap;
 
   *[contenteditable="true"] {
-    animation: drop-down-row 1s;
+    animation: drop-down-row 0.4s;
     width: auto;
-
-    height: 30px;
   }
   *[contenteditable="true"]:not(:focus) {
-    max-width: 100%;
+    max-width: 90%;
     overflow: hidden;
     text-overflow: ellipsis;
   }
@@ -65,8 +63,18 @@
     text-decoration: line-through;
     transition: all 0.5s;
   }
+
+  .fa-minus {
+    display: none;
+    margin-left: 20px;
+    margin-right: 5px;
+  }
 }
 
+.task-row:not(:focus):hover .fa-minus {
+  display: block;
+  overflow: hidden;
+}
 .rainbow-in {
   display: block;
   opacity: 0;

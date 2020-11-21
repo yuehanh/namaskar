@@ -7,6 +7,7 @@ export class TaskIndexItem extends React.Component {
     this.handleBlur = this.handleBlur.bind(this);
     this.handleEnter = this.handleEnter.bind(this);
     this.handleToggleComplete = this.handleToggleComplete.bind(this);
+    this.handleDelete = this.handleDelete.bind(this);
   }
 
   handleToggleComplete(e) {
@@ -50,6 +51,11 @@ export class TaskIndexItem extends React.Component {
     }
   }
 
+  handleDelete() {
+    const taskId = this.state.task.id;
+    this.props.deleteTask(taskId);
+  }
+
   render() {
     const status = this.state.task.completed ? "completed" : "";
     return (
@@ -58,12 +64,15 @@ export class TaskIndexItem extends React.Component {
           className={`fas fa-check ${status}`}
           onClick={this.handleToggleComplete}
         ></i>
+
         <ContentEditable
           onChange={this.update("name")}
           onBlur={this.handleBlur}
           onKeyDown={this.handleEnter}
           html={this.state.task.name}
         />
+
+        <i className="fas fa-minus clickable" onClick={this.handleDelete} />
       </div>
     );
   }
