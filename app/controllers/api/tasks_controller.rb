@@ -1,6 +1,9 @@
 class Api::TasksController < ApplicationController
   before_action :set_task, only: [:show, :edit, :update, :destroy]
 
+  def show
+  end
+
   # POST /tasks
   # POST /tasks.json
   def create
@@ -8,8 +11,7 @@ class Api::TasksController < ApplicationController
     @task.creator_id = current_user.id
     @task.workspace_id = current_user.homespace_id
     if @task.save
-      @workspace = @task.workspace
-      render "api/workspaces/show", status: :created
+      render :show, status: :created
     else
       render json: @task.errors, status: :unprocessable_entity
     end
@@ -19,8 +21,7 @@ class Api::TasksController < ApplicationController
   # PATCH/PUT /tasks/1.json
   def update
     if @task.update(task_params)
-      @workspace = @task.workspace
-      render "api/workspaces/show", status: :ok
+      render :show, status: :ok
     else
       render json: @task.errors, status: :unprocessable_entity
     end
