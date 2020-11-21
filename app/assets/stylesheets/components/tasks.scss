@@ -75,8 +75,11 @@
   display: block;
   overflow: hidden;
 }
+
+.rainbow-in:hover .fa-minus {
+  display: none;
+}
 .rainbow-in {
-  display: block;
   opacity: 0;
   transition: opacity 0.5s ease-in-out;
   animation: rainbow-transition 1s;
