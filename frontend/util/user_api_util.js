@@ -10,3 +10,13 @@ export const fetchUser = (userId) =>
     url: `api/users/${userId}`,
     method: "GET",
   });
+
+export const searchUsers = (search) => {
+  return $.ajax({
+    method: "GET",
+    url: "/api/users",
+    data: {
+      search,
+    },
+  });
+};
