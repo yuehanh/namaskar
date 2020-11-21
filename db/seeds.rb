@@ -50,7 +50,7 @@ end
   pronouns = Faker::Gender.binary_type == "Female" ? "she/her/hers" : "he/him/his"
   user = User.create!(
     fullname: name,
-    email: "#{name}@email.com",
+    email: "#{name.split(" ").join(".")}@email.com",
     password: "password",
     pronouns: pronouns,
     team: Faker::Job.field,
@@ -72,7 +72,7 @@ end
     pronouns = Faker::Gender.binary_type == "Female" ? "she/her/hers" : "he/him/his"
     user = User.create!(
       fullname: name,
-      email: "#{name}@email.com",
+      email: "#{name.split(" ").join(".")}@email.com",
       password: "password",
       pronouns: pronouns,
       team: Faker::Job.field,
