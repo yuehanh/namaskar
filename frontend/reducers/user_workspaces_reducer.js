@@ -7,10 +7,10 @@ export const userWorkspacesReducer = (state = {}, action) => {
   let nextState = Object.assign({}, state);
   switch (action.type) {
     case RECEIVE_CURRENT_USER:
+    case RECEIVE_WORKSPACE:
       nextState = action.payload.userWorkspaces;
       return nextState;
     case RECEIVE_USER:
-    case RECEIVE_WORKSPACE:
       return Object.assign(nextState, action.payload.userWorkspaces);
     default:
       return state;
