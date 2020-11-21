@@ -27,7 +27,7 @@ demo.homespace = Workspace.create!(
 )
 
 demo.save!
-20.times do
+10.times do
   project = Project.create!(
     name: Faker::Movie.title,
     description: Faker::Marketing.buzzwords,
@@ -93,7 +93,7 @@ end
       Task.create!(
         name: Faker::Hipster.sentence,
         creator_id: demo.id,
-        workspace_id: demo.homespace.id,
+        workspace_id: workspace.id,
         project_id: project.id,
       )
     end
