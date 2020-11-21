@@ -3,9 +3,18 @@ import * as UserUtil from "../util/user_api_util";
 
 export const RECEIVE_USER = "RECEIVE_USER";
 
+export const RECEIVE_USERS_SEARCH = "RECEIVE_USERS_SEARCH";
+
 const receiveUser = (payload) => {
   return {
     type: RECEIVE_USER,
+    payload,
+  };
+};
+
+const receiveUsersSearch = (payload) => {
+  return {
+    type: RECEIVE_USERS_SEARCH,
     payload,
   };
 };
@@ -24,4 +33,10 @@ export const fetchUser = (userId) => (dispatch) => {
     .fail((payload) => {
       return dispatch(receiveError(payload.responseJSON));
     });
+};
+
+export const searchUsers = (search) => (dispatch) => {
+  return UserUtil.searchUsers(search).then((payload) =>
+    dispatch(receiveUsersSearch(payload))
+  );
 };
