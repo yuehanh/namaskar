@@ -22,7 +22,7 @@ export class TaskIndexItem extends React.Component {
 
       setTimeout(() => {
         this.setState({ transition: "" });
-      }, 1300);
+      }, 1200);
 
       this.props.updateTask(this.state.task);
     } else {
