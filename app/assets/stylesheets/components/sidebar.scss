@@ -7,7 +7,6 @@
   min-width: 100px;
   width: 15%;
   font-size: 13px;
-  overflow: hidden;
   z-index: 11;
 
   background-color: #151b26;
@@ -44,6 +43,38 @@
     line-height: 25px;
     min-width: 25px;
     margin: 5px;
+  }
+  .avatar:hover .user-info-pop {
+    display: block;
+  }
+  .user-info-pop {
+    position: absolute;
+    background-color: white;
+    top: 25px;
+    left: 0;
+    display: none;
+    div {
+      display: flex;
+      justify-content: space-between;
+    }
+    h2,
+    span {
+      padding: 0 28px;
+      white-space: nowrap;
+    }
+    h2 {
+      font-weight: bold;
+      font-size: 16px;
+      border-bottom: 1px solid white;
+    }
+    color: white;
+    background: linear-gradient($main-purple 60%, $dark-purple 100%);
+    border-radius: 4px;
+    font-size: 14px;
+    font-weight: 500;
+    box-shadow: 0 0px 15px rgba(0, 0, 0, 0.5);
+    padding-bottom: 1em;
+    padding-top: 1em;
   }
 
   .avatar.user-create {

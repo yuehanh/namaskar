@@ -31,18 +31,25 @@ export class UserIndex extends React.Component {
     const currentUser = this.props.currentUser;
     const currentUserItem = (
       <UserIndexItem
-        key={currentUser.id}
+        key="current"
         user={currentUser}
         handleRemove={() => null}
       />
     );
     const userIndexItems = this.props.teammates.map((user) => {
       if (user.id !== currentUser.id) {
-        return <UserIndexItem user={user} handleRemove={this.handleRemove} />;
+        return (
+          <UserIndexItem
+            user={user}
+            handleRemove={this.handleRemove}
+            key={user.id}
+          />
+        );
       }
     });
     const addUserItem = (
       <li
+        key="new"
         className="avatar clickable user-create"
         onClick={() =>
           this.handleAddTeamates(this.props.currentUser.homespaceId)
