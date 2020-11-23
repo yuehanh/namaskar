@@ -23,7 +23,6 @@ export class TopbarUserController extends React.Component {
   }
 
   changeHomespace(workspaceId) {
-    debugger;
     this.props
       .updateUser({
         id: this.props.currentUser.id,
