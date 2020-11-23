@@ -23,6 +23,7 @@ export class TopbarUserController extends React.Component {
   }
 
   changeHomespace(workspaceId) {
+    debugger;
     this.props
       .updateUser({
         id: this.props.currentUser.id,
@@ -74,11 +75,19 @@ export class TopbarUserController extends React.Component {
             {homespace}
             {workspaces}
             <div className="menu-separator"></div>
-            <li onClick={this.props.createWorkspaceModal}>
+            <li onClick={this.props.createWorkspaceModal} className="clickable">
               {" "}
               Create New Workspace{" "}
             </li>
-            <li onClick={this.props.logout}>Log Out</li>
+            <li
+              onClick={() => this.props.updateUserModal(this.props.currentUser)}
+              className="clickable"
+            >
+              My Profile Settings
+            </li>
+            <li onClick={this.props.logout} className="clickable">
+              Log Out
+            </li>
           </ul>
         </div>
       </div>

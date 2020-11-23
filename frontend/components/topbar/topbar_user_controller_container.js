@@ -37,6 +37,9 @@ const mapDispatchToProps = (dispatch, ownProps) => {
     deleteWorkspaceModal: (workspaceId) => {
       dispatch(openModal({ type: "deleteWorkspace", data: workspaceId }));
     },
+    updateUserModal: (user) => {
+      dispatch(openModal({ type: "editUser", data: user }));
+    },
   };
 };
 
