@@ -1,4 +1,6 @@
 import React from "react";
+import { connect } from "react-redux";
+import { openModal } from "../../actions/modal_actions";
 
 export class UserIndexItem extends React.Component {
   render() {
@@ -7,7 +9,7 @@ export class UserIndexItem extends React.Component {
       <span
         className="action clickable"
         onClick={() => {
-          this.props.handleRemove(user);
+          this.props.updateUser(user);
         }}
       >
         Edit
@@ -53,3 +55,16 @@ export class UserIndexItem extends React.Component {
     );
   }
 }
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    updateUser: (user) => {
+      dispatch(openModal({ type: "editUser", data: user }));
+    },
+  };
+};
+
+export const UserIndexItemContainer = connect(
+  null,
+  mapDispatchToProps
+)(UserIndexItem);
