@@ -3,15 +3,12 @@ import { connect } from "react-redux";
 
 import { closeModal } from "../../actions/modal_actions";
 
-import {
-  NewWorkpaceFormContainer,
-  UserProfileFormContainer,
-} from "./modal_forms/user_profile_form_container";
+import { UserProfileFormContainer } from "./modal_forms/user_profile_form_container";
 import { NewProjectFormContainer } from "./modal_forms/new_project_form_container";
 import { DeleteProjectContainer } from "./modal_forms/delete_project_container";
 import { DeleteWorkspaceContainer } from "./modal_forms/delete_workspace_container";
 import { NewTeammatesFormContainer } from "./modal_forms/new_teammates_form_container";
-
+import { NewWorkpaceFormContainer } from "./modal_forms/new_workspace_form_container";
 function Modal({ modal, closeModal }) {
   if (!modal) {
     return null;
