@@ -3,17 +3,36 @@ import React from "react";
 export class UserIndexItem extends React.Component {
   render() {
     const user = this.props.user;
-
-    return (
-      <li
-        className="avatar clickable"
+    const action = this.props.currentUser ? (
+      <span
+        className="action clickable"
         onClick={() => {
           this.props.handleRemove(user);
         }}
       >
+        Edit
+      </span>
+    ) : (
+      <span
+        className="action clickable"
+        onClick={() => {
+          this.props.handleRemove(user);
+        }}
+      >
+        Remove
+      </span>
+    );
+    return (
+      <li className="avatar">
         {user.fullname.slice(0, 2)}
         <div className="user-info-pop">
-          <h2>About Me</h2>
+          <div
+            className="
+          header"
+          >
+            <h2>About Me</h2>
+            {action}
+          </div>
           <div>
             <span>Email: </span> <span>{user.email}</span>
           </div>
