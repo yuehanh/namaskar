@@ -32,15 +32,14 @@ export class UserIndexItem extends React.Component {
             className="
           header"
           >
-            <h2>About Me</h2>
+            <h2>{user.fullname}</h2>
             {action}
           </div>
+
           <div>
             <span>Email: </span> <span>{user.email}</span>
           </div>
-          <div>
-            <span>Name: </span> <span>{user.fullname}</span>
-          </div>
+
           <div>
             <span>Pronouns: </span> <span>{user.pronouns}</span>
           </div>
