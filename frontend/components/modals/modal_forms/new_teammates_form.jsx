@@ -5,9 +5,12 @@ import { SelectedUserList } from "../../users/user_selected_list";
 export class NewTeammatesForm extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { searchString: "", selectedUsers: {} };
+    this.state = { searchString: "", selectedUsers: {}, searched: false };
     this.debounceSearch = debounce(
-      () => this.props.searchUsers(this.state.searchString),
+      () =>
+        this.props
+          .searchUsers(this.state.searchString)
+          .then(this.setState({ searched: true })),
       1000
     );
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -31,6 +34,7 @@ export class NewTeammatesForm extends React.Component {
       this.setState(
         {
           [field]: e.currentTarget.value,
+          searched: false,
         },
         () => {
           if (this.state.searchString.length !== "") {
@@ -44,22 +48,21 @@ export class NewTeammatesForm extends React.Component {
     let searchResult = [];
     const searches = this.props.searches;
     const searchUserIds = Object.keys(searches);
-    if (this.state.searchString !== "") {
-      if (searchUserIds.length > 0) {
-        const { selectedUsers } = this.state;
-        for (const userId of searchUserIds) {
-          if (
-            !this.props.teammates.has(parseInt(userId)) &&
-            selectedUsers[userId] === undefined &&
-            searches[userId].email
-              .toLowerCase()
-              .includes(this.state.searchString.toLowerCase())
-          ) {
-            searchResult.push(searches[userId]);
-          }
+    if (this.state.searchString !== "" && this.state.searched) {
+      const { selectedUsers } = this.state;
+      for (const userId of searchUserIds) {
+        if (
+          !this.props.teammates.has(parseInt(userId)) &&
+          selectedUsers[userId] === undefined &&
+          searches[userId].email
+            .toLowerCase()
+            .includes(this.state.searchString.toLowerCase())
+        ) {
+          searchResult.push(searches[userId]);
         }
-      } else {
-        searchResult.push(`Cannot find "${this.state.searchString}"`);
+      }
+      if (searchResult.length === 0) {
+        searchResult.push(`User "${this.state.searchString}" Not Found`);
       }
     }
     return searchResult;
@@ -142,11 +145,11 @@ export class NewTeammatesForm extends React.Component {
                 className="search-input"
                 placeholder="Search teammates by email"
               />
+              <span>Hint: Type "@" to get a list of all users</span>
               <UsersSearchList
                 users={this.parseSearchResults()}
                 onClick={this.handleClick}
               />
-              <span>Hint: Type "@" to get a list of all users</span>
               <div>{selectedUsersIndex}</div>
             </div>
           </form>
