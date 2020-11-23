@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { ProfileLinks } from "../splash/profile_links";
 export class SessionForm extends React.Component {
   constructor(props) {
     super(props);
@@ -67,6 +68,7 @@ export class SessionForm extends React.Component {
             <Link to="/">
               <img className="session-form-logo" src={window.images.fullLogo} />
             </Link>
+            <ProfileLinks />
           </div>
           <div className="session-form-content">
             <form onSubmit={this.handleSubmit} className="session-form-box">
