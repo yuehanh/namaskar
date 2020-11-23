@@ -13,7 +13,6 @@ function Modal({ modal, closeModal }) {
   if (!modal) {
     return null;
   }
-  debugger;
   let component;
   switch (modal.type) {
     case "newWorkspace":
