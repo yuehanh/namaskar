@@ -3,7 +3,10 @@ import { connect } from "react-redux";
 
 import { closeModal } from "../../actions/modal_actions";
 
-import { NewWorkpaceFormContainer } from "./modal_forms/new_workspace_form_container";
+import {
+  NewWorkpaceFormContainer,
+  UserProfileFormContainer,
+} from "./modal_forms/user_profile_form_container";
 import { NewProjectFormContainer } from "./modal_forms/new_project_form_container";
 import { DeleteProjectContainer } from "./modal_forms/delete_project_container";
 import { DeleteWorkspaceContainer } from "./modal_forms/delete_workspace_container";
@@ -13,6 +16,7 @@ function Modal({ modal, closeModal }) {
   if (!modal) {
     return null;
   }
+  debugger;
   let component;
   switch (modal.type) {
     case "newWorkspace":
@@ -29,6 +33,9 @@ function Modal({ modal, closeModal }) {
       break;
     case "addTeamates":
       component = <NewTeammatesFormContainer data={modal.data} />;
+      break;
+    case "editUser":
+      component = <UserProfileFormContainer data={modal.data} />;
       break;
     default:
       return null;
