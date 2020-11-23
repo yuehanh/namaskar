@@ -11,7 +11,6 @@ export class UserProfileForm extends React.Component {
   }
 
   update(field) {
-    debugger;
     return (e) =>
       this.setState({
         [field]: e.currentTarget.value,
@@ -21,6 +20,10 @@ export class UserProfileForm extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     const user = Object.assign({}, this.state);
+    if (user.email === "demo@email.com") {
+      alert("Sorry! Demo User's Profile Settings Cannot Be Edited");
+      return this.props.closeModal();
+    }
     this.props.processForm(user).then(() => {
       this.props.closeModal();
     });
@@ -55,7 +58,7 @@ export class UserProfileForm extends React.Component {
             <div className="session-form-elements profile">
               <div className="email-password-input">
                 <div className="profile-row">
-                  <div>
+                  <div className="input-item">
                     <span className="grey-label-text">Your full name</span>
                     <input
                       type="text"
@@ -65,19 +68,20 @@ export class UserProfileForm extends React.Component {
                       placeholder="Please give your workspace a name"
                     />
                   </div>
-                  <div>
+                  <div className="input-item">
                     <span className="grey-label-text">Pronouns</span>
                     <input
                       type="text"
                       value={this.state.pronouns}
                       onChange={this.update("pronouns")}
                       className="login-input profile"
-                      placeholder="Third-person pronouns (e.g. she/her/hers)"
+                      placeholder="e.g. she/her/hers"
+                      pattern="[A-Za-z\/\,\ ]{0,}"
                     />
                   </div>
                 </div>
                 <div className="profile-row">
-                  <div>
+                  <div className="input-item">
                     <span className="grey-label-text">Role</span>
                     <input
                       type="text"
@@ -86,7 +90,7 @@ export class UserProfileForm extends React.Component {
                       className="login-input profile"
                     />
                   </div>
-                  <div>
+                  <div className="input-item">
                     <span className="grey-label-text">Department</span>
                     <input
                       type="text"
@@ -97,7 +101,7 @@ export class UserProfileForm extends React.Component {
                   </div>
                 </div>
                 <div className="profile-row">
-                  <div>
+                  <div className="input-item">
                     <span className="grey-label-text">Email</span>
                     <input
                       type="text"
