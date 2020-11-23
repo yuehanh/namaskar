@@ -7,7 +7,31 @@
     <%= stylesheet_link_tag "application", media: "all" %> 
     <%= javascript_include_tag "application" %>
 
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-BBP8ZEN1LJ"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
 
+        gtag('config', 'G-BBP8ZEN1LJ');
+    </script>
+  <!-- Meta Data -->
+    <meta property="og:title" content="Namaskar" />
+    <meta
+      property="og:image"
+      content="//raw.githubusercontent.com/yuehanh/the_wizard_of_corgs/master/dist/image/snippet.png"
+    />
+    <meta
+      property="og:description"
+      content="Namaskar is a team/project management web app highly inspired by Asana."
+    />
+    <meta
+      property="og:url"
+      content="//https://namaskar-team.herokuapp.com/"
+    />
+
+    
     <link
       href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;500;700&display=swap"
       rel="stylesheet"
