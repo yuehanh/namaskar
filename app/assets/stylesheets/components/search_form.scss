@@ -15,7 +15,7 @@
 }
 
 .search-list {
-  max-height: 200px;
+  max-height: 212px;
   width: 100%;
   border: 1px, solid, #cbd4db;
   border-radius: 4px;
@@ -26,6 +26,8 @@
   z-index: 20;
 
   background-color: rgb(232, 240, 254);
+
+
 }
 
 .search-item {
@@ -44,10 +46,60 @@
   background-color: $light-purple;
 }
 .session-form-content.search-form {
-  height: 290px;
-
-  .search-button {
-    position: absolute;
-    top: 225px;
+  width: 500px;
+  height: 200px;
+  span {
+    margin-left: 0.5em;
+    margin-top: 0.5em;
+    color: lightgrey;
   }
+}
+
+.selection-list-container {
+  border: 1px, solid, #cbd4db;
+  border-radius: 4px;
+  position: absolute;
+  background-color: rgb(232, 240, 254);
+  line-height: 40px;
+  padding: 0.5em 1em;
+
+  font-size: 18px;
+  font-weight: 400;
+  box-sizing: border-box;
+  color: #151b26;
+  min-width: 305px;
+  left: 590px;
+  top: 5px;
+  max-height: 384px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.selected-delete {
+  padding-right: 1em;
+  cursor: pointer;
+}
+
+.selected-title {
+  align-self: center;
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.session-form-button.search-button {
+  align-self: center;
+}
+.selected-user {
+  box-sizing: border-box;
+  line-height: 22px;
+  padding-right: 1em;
+  padding-bottom: 0.25em;
+  margin-bottom: 0.25em;
+  width: 100%;
+  border-top: 1px;
+  border-style: solid;
+  border-color: #cbd4db;
+  background-color: $light-purple;
+  border-radius: 10px;
 }
