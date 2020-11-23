@@ -12,7 +12,7 @@ const mapStateToProps = (state, ownProps) => {
   const teammates = selectTeammates(state, workspaceId, true);
   return {
     errors: state.errors.session,
-    formType: "Search For Teammates",
+    formType: "Find Teammates",
     workspaceId,
     teammates,
     searches: state.entities.searches,
