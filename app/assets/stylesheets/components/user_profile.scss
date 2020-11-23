@@ -1,0 +1,24 @@
+.new-workspace-form-container.profile {
+  width: 700px;
+
+  .profile-row {
+    display: flex;
+    justify-content: space-between;
+  }
+  .input-item {
+    display: flex;
+    flex-direction: column;
+  }
+
+  input.profile{
+    background-color: white;
+  }
+  input::placeholder {
+    font-size: 14px;
+  }
+
+  input.disabled {
+    cursor: not-allowed;
+    background-color: lightgrey;
+  }
+}
