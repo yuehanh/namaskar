@@ -7,7 +7,12 @@
 .user-control-menu.hidden {
   display: none;
 }
-
+.user-control-menu.hidden * {
+  visibility: hidden;
+}
+.user-control-menu.hidden * {
+  visibility: visible;
+}
 .user-control-menu {
   position: absolute;
   top: 54px;
