@@ -7,6 +7,7 @@ import { NewWorkpaceFormContainer } from "./modal_forms/new_workspace_form_conta
 import { NewProjectFormContainer } from "./modal_forms/new_project_form_container";
 import { DeleteProjectContainer } from "./modal_forms/delete_project_container";
 import { DeleteWorkspaceContainer } from "./modal_forms/delete_workspace_container";
+import { NewTeammatesFormContainer } from "./modal_forms/new_teammates_form_container";
 
 function Modal({ modal, closeModal }) {
   if (!modal) {
@@ -25,6 +26,9 @@ function Modal({ modal, closeModal }) {
       break;
     case "deleteWorkspace":
       component = <DeleteWorkspaceContainer data={modal.data} />;
+      break;
+    case "addTeamates":
+      component = <NewTeammatesFormContainer data={modal.data} />;
       break;
     default:
       return null;
