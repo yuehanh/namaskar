@@ -139,6 +139,7 @@ export class NewTeammatesForm extends React.Component {
             <br />
             <div className="session-form-elements search">
               <input
+                autoFocus
                 type="text"
                 value={this.state.searchString}
                 onChange={this.update("searchString")}
