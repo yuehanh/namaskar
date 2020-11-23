@@ -45,14 +45,16 @@
     margin: 5px;
   }
   .avatar:hover .user-info-pop {
-    display: block;
+    visibility: visible;
+    transition-delay: 0;
   }
   .user-info-pop {
+    transition: 0s 0.2s;
     position: absolute;
     background-color: white;
     top: 25px;
     left: 0;
-    display: none;
+    visibility: hidden;
     div {
       display: flex;
       justify-content: space-between;
@@ -65,7 +67,19 @@
     h2 {
       font-weight: bold;
       font-size: 16px;
+    }
+    .header {
       border-bottom: 1px solid white;
+    }
+    .action {
+      border: 1px solid white;
+      margin-bottom: 1em;
+      margin-right: 1em;
+      border-radius: 2px;
+    }
+    .action:hover {
+      background-color: white;
+      color: black;
     }
     color: white;
     background: linear-gradient($main-purple 60%, $dark-purple 100%);
