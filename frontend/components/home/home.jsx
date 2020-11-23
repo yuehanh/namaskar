@@ -9,6 +9,7 @@ import { ProjectInfoContainer } from "../topbar/project_info_container";
 import { Sidebar } from "../sidebar/sidebar";
 import { TaskIndexContainer } from "../tasks/task_index_container";
 import { Spinner } from "../spinner";
+import { ProfileLinks } from "../splash/profile_links";
 export class Home extends React.Component {
   constructor(props) {
     super(props);
@@ -42,7 +43,10 @@ export class Home extends React.Component {
                 component={ProjectInfoContainer}
               />
             </Switch>
-            <UserControllerContainer />
+            <div className="workspace-header-right">
+              <ProfileLinks />
+              <UserControllerContainer />
+            </div>
           </div>
 
           <div className="workspace-body">

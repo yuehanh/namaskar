@@ -38,7 +38,7 @@ export class TopbarUserController extends React.Component {
     const menuHiddenClass = this.state.menu ? "" : "hidden";
     const homespace = (
       <li key={this.props.homespace.id} className="selected">
-        {this.props.homespace.name}
+        <div>{this.props.homespace.name}</div>
       </li>
     );
 

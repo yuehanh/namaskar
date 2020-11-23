@@ -33,28 +33,40 @@
     margin: 4px 0;
   }
   li {
-    line-height: 32px;
+    height: 32px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 208px;
+    overflow: hidden;
+    white-space: nowrap;
+
+    .fa-minus {
+      display: none;
+      height: auto;
+    }
     align-items: center;
     border-radius: 3px;
     padding: 0 10px;
   }
+  li > div {
+    width: 80%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  // li.selected > div {
+  //   width: 80%;
+  //   overflow: hidden;
+  //   text-overflow: ellipsis;
+  // }
   li.selected {
+    height: 32px;
     background-color: $main-purple;
     color: white;
   }
   li:hover {
     background-color: $lightest-purple;
-  }
-}
-
-.worksapce-name-row {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-
-  .fa-minus {
-    display: none;
-    height: auto;
   }
 }
 

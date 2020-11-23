@@ -5,6 +5,12 @@
     padding-left: 15%;
     width: 100%;
   }
+  .personal-links i {
+    color: black;
+  }
+  .personal-links i:hover {
+    color: $main-purple;
+  }
   .workspace-header {
     height: 72px;
     z-index: 10;
@@ -183,5 +189,15 @@
         color: #6f7782;
       }
     }
+  }
+}
+
+.workspace-header-right {
+  display: flex;
+  box-sizing: border-box;
+  width: 235px;
+  justify-content: space-between;
+  .profile-link-group {
+    width: 100px;
   }
 }

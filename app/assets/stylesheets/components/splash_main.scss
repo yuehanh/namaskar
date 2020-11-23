@@ -74,7 +74,7 @@ button.sign-up.splash-main {
   padding-top: 32px;
 }
 
-.splash-footer .wrapper{
+.splash-footer .wrapper {
   justify-content: center;
 }
 .profile-link-group {
@@ -92,4 +92,9 @@ button.sign-up.splash-main {
   opacity: 0.6;
   transition: opacity 225ms;
   padding: 0 20px;
+  transition: all 0.5s ease-in;
+}
+
+.personal-links i:hover {
+  color: $main-purple;
 }
