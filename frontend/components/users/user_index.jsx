@@ -34,6 +34,7 @@ export class UserIndex extends React.Component {
         key="current"
         user={currentUser}
         handleRemove={() => null}
+        currentUser={true}
       />
     );
     const userIndexItems = this.props.teammates.map((user) => {
