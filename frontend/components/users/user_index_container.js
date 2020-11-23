@@ -1,4 +1,5 @@
 import { connect } from "react-redux";
+import { openModal } from "../../actions/modal_actions";
 import { updateWorkspace } from "../../actions/workspace_actions";
 
 import {
@@ -19,6 +20,9 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     updateWorkspace: (workspace) => dispatch(updateWorkspace(workspace)),
+    addTeammates: (workspaceId) => {
+      dispatch(openModal({ type: "addTeamates", data: workspaceId }));
+    },
   };
 };
 

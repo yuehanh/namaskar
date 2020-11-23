@@ -17,6 +17,11 @@ export class UserIndex extends React.Component {
     };
     this.props.updateWorkspace(workspace);
   }
+
+  handleAddTeamates(workspaceId) {
+    this.props.addTeammates(workspaceId);
+  }
+
   render() {
     const currentUser = this.props.currentUser;
     const currentUserItem = (
@@ -40,7 +45,12 @@ export class UserIndex extends React.Component {
       }
     });
     const addUserItem = (
-      <li className="avatar clickable user-create">
+      <li
+        className="avatar clickable user-create"
+        onClick={() =>
+          this.handleAddTeamates(this.props.currentUser.homespaceId)
+        }
+      >
         {" "}
         <i className="fas fa-plus"></i>
       </li>
