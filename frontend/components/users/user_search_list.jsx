@@ -14,7 +14,7 @@ export class UsersSearchList extends React.Component {
         );
       } else {
         return (
-          <li className="search-item" key="empty">
+          <li className="search-item empty" key="empty">
             {user}
           </li>
         );

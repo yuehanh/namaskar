@@ -1,3 +1,6 @@
+.session-form-elements.search {
+  position: relative;
+}
 .search-input {
   font-size: 18px;
   font-weight: 400;
@@ -21,13 +24,11 @@
   border-radius: 4px;
   box-sizing: border-box;
   overflow-y: auto;
-
   overflow-x: hidden;
   z-index: 20;
-
+  position: absolute;
+  top: 49px;
   background-color: rgb(232, 240, 254);
-
-
 }
 
 .search-item {
@@ -44,6 +45,10 @@
 }
 .search-item:hover {
   background-color: $light-purple;
+}
+
+.search-item.empty {
+  cursor: not-allowed;
 }
 .session-form-content.search-form {
   width: 500px;
@@ -68,8 +73,8 @@
   box-sizing: border-box;
   color: #151b26;
   min-width: 305px;
-  left: 590px;
-  top: 5px;
+  left: 539px;
+  top: -109px;
   max-height: 384px;
   overflow-y: auto;
   display: flex;
