@@ -1,15 +1,18 @@
 import React from "react";
 import { debounce } from "../../../util/query_util";
 import { UsersSearchList } from "../../users/user_search_list";
+import { SelectedUserList } from "../../users/user_selected_list";
 export class NewTeammatesForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = { searchString: "", selectedUsers: {} };
-    this.handleSubmit = this.handleSubmit.bind(this);
     this.debounceSearch = debounce(
       () => this.props.searchUsers(this.state.searchString),
       1000
     );
+    this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleClick = this.handleClick.bind(this);
+    this.handleDelete = this.handleDelete.bind(this);
   }
 
   componentWillUnmount() {
@@ -18,7 +21,7 @@ export class NewTeammatesForm extends React.Component {
 
   handleClick(user) {
     this.setState({
-      selected: { ...this.state.selectedUsers, [user.id]: user },
+      selectedUsers: { ...this.state.selectedUsers, [user.id]: user },
       searchString: "",
     });
   }
@@ -41,21 +44,32 @@ export class NewTeammatesForm extends React.Component {
     let searchResult = [];
     const searches = this.props.searches;
     const searchUserIds = Object.keys(searches);
-    if (this.state.searchString !== "" && searchUserIds.length > 0) {
-      const { selectedUsers } = this.state;
-      for (const userId of searchUserIds) {
-        if (
-          !this.props.teammates.has(parseInt(userId)) &&
-          selectedUsers[userId] === undefined &&
-          searches[userId].email
-            .toLowerCase()
-            .includes(this.state.searchString.toLowerCase())
-        ) {
-          searchResult.push(searches[userId]);
+    if (this.state.searchString !== "") {
+      if (searchUserIds.length > 0) {
+        const { selectedUsers } = this.state;
+        for (const userId of searchUserIds) {
+          if (
+            !this.props.teammates.has(parseInt(userId)) &&
+            selectedUsers[userId] === undefined &&
+            searches[userId].email
+              .toLowerCase()
+              .includes(this.state.searchString.toLowerCase())
+          ) {
+            searchResult.push(searches[userId]);
+          }
         }
+      } else {
+        searchResult.push(`Cannot find "${this.state.searchString}"`);
       }
     }
     return searchResult;
+  }
+
+  handleDelete(id) {
+    const selectedUsers = this.state.selectedUsers;
+    delete selectedUsers[id];
+
+    this.setState({ selectedUsers });
   }
 
   handleSubmit(e) {
@@ -101,9 +115,19 @@ export class NewTeammatesForm extends React.Component {
   }
 
   render() {
+    const selectedUsers = Object.values(this.state.selectedUsers);
+    let selectedUsersIndex;
+    if (selectedUsers.length) {
+      selectedUsersIndex = (
+        <SelectedUserList
+          users={selectedUsers}
+          handleDelete={this.handleDelete}
+        />
+      );
+    }
     return (
       <div className="new-workspace-form-container">
-        <div className="session-form-content">
+        <div className="session-form-content search-form">
           <form onSubmit={this.handleSubmit} className="session-form-box">
             <br />
             <div className="session-form-title">{this.props.formType} </div>
@@ -111,24 +135,19 @@ export class NewTeammatesForm extends React.Component {
             {this.renderErrors()}
             <br />
             <div className="session-form-elements">
-              <div className="email-password-input">
-                <input
-                  type="text"
-                  value={this.state.searchString}
-                  onChange={this.update("searchString")}
-                  className="login-input password"
-                  placeholder="Search teammates by email"
-                />
-                <UsersSearchList users={this.parseSearchResults()} />
-
-                <br />
-              </div>
-
               <input
-                className="session-form-button button"
-                type="submit"
-                value="Add Teammates"
+                type="text"
+                value={this.state.searchString}
+                onChange={this.update("searchString")}
+                className="search-input"
+                placeholder="Search teammates by email"
               />
+              <UsersSearchList
+                users={this.parseSearchResults()}
+                onClick={this.handleClick}
+              />
+              <span>Hint: Type "@" to get a list of all users</span>
+              <div>{selectedUsersIndex}</div>
             </div>
           </form>
         </div>
