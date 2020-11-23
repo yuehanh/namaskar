@@ -1,5 +1,5 @@
 import React from "react";
-import { UserIndexItem } from "./user_index_item";
+import { UserIndexItemContainer } from "./user_index_item";
 
 export class UserIndex extends React.Component {
   constructor(props) {
@@ -30,7 +30,7 @@ export class UserIndex extends React.Component {
   render() {
     const currentUser = this.props.currentUser;
     const currentUserItem = (
-      <UserIndexItem
+      <UserIndexItemContainer
         key="current"
         user={currentUser}
         handleRemove={() => null}
@@ -40,7 +40,7 @@ export class UserIndex extends React.Component {
     const userIndexItems = this.props.teammates.map((user) => {
       if (user.id !== currentUser.id) {
         return (
-          <UserIndexItem
+          <UserIndexItemContainer
             user={user}
             handleRemove={this.handleRemove}
             key={user.id}
