@@ -1,6 +1,11 @@
 import React from "react";
+import { UserIndexItem } from "./user_index_item";
 
 export class UserIndex extends React.Component {
+  constructor(props) {
+    super(props);
+    this.handleRemove = this.handleRemove.bind(this);
+  }
   handleRemove(user) {
     let teammates = this.props.teammates;
 
@@ -25,23 +30,15 @@ export class UserIndex extends React.Component {
   render() {
     const currentUser = this.props.currentUser;
     const currentUserItem = (
-      <li key={currentUser.id} className="avatar clickable">
-        {currentUser.fullname.slice(0, 2)}
-      </li>
+      <UserIndexItem
+        key={currentUser.id}
+        user={currentUser}
+        handleRemove={() => null}
+      />
     );
     const userIndexItems = this.props.teammates.map((user) => {
-      if (user.id !== this.props.currentUser.id) {
-        return (
-          <li
-            key={user.id}
-            className="avatar clickable"
-            onClick={() => {
-              this.handleRemove(user);
-            }}
-          >
-            {user.fullname.slice(0, 2)}
-          </li>
-        );
+      if (user.id !== currentUser.id) {
+        return <UserIndexItem user={user} handleRemove={this.handleRemove} />;
       }
     });
     const addUserItem = (
