@@ -55,6 +55,7 @@ export class WorkspaceForm extends React.Component {
               <div className="email-password-input">
                 <span className="grey-label-text">Name</span>
                 <input
+                  autoFocus
                   type="text"
                   value={this.state.name}
                   onChange={this.update("name")}
