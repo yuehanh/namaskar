@@ -137,7 +137,7 @@ export class NewTeammatesForm extends React.Component {
 
             {this.renderErrors()}
             <br />
-            <div className="session-form-elements">
+            <div className="session-form-elements search">
               <input
                 type="text"
                 value={this.state.searchString}
