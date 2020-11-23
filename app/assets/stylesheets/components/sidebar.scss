@@ -72,32 +72,20 @@
     padding: 0 10px;
     line-height: 25px;
   }
-  .profile-link-group {
-    height: 20px;
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-start;
-  }
-  .personal-links {
-    font-size: 100%;
-  }
-  .personal-links i {
-    color: white;
-    font-size: 20px;
-    opacity: 0.6;
-    transition: opacity 225ms;
-    padding: 0 5px;
-  }
+
   .project-create-item,
   .project-index-item {
     display: flex;
     flex-direction: row;
     margin-left: 10px;
+    max-width: 95%;
+    overflow: hidden;
   }
 
   .project-name {
     padding-left: 5px;
     font-size: 16px;
+    text-overflow: hidden;
   }
   .fa-minus {
     display: none;
@@ -117,6 +105,8 @@
     display: inline-flex;
     flex-direction: row;
     justify-content: space-between;
+    overflow: hidden;
+    text-overflow: hidden;
   }
   li:hover {
     background-color: $dark-purple;
@@ -130,4 +120,8 @@
   padding-bottom: 20px;
   font-size: 20px;
   text-align: center;
+}
+
+.project-row a {
+  width: 90%;
 }
