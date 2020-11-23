@@ -3,6 +3,7 @@ export class UserProfileForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = this.props.user;
+    this.changed = false;
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
@@ -11,22 +12,28 @@ export class UserProfileForm extends React.Component {
   }
 
   update(field) {
-    return (e) =>
+    return (e) => {
+      this.changed = true;
       this.setState({
         [field]: e.currentTarget.value,
       });
+    };
   }
 
   handleSubmit(e) {
     e.preventDefault();
-    const user = Object.assign({}, this.state);
-    if (user.email === "demo@email.com") {
-      alert("Sorry! Demo User's Profile Settings Cannot Be Edited");
-      return this.props.closeModal();
+    if (this.changed) {
+      const user = Object.assign({}, this.state);
+      if (user.email === "demo@email.com") {
+        alert(
+          "Sorry! Demo User's profile settings cannot be edited. Please sign up for a new account"
+        );
+        return this.props.closeModal();
+      }
+      this.props.processForm(user).then(() => {
+        this.props.closeModal();
+      });
     }
-    this.props.processForm(user).then(() => {
-      this.props.closeModal();
-    });
   }
 
   renderErrors() {
@@ -46,6 +53,7 @@ export class UserProfileForm extends React.Component {
   }
 
   render() {
+    const buttonClass = this.changed ? "" : "disabled";
     return (
       <div className="new-workspace-form-container profile">
         <div className="session-form-content">
@@ -115,7 +123,7 @@ export class UserProfileForm extends React.Component {
               </div>
 
               <input
-                className="session-form-button button"
+                className={`session-form-button button ${buttonClass}`}
                 type="submit"
                 value="Save Changes"
               />
